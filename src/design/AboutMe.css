@@ -1,0 +1,324 @@
+
+.about-container {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos verticalmente */
+  min-height: 100vh;
+  background-color: #001f3f;
+  font-family: 'Poppins', sans-serif;
+  width: 100vw;
+  overflow-x: hidden; /* Remove o scroll horizontal */
+  overflow-y: auto; /* Permite scroll vertical */
+}
+
+.about-main {
+  display: flex;
+  flex-direction: row; /* Organiza about-left e about-right lado a lado */
+  width: 100%;
+}
+
+.about-left {
+  width: 50%; /* Ocupa metade da largura */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.about-left h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.8rem;
+  font-weight: 550;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  padding-left: 200px;
+  transform: translateY(-90px);
+}
+
+@keyframes aparecerLinha {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 7rem;
+  }
+}
+
+.underline {
+  position: relative;
+}
+
+.line.short {
+  position: absolute;
+  transform: translateY(-90px);
+  left: 220px;
+  height: 5px;
+  background-color: #000000;
+  animation: aparecerLinha 1s ease-out forwards;
+}
+
+.line.long {
+  position: absolute;
+  left: 200px;
+  transform: translateY(-105px);
+  height: 5px;
+  background-color: #000000;
+  animation: aparecerLinha 1.5s ease-out forwards;
+}
+.line.short,
+.line.long {
+  border-radius: 5px;
+}
+
+
+.about-left p {
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  padding-left: 200px;
+  transform: translateY(-60px);
+}
+
+.scroll-button {
+  padding: 12px 24px;
+  background-color: #1f2937;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: aparecerBotao 1s ease-out forwards;
+}
+
+@keyframes aparecerBotao {
+  from {
+    opacity: 0;
+    transform: translate(200px, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(200px, -50px);
+  }
+}
+
+.scroll-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+.about-right {
+  width: 50%; /* Ocupa metade da largura */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Garante que nada ultrapasse o contêiner */
+  height: 100vh; /* Ajusta a altura para ocupar toda a altura da viewport */
+  box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+
+.about-image {
+  width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+  max-width: 91%; /* Ajusta a largura máxima da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Garante que a imagem preencha o contêiner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+  filter: grayscale(100%); /* Inicia em preto e branco */
+  transition: filter 0.5s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.about-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+.about-mainsecond {
+  display: flex;
+  flex-direction: row; /* Organiza as seções lado a lado */
+  width: 100%; /* Ocupa toda a largura */
+  min-height: 0; /* Permite que a altura se ajuste ao conteúdo */
+  overflow-y: visible; /* Garante que o conteúdo seja visível */
+}
+
+.about-who{
+  width: 50%;
+  padding: 2rem;
+  background-color: #001f3f;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.about-who h2 {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  transform: translate(85px, 50px);
+}
+
+.underline-sec {
+  position: relative;
+}
+.line.short-sec {
+  position: absolute;
+  transform: translateY(-25px);
+  left: 60px;
+  height: 5px;
+  background-color: #000000;
+  animation: aparecerLinha 1s ease-out forwards;
+}
+
+.line.long-sec {
+  position: absolute;
+  left: 90px;
+  transform: translateY(-40px);
+  height: 5px;
+  background-color: #000000;
+  animation: aparecerLinha 1.5s ease-out forwards;
+}
+.line.short-sec,
+.line.long-sec {
+  border-radius: 5px;
+}
+.about-rightsec {
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #001f3f;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.about-rightsec h2 {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  transform: translate(60px, 65px);
+}
+
+.about-rightsec p {
+  font-size: 1.3rem;
+  color: #a0aec0;
+  line-height: 1.6;
+  transform: translate(60px, 10px);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 80%;
+}
+
+.about-rightsec p.visible {
+  opacity: 1;
+  transform: translate(60px,30px );
+}
+
+
+.collage-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 40px;
+  background-color: #031c34; /* Azul profundo */
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+/* Estilo geral das imagens */
+.img {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  filter: grayscale(100%);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.4s ease;
+  border-radius: 8px;
+}
+
+/* Efeito de entrada */
+.img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito de hover */
+.img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+/* Posições específicas */
+.img1 {
+  top: 80px;
+  left: 55%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.img2 {
+  top: 100px;
+  left: 5%;
+  z-index: 2;
+}
+
+.img3 {
+  top: 250px;
+  left: 38%;
+  transform: translateX(-50%);
+  width: 240px;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .img {
+    width: 90%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .collage-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-skills h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.about-skills p {
+  color: #a0aec0;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.about-skills h2,
+.about-skills p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-skills .visible {
+  opacity: 1;
+  transform: translateY(0);
+}

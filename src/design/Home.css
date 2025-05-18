@@ -1,0 +1,126 @@
+.tela-bem-vindo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #001f3f, #000000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    z-index: 9999;
+    gap: 15px;
+  }
+  
+  .social-icons-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+  }
+  
+  
+  .tela-bem-vindo h1 {
+    font-size: 2em;
+    color: #ccc;
+    margin: 0;
+  }
+  
+  .tela-bem-vindo p.intro-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 8em;
+    color: #A8FF8D;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0px;
+  }
+  
+  .tela-bem-vindo p.additional-text {
+    font-size: 1.3em;
+    color: #eee;
+    max-width: 600px;
+    text-align: center;
+    margin: 0;
+  }
+  
+  @keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+  .icones-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .icone-botao {
+    background: linear-gradient(145deg, #4aff54, #33cc39);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: 28px;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+  
+  .icone-botao:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  }
+  
+  .frase-animada {
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .frase-animada span {
+    opacity: 0;
+    color: #eee;
+    text-shadow: 0 0 5px #00ffcc;
+    animation: aparecerLetra 0.4s ease-out forwards;
+  }
+  
+  @keyframes aparecerLetra {
+    to {
+      opacity: 1;
+      text-shadow: 2px 2px 8px #00ffcc;
+      transform: translateY(0);
+    }
+  }
+.menu-horizontal {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.menu-horizontal a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.menu-horizontal a:hover {
+  color: #1abc9c; /* Cor ao passar o mouse */
+}
+
+
+
+  
+  

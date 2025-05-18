@@ -1,0 +1,43 @@
+
+body {
+  overflow-x: hidden;
+}
+
+.Localization-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 18px;
+  background-color: transparent;
+  z-index: 10000;
+}
+
+.location-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.country-name {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.brazil-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #00ffaa;
+  font-size: 35px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.country-name:hover + .brazil-icon {
+  opacity: 0.5;
+}
