@@ -322,3 +322,51 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.about-mainquard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 0;
+  overflow-y: visible;
+  gap: 32px; /* Espaço entre as seções */
+  margin-top: 40px;
+}
+
+.about-lang h2 {
+  width: 100%;
+  padding: 2rem;
+  background-color: #001f3f;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: left;
+}
+.about-lang h2.visible {
+  opacity: 1;
+  transform: translate(250px,-300px);
+}
+
+
+.about-tools h2 {
+  width: 100%;
+  padding: 2rem;
+  background-color: #001f3f;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(200px); /* Aparece vindo da direita */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: right;
+}
+
+.about-tools h2.visible {
+  opacity: 1;
+  transform: translate(530px,-300px);
+}
+
+

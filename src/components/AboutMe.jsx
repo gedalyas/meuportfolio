@@ -13,50 +13,63 @@ import DataIcon from './DataIcon';
 import AutIcon from './AutIcon';
 
 function AboutMe() {
-  // ...existing code...
-useEffect(() => {
-  const images = document.querySelectorAll('.img');
-  const aboutRightSecP = document.querySelector('.about-rightsec p');
-  const skillsH2 = document.querySelector('.about-skills h2');
-  const skillsP = document.querySelector('.about-skills p');
+  useEffect(() => {
+    const images = document.querySelectorAll('.img');
+    const aboutRightSecP = document.querySelector('.about-rightsec p');
+    const skillsH2 = document.querySelector('.about-skills h2');
+    const skillsP = document.querySelector('.about-skills p');
+    const langH2 = document.querySelector('.about-lang h2');
+    const toolsH2 = document.querySelector('.about-tools h2');
+    const handleScroll = () => {
+      images.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          img.classList.add('visible');
+        }
+      });
 
-  const handleScroll = () => {
-    images.forEach((img) => {
-      const rect = img.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        img.classList.add('visible');
+      if (aboutRightSecP) {
+        const rect = aboutRightSecP.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          aboutRightSecP.classList.add('visible');
+        }
       }
-    });
 
-    if (aboutRightSecP) {
-      const rect = aboutRightSecP.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        aboutRightSecP.classList.add('visible');
+      if (skillsH2) {
+        const rect = skillsH2.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          skillsH2.classList.add('visible');
+        }
       }
-    }
 
-    if (skillsH2) {
-      const rect = skillsH2.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        skillsH2.classList.add('visible');
+      if (skillsP) {
+        const rect = skillsP.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          skillsP.classList.add('visible');
+        }
       }
-    }
-
-    if (skillsP) {
-      const rect = skillsP.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        skillsP.classList.add('visible');
+      if (langH2) {
+        const rect = langH2.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          langH2.classList.add('visible');
+        }
       }
-    }
-  };
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
+      if (toolsH2) {
+        const rect = toolsH2.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          toolsH2.classList.add('visible');
+        }
+      }
+    };
 
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="about-container">
@@ -107,12 +120,21 @@ useEffect(() => {
         <div className="about-skills">
           <h2>Skills and Expertise</h2>
           <p>Explore some skills I'm proficient in to deliver high-quality solutions.</p>
-          <div className="area-icons">
-            <WebIcon />
-            <IaIcon />
-            <DataIcon />
-            <AutIcon />
-          </div>
+          <WebIcon />
+          <IaIcon />
+          <DataIcon />
+          <AutIcon />
+        </div>
+      </div>
+      <div className="about-mainquard">
+        <div className="about-lang">
+          <h2>LANGUAGE & FRAMEWORK</h2>
+          <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong></p>
+
+        </div>
+        <div className="about-tools">
+          <h2>TOOLS</h2>
+
         </div>
       </div>
     </div>
