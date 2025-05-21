@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillLayout } from "react-icons/ai";
 import "../design/habilicon/WebIcon.css";
 
-const WebIcon = ({ className = '', label = 'Web Development' }) => {
+const WebIcon = ({ className = '', label = <strong>Web Development</strong> }) => {
     return (
         <div className={`web-icon-container ${className}`}>
             <AiFillLayout />

@@ -1,10 +1,10 @@
 import React from 'react';
 import { TiCogOutline } from "react-icons/ti";
 import "../design/habilicon/AutIcon.css";
-const AutIcon = ({ className = '', label = "Data automation" }) => {
+const AutIcon = ({ className = '', label = <strong>Data automation</strong> }) => {
     return (
         <div className={`aut-icon-container ${className}`}>
-            <TiCogOutline />;
+            <TiCogOutline />
             <span className="aut-icon-label">{label}</span>
         </div>
     );

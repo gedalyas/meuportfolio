@@ -295,11 +295,15 @@
     align-items: center;
   }
 }
+.about-skills {
+  /* padding: 32px 40px; */
+  padding: 16px 10px; /* ou menos, ajuste conforme desejar */
+}
 
 .about-skills h2 {
   color: #fff;
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   letter-spacing: 1px;
 }
@@ -307,7 +311,7 @@
 .about-skills p {
   color: #a0aec0;
   font-size: 1.2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem; /* ou 0, se quiser colado */
   text-align: center;
 }
 
@@ -322,6 +326,17 @@
   opacity: 1;
   transform: translateY(0);
 }
+.about-mainthird {
+  margin-bottom: 90px; /* ou 0 */
+  padding-bottom:0;
+}
+.area-icons {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 .about-mainquard {
   display: flex;
@@ -330,43 +345,74 @@
   min-height: 0;
   overflow-y: visible;
   gap: 32px; /* Espaço entre as seções */
-  margin-top: 40px;
+  margin-top: 0;
+}
+
+.about-lang {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha tudo à esquerda */
 }
 
 .about-lang h2 {
   width: 100%;
   padding: 2rem;
-  background-color: #001f3f;
   color: #FFFFFF;
   border-radius: 10px;
   box-sizing: border-box;
   opacity: 0;
-  transform: translateX(-200px);
+  transform: translateX(-200px); /* Efeito de entrada: começa à esquerda */
   transition: opacity 0.8s ease, transform 0.8s ease;
-  text-align: left;
+  text-align: center;
 }
 .about-lang h2.visible {
   opacity: 1;
-  transform: translate(250px,-300px);
+  transform: translateX(0); /* Volta para o lugar original */
 }
 
+.about-tools {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items:center;
+}
 
 .about-tools h2 {
   width: 100%;
   padding: 2rem;
-  background-color: #001f3f;
   color: #FFFFFF;
   border-radius: 10px;
   box-sizing: border-box;
   opacity: 0;
-  transform: translateX(200px); /* Aparece vindo da direita */
+  transform: translateX(200px); /* Efeito de entrada: começa à direita */
   transition: opacity 0.8s ease, transform 0.8s ease;
-  text-align: right;
+  text-align: center;
 }
-
 .about-tools h2.visible {
   opacity: 1;
-  transform: translate(530px,-300px);
+  transform: translateX(0);
 }
 
+.about-lang p,
+.about-tools p {
+  margin-top: 0.5rem;
+  color: #a0aec0;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 90%;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+  align-self: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
+.about-lang p.visible,
+.about-tools p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

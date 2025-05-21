@@ -20,6 +20,8 @@ function AboutMe() {
     const skillsP = document.querySelector('.about-skills p');
     const langH2 = document.querySelector('.about-lang h2');
     const toolsH2 = document.querySelector('.about-tools h2');
+    const langP = document.querySelector('.about-lang p');
+    const toolsP = document.querySelector('.about-tools p');
     const handleScroll = () => {
       images.forEach((img) => {
         const rect = img.getBoundingClientRect();
@@ -59,6 +61,18 @@ function AboutMe() {
         const rect = toolsH2.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom >= 0) {
           toolsH2.classList.add('visible');
+        }
+      }
+      if (langP) {
+        const rect = langP.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          langP.classList.add('visible');
+        }
+      }
+      if (toolsP) {
+        const rect = toolsP.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          toolsP.classList.add('visible');
         }
       }
     };
@@ -120,20 +134,24 @@ function AboutMe() {
         <div className="about-skills">
           <h2>Skills and Expertise</h2>
           <p>Explore some skills I'm proficient in to deliver high-quality solutions.</p>
-          <WebIcon />
-          <IaIcon />
-          <DataIcon />
-          <AutIcon />
+          <div className="area-icons">
+            <WebIcon />
+            <IaIcon />
+            <DataIcon />
+            <AutIcon />
+          </div>
         </div>
       </div>
       <div className="about-mainquard">
         <div className="about-lang">
           <h2>LANGUAGE & FRAMEWORK</h2>
-          <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong></p>
+          <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | NodeJS | TailwindCSS  <strong>MySQL</strong> |
+            PostgreSQL | MongoDB | PHP | Laravel | <strong>Python</strong> | VBA | <strong>R</strong> </p>
 
         </div>
         <div className="about-tools">
           <h2>TOOLS</h2>
+          <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter Notebook</strong>  Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
 
         </div>
       </div>
