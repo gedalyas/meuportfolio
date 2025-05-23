@@ -22,6 +22,8 @@ function AboutMe() {
     const toolsH2 = document.querySelector('.about-tools h2');
     const langP = document.querySelector('.about-lang p');
     const toolsP = document.querySelector('.about-tools p');
+    const educationH2 = document.querySelector('.about-education h2');
+    const experienceH2 = document.querySelector('.about-experience h2');
     const handleScroll = () => {
       images.forEach((img) => {
         const rect = img.getBoundingClientRect();
@@ -75,6 +77,18 @@ function AboutMe() {
           toolsP.classList.add('visible');
         }
       }
+      if (educationH2) {
+        const rect = educationH2.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          educationH2.classList.add('visible');
+        }
+      }
+      if (experienceH2) {
+        const rect = experienceH2.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          experienceH2.classList.add('visible');
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -87,6 +101,10 @@ function AboutMe() {
 
   return (
     <div className="about-container">
+      <header className="main-header">
+
+      </header>
+
       <Menu />
       <div className="about-main">
         <div className="about-left">
@@ -154,6 +172,23 @@ function AboutMe() {
           <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter Notebook</strong>  Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
 
         </div>
+      </div>
+      <div className="about-mainfive">
+        <div className="about-education">
+          <div className="underline-five">
+            <div className="line short-five"></div>
+            <div className="line long-five"></div>
+          </div>
+          <h2>Education</h2>
+        </div>
+        <div className="about-experience">
+          <div className="underline-fivetwo">
+            <div className="line short-fivetwo"></div>
+            <div className="line long-fivetwo"></div>
+            <h2>Professional Experience</h2>
+          </div>
+        </div>
+
       </div>
     </div>
   );

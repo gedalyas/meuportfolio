@@ -9,6 +9,26 @@
   overflow-x: hidden; /* Remove o scroll horizontal */
   overflow-y: auto; /* Permite scroll vertical */
 }
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+  background: rgba(0, 31, 63, 0.7); /* azul escuro translúcido */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: blur(15px); /* Efeito de desfoque */
+  -webkit-backdrop-filter: blur(18px); /* Suporte para Safari */
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.about-container {
+  padding-top: 60px;
+}
 
 .about-main {
   display: flex;
@@ -416,3 +436,15 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.about-mainfive {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 0;
+  overflow-y: visible;
+  gap: 32px; /* Espaço entre as seções */
+  margin-top: 0;
+}
+
+
