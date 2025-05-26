@@ -23,6 +23,8 @@ function AboutMe() {
     const langP = document.querySelector('.about-lang p');
     const toolsP = document.querySelector('.about-tools p');
     const educationH2 = document.querySelector('.about-education h2');
+    const educationH3 = document.querySelectorAll('.about-education h3');
+    const educationP = document.querySelectorAll('.about-education p');
     const experienceH2 = document.querySelector('.about-experience h2');
     const handleScroll = () => {
       images.forEach((img) => {
@@ -89,6 +91,18 @@ function AboutMe() {
           experienceH2.classList.add('visible');
         }
       }
+      educationH3.forEach((h3) => {
+        const rect = h3.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          h3.classList.add('visible');
+        }
+      });
+      educationP.forEach((p) => {
+        const rect = p.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          p.classList.add('visible');
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -180,15 +194,34 @@ function AboutMe() {
             <div className="line long-five"></div>
           </div>
           <h2>Education</h2>
+          <ul>
+            <li>
+              <h3>Universidade XYZ</h3>
+              <p>Bacharelado em Ciência da Computação (2018 - 2022)</p>
+            </li>
+            <li>
+              <h3>Curso Front-end - Alura</h3>
+              <p>HTML, CSS, JavaScript (2023)</p>
+            </li>
+          </ul>
         </div>
         <div className="about-experience">
           <div className="underline-fivetwo">
             <div className="line short-fivetwo"></div>
             <div className="line long-fivetwo"></div>
-            <h2>Professional Experience</h2>
+            <h2>Experience</h2>
+            <ul>
+              <li>
+                <h3>Desenvolvedor Júnior - Empresa ABC</h3>
+                <p>React, consumo de APIs REST (2023 - presente)</p>
+              </li>
+              <li>
+                <h3>Estágio em TI - Empresa DEF</h3>
+                <p>Manutenção de sistemas internos (2022)</p>
+              </li>
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
   );
