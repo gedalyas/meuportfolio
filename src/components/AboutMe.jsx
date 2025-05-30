@@ -4,7 +4,7 @@ import Menu from './Menu';
 import FotoPrimeira from '../assets/images/FotoPrimeira.jpg';
 import fotfut from '../assets/images/fotfut.jpg';
 import fotorj from '../assets/images/fotorj.jpg';
-import fotoufv from '../assets/images/fotoufv.jpg';
+import fotopraia from '../assets/images/fotopraia.jpg';
 import Spot from './Spot';
 import '../design/Spot.css';
 import WebIcon from './WebIcon';
@@ -26,6 +26,9 @@ function AboutMe() {
     const educationH3 = document.querySelectorAll('.about-education h3');
     const educationP = document.querySelectorAll('.about-education p');
     const experienceH2 = document.querySelector('.about-experience h2');
+    const experienceH3 = document.querySelectorAll('.about-experience h3');
+    const experienceP = document.querySelectorAll('.about-experience p');
+
     const handleScroll = () => {
       images.forEach((img) => {
         const rect = img.getBoundingClientRect();
@@ -103,6 +106,19 @@ function AboutMe() {
           p.classList.add('visible');
         }
       });
+      experienceH3.forEach((h3) => {
+        const rect = h3.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          h3.classList.add('visible');
+        }
+      });
+      experienceP.forEach((p) => {
+        const rect = p.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          p.classList.add('visible');
+        }
+      });
+
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -112,6 +128,14 @@ function AboutMe() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const scrollDown = () => {
+    window.scrollBy({
+      top: 730, // você pode ajustar esse valor
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="about-container">
@@ -128,7 +152,7 @@ function AboutMe() {
             <div className="line long"></div>
           </div>
           <p>A brief introduction about me and my interest.</p>
-          <button className="scroll-button">Scroll Down</button>
+          <button className="scroll-button" onClick={scrollDown}>Scroll Down</button>
         </div>
 
         <div className="about-right">
@@ -145,7 +169,7 @@ function AboutMe() {
             <div className="line long-sec"></div>
           </div>
           <div className="collage-container">
-            <img src={fotoufv} alt="Imagem 1" className="img img1" />
+            <img src={fotopraia} alt="Imagem 1" className="img img1" />
             <img src={fotorj} alt="Imagem 2" className="img img2" />
             <img src={fotfut} alt="Imagem 3" className="img img3" />
           </div>
@@ -196,12 +220,12 @@ function AboutMe() {
           <h2>Education</h2>
           <ul>
             <li>
-              <h3>Universidade XYZ</h3>
-              <p>Bacharelado em Ciência da Computação (2018 - 2022)</p>
+              <h3>College União Acadêmica de Minas Gerais</h3>
+              <p>Bacharelado em Ciência da Computação (2024 - 2027)</p>
             </li>
             <li>
-              <h3>Curso Front-end - Alura</h3>
-              <p>HTML, CSS, JavaScript (2023)</p>
+              <h3>Curso Network Defense - Cisco</h3>
+              <p>Network monitoring and protection techniques, including access control, firewalls, cloud security and encryption. Assessing and responding to security alerts. (2025)</p>
             </li>
           </ul>
         </div>
@@ -212,17 +236,26 @@ function AboutMe() {
             <h2>Experience</h2>
             <ul>
               <li>
-                <h3>Desenvolvedor Júnior - Empresa ABC</h3>
-                <p>React, consumo de APIs REST (2023 - presente)</p>
+                <h3>Purchasing Manager - Enterprise Comercial JK Casa dos Parafusos</h3>
+                <p>I work in purchasing management with a focus on demand analysis and defining commercial strategies based on seasonality, with the aim of optimizing inventory and maximizing profits throughout the year. I develop automation solutions using SQL for data storage and manipulation, integrating with VBA in Excel for efficient extraction and visualization of information, facilitating strategic decision-making. (2023 - presente)</p>
               </li>
               <li>
-                <h3>Estágio em TI - Empresa DEF</h3>
-                <p>Manutenção de sistemas internos (2022)</p>
+                <h3>Web Developer - Freelancer</h3>
+                <p> Development of a small business focused on creating custom software solutions for clients, with involvement in all stages of the process from client acquisition to final delivery of results.
+                  Current project: building an industrial monitoring system that integrates sensors installed on a partner company's machine with an API, using the incoming data for real-time visualization.
+                  Python is used for handling API data, and React is used for the front-end interface.(2025)</p>
               </li>
             </ul>
           </div>
         </div>
       </div>
+      <div className="main-six">
+        <h2>
+          <strong>"There are no limits to what you can accomplish</strong>
+        </h2>
+        <p>except the limits you place on your own thinking."</p>
+      </div>
+
     </div>
   );
 }
