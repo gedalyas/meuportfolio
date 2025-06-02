@@ -11,6 +11,7 @@ import WebIcon from './WebIcon';
 import IaIcon from './IaIcon';
 import DataIcon from './DataIcon';
 import AutIcon from './AutIcon';
+import { Link } from 'react-router-dom';
 
 function AboutMe() {
   useEffect(() => {
@@ -28,6 +29,9 @@ function AboutMe() {
     const experienceH2 = document.querySelector('.about-experience h2');
     const experienceH3 = document.querySelectorAll('.about-experience h3');
     const experienceP = document.querySelectorAll('.about-experience p');
+    const mainSeven = document.querySelector('.main-seven');
+    const seeProjects = document.querySelector('.see-projects');
+    const seeContact = document.querySelector('.see-contact');
 
     const handleScroll = () => {
       images.forEach((img) => {
@@ -118,6 +122,24 @@ function AboutMe() {
           p.classList.add('visible');
         }
       });
+      if (mainSeven) {
+        const rect = mainSeven.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          mainSeven.classList.add('visible');
+        }
+      }
+      if (seeProjects) {
+        const rect = seeProjects.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          seeProjects.classList.add('visible');
+        }
+      }
+      if (seeContact) {
+        const rect = seeContact.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          seeContact.classList.add('visible');
+        }
+      }
 
     };
 
@@ -255,6 +277,52 @@ function AboutMe() {
         </h2>
         <p>except the limits you place on your own thinking."</p>
       </div>
+      <div className="main-seven">
+        <h1>Ready to create something amazing?</h1>
+        <div className="path-container">
+          <div className="main-seven-row">
+            <div className="cta-card" data-path="left">
+              <a href="/projects">
+                <span className="icon">🚀</span>
+                <h2>Explore My Work</h2>
+                <p>See detailed case studies</p>
+              </a>
+            </div>
+            <div className="cta-card light" data-path="right">
+              <a href="/contact">
+                <span className="icon">✨</span>
+                <h2>Start a Project</h2>
+                <p>Let's build together</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer className="main-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <span className="footer-logo">DA</span>
+            <p className="footer-tagline">Turning ideas into digital experiences</p>
+          </div>
+
+          <div className="footer-social">
+            <a href="https://github.com/gedalyas" target="_blank" rel="noopener noreferrer" className="social-link">
+              <i className="fab fa-github"></i>
+            </a>
+            <a href="http://www.linkedin.com/in/davi-alsouto" target="_blank" rel="noopener noreferrer" className="social-link">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:davialsouto@email.com" className="social-link">
+              <i className="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-copyright">
+          <p>© {new Date().getFullYear()} Davi Almeida. All rights reserved.</p>
+        </div>
+      </footer>
 
     </div>
   );
