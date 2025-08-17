@@ -10,6 +10,8 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .contact-left, .contact-right {
@@ -18,9 +20,10 @@
 }
 
 .contact-left h2 {
-  font-size: 7rem;
+  font-size: 6rem;
   margin-bottom: 0.5rem;
-  margin-left: 200px;
+  margin-left: 0;
+  padding-left:2rem;
   white-space: nowrap;
   font-weight: 400;
 }
@@ -28,7 +31,8 @@
 .contact-left p {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  margin-left: 200px;
+  margin-left: 0;
+  padding-left:2rem;
   line-height: 1.6;
 }
 
@@ -36,7 +40,8 @@
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
-  margin-left: 200px;
+  margin-left: 0;
+  padding-left:2rem;
 }
 
 .icon-link {
@@ -64,7 +69,7 @@
 }
 
 .setup-image {
-  max-width: 80%;
+  max-width: 70%;
   height: auto;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
@@ -126,5 +131,8 @@
 .contact-right {
   animation: slideInRight 1s ease-out forwards;
   animation-delay: 0.2s;
+}
+body.no-scroll{
+  overflow: hidden;
 }
 

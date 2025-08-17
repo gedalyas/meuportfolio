@@ -3,8 +3,15 @@ import { FaInstagram, FaLinkedin, FaEnvelope, FaWhatsapp, FaGithub } from 'react
 import FotoSetup from'../assets/images/FotoSetup.jpg';
 import "../design/contact.css";
 import Menu from './Menu';
+import {useEffect} from 'react';
 
 function Contact() {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return() => {
+      document.body.style.overflow = "auto";
+    };
+  },[]);  
   return (
     <div className="contact-container">
       <Menu />

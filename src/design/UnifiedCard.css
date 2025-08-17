@@ -1,0 +1,59 @@
+/* ===== Card com tamanho fixo por variável ===== */
+.u-card {
+  inline-size: var(--card-size);
+  block-size: var(--card-size);   /* quadrado */
+  border: 0;
+  background: rgb(103, 225, 255);
+  border-radius: 12px;
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.35);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: transform, box-shadow;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-radius .25s ease;
+}
+
+/* Hover só em desktop */
+@media (hover:hover) and (pointer:fine){
+  .u-card:hover{
+    transform: scale(1.03);
+    border-radius: 15px;
+    background: rgb(103,151,255);
+    box-shadow: 0 0 14px 7px rgba(0,0,0,0.45);
+  }
+}
+
+.u-card__inner{
+  inline-size: 100%;
+  block-size: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.u-card__face{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  text-align: center; border-radius: inherit;
+  padding: 8px;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* frente/verso + flip */
+.u-card__front{ opacity: 1; transform: rotate(0) scale(1); }
+.u-card__back { opacity: 0; transform: rotate(90deg) scale(0.96); }
+
+.u-card.is-flipped .u-card__front{ opacity: 0; transform: rotate(-90deg) scale(0.98); }
+.u-card.is-flipped .u-card__back { opacity: 1; transform: rotate(0)    scale(1); }
+
+@media (hover:hover) and (pointer:fine){
+  .u-card:hover .u-card__front{ opacity: 0; transform: rotate(-90deg) scale(0.98); }
+  .u-card:hover .u-card__back { opacity: 1; transform: rotate(0)       scale(1); }
+}
+
+/* tamanhos dos ícones/textos */
+.u-card__icon{ font-size: clamp(20px, 4vw, 26px); display: grid; place-items: center; }
+.u-card__frontLabel{ margin-top: 4px; font-weight: 800; font-size: clamp(11px, 2.2vw, 13px); }
+.u-card__backText{   font-weight: 800; font-size: clamp(11px, 2.2vw, 13px); }
