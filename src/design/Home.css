@@ -3,9 +3,10 @@
    ========================================= */
 
 :root {
-  /* menu lateral */
-  --nav-w: 60px;     /* largura do menu */
+  /* menu / navegação */
+  --nav-w: 60px;     /* largura do menu (desktop) */
   --nav-gap: 16px;   /* folga ao lado do menu */
+  --nav-h: 64px;     /* ALTURA da barra no TOPO (mobile) */
 
   /* tamanho do card (pode ajustar) */
   --card-size: 80px;
@@ -69,16 +70,14 @@ body .tela-bem-vindo {
   box-sizing: border-box;
   gap: 12px;
 
-  /* laterais + espaço do menu (usa --nav-w) */
+  /* MOBILE (menu no TOPO): reservar topo; NÃO empurrar pela esquerda */
+  padding-left: 16px;
   padding-right: 16px;
-  padding-left: calc(var(--nav-w, 64px) + var(--nav-gap, 16px));
-
-  /* safe-areas */
-  padding-top: max(12px, env(safe-area-inset-top));
+  padding-top: calc(var(--nav-h, 64px) + 12px + env(safe-area-inset-top));
   padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
 
-/* 🔒 trava a tela e remove o scroll no CELULAR */
+/* 🔒 trava a tela e remove o scroll no CELULAR (se quiser manter) */
 @media (max-width: 768px) {
   body .tela-bem-vindo {
     height: 100svh;
@@ -86,9 +85,14 @@ body .tela-bem-vindo {
   }
 }
 
-/* um respiro a mais no desktop */
+/* DESKTOP/NOTEBOOK: menu lateral — reservar esquerda; topo confortável */
 @media (min-width: 900px) {
-  body .tela-bem-vindo { padding-top: 48px; }
+  body .tela-bem-vindo {
+    padding-left: calc(var(--nav-w, 60px) + var(--nav-gap, 16px));
+    padding-right: 16px;
+    padding-top: 48px;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
 }
 
 /* ===== Wrapper de largura ===== */
@@ -97,7 +101,9 @@ body .tela-bem-vindo {
   margin-inline: auto;
 }
 
-/* ===== HERO (centralização vertical “de leve”) ===== */
+/* ===== HERO (centralização vertical “de leve”) =====
+   Aqui deixamos tudo centralizado no MOBILE.
+*/
 .hero{
   min-block-size: 80svh;                  /* ajuste fino vertical (mantido) */
   display: flex;
@@ -105,6 +111,7 @@ body .tela-bem-vindo {
   align-items: center;                    /* centro horizontal */
   justify-content: center;                /* centro vertical */
   gap: clamp(10px, 2.5vh, 22px);
+  text-align: center;                     /* centraliza todos os textos dentro da hero */
 }
 
 /* ===== Tipografia (usando variáveis) ===== */

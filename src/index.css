@@ -1,6 +1,14 @@
+/* === novo: garante que largura inclua padding/borda e previne overflow por somas === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --nav-w: 60px;     /* largura do menu lateral */
   --nav-gap: 16px;   /* folga ao lado do menu */
+  --nav-h: 64px;     /* ALTURA do menu fixo no topo (mobile), útil na Home/About */
 
   /* tipografia + aparência */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -13,7 +21,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #root { height: 100%; width: 100%; }
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -21,18 +33,50 @@ body {
   overflow-x: hidden;          /* 🔒 corta scroll horizontal em qualquer tela */
 }
 
-a { color: #646cff; text-decoration: none; }
-a:hover { color: #535bf2; }
+/* === novo: mídia nunca deve passar da largura do container === */
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;              /* evita inline-space inesperado */
+}
+
+/* links & botões (mantidos) */
+a {
+  color: #646cff;
+  text-decoration: none;
+}
+a:hover {
+  color: #535bf2;
+}
 
 button {
-  border-radius: 8px; border: 1px solid transparent;
-  padding: 0.6em 1.2em; font-size: 1em; font-weight: 500;
-  background-color: #1a1a1a; cursor: pointer; transition: border-color .25s;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color .25s;
 }
-button:hover { border-color: #646cff; }
-button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color; }
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
 
 @media (prefers-color-scheme: light) {
-  :root { color: #e7e7e7; background-color: #000; }
-  button { background-color: #111; }
+  :root {
+    color: #e7e7e7;
+    background-color: #000;
+  }
+  button {
+    background-color: #111;
+  }
 }
