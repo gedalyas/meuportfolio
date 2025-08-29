@@ -1,76 +1,166 @@
 // src/components/Chat.jsx
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
-import React, { useState } from 'react';
-import "../design/Chat.css";
-
-function Chat() {
-  const [isOpen, setIsOpen] = useState(false); // NOVO: Controla se o chat está aberto ou fechado
+export default function Chat() {
+  const [shadowRoot, setShadowRoot] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // NOVO: Função para abrir/fechar o chat
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
+  // Cria host fixo no <body> + Shadow DOM isolado
+  useEffect(() => {
+    const host = document.createElement("div");
+    host.id = "ai-chat-host";
+    Object.assign(host.style, {
+      position: "fixed",
+      right: "16px",
+      bottom: "16px",
+      zIndex: "2147483647",
+      width: "auto",
+      height: "auto",
+      pointerEvents: "none", // host não bloqueia cliques
+    });
+    document.body.appendChild(host);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
+    const shadow = host.attachShadow({ mode: "open" });
 
-    const userMessage = { sender: 'user', text: input };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
-    setIsLoading(true);
-    setInput(''); // Limpa o input logo após o envio
+    // CSS isolado dentro do Shadow DOM
+    const style = document.createElement("style");
+    style.textContent = `
+      :host, .wrap, .c-panel, .c-bubble { box-sizing: border-box; }
+      .wrap { position: relative; width: var(--b,56px); height: var(--b,56px); pointer-events: auto; }
 
-    try {
-      const response = await fetch('http://localhost:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: input }),
-      });
+      /* Bolha fixa (ancorada pelo host fixo) */
+      .c-bubble {
+        width: var(--b,56px); height: var(--b,56px);
+        border-radius: 50%; border: 0; cursor: pointer; font-size: 24px;
+        display: grid; place-items: center; background: #2a62ff; color: #fff;
+        box-shadow: 0 10px 24px rgba(0,0,0,.35);
+        touch-action: manipulation;
+      }
+      .c-bubble:hover { filter: brightness(1.05); }
 
-      if (!response.ok) {
-        throw new Error('A resposta da rede não foi ok');
+      /* Painel acima da bolha */
+      .c-panel {
+        position: absolute;
+        right: 0;
+        bottom: calc(var(--b,56px) + 12px);
+        width: min(92vw, 380px);
+        height: 520px;
+        max-height: min(85vh, 640px);
+        background: #0b1220; color: #e6e8ee;
+        border-radius: 16px; border: 1px solid rgba(255,255,255,.08);
+        box-shadow: 0 14px 32px rgba(0,0,0,.35);
+        display: flex; flex-direction: column; overflow: hidden;
       }
 
-      const data = await response.json();
-      const aiMessage = { sender: 'ai', text: data.reply };
-      setMessages((prevMessages) => [...prevMessages, aiMessage]);
-    } catch (error) {
-      console.error("Erro ao buscar resposta da IA:", error);
-      const errorMessage = { sender: 'ai', text: 'Desculpe, não consegui pensar em uma resposta. Tente novamente.' };
-      setMessages((prevMessages) => [...prevMessages, errorMessage]);
+      .c-header {
+        display:flex; align-items:center; justify-content:space-between; gap:12px;
+        padding:12px 14px; background: rgba(255,255,255,.04);
+        border-bottom:1px solid rgba(255,255,255,.06);
+        flex: none;
+      }
+      .c-header h2 { margin:0; font-size:16px; font-weight:600; }
+      .close-btn {
+        border:none; background:transparent; color:#e6e8ee; cursor:pointer;
+        font-size:18px; line-height:1; padding:6px 8px; border-radius:8px;
+      }
+      .close-btn:hover { background: rgba(255,255,255,.08); }
+
+      .c-list {
+        flex: 1 1 auto; min-height: 0; overflow:auto;
+        padding:12px; display:flex; flex-direction:column; gap:10px;
+      }
+      .msg { max-width:85%; padding:10px 12px; border-radius:14px; line-height:1.4; white-space:pre-wrap; overflow-wrap:anywhere; }
+      .msg.user { align-self:flex-end; background:#2a62ff; color:#fff; border-bottom-right-radius:4px; }
+      .msg.ai   { align-self:flex-start; background:#141b2e; color:#e6e8ee; border:1px solid rgba(255,255,255,.06); border-bottom-left-radius:4px; }
+
+      .c-form {
+        display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center;
+        padding:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03);
+        flex:none;
+      }
+      .c-form input {
+        width:100%; border:1px solid rgba(255,255,255,.08);
+        background:#0e1527; color:#e6e8ee; padding:10px 12px; border-radius:10px; outline:none; line-height:1.3;
+      }
+      .c-form button {
+        border:0; border-radius:10px; padding:10px 14px; cursor:pointer;
+        background:#9ec1ff; color:#0b1220; font-weight:600;
+      }
+      .c-form button[disabled] { opacity:.6; cursor:not-allowed; }
+
+      .typing .dot { animation: blink 1.2s infinite; display:inline-block; }
+      .typing .dot:nth-child(2){ animation-delay:.15s; }
+      .typing .dot:nth-child(3){ animation-delay:.3s; }
+      @keyframes blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0} }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .c-panel {
+          width: calc(100vw - 32px);
+          max-height: min(75vh, 600px);
+        }
+      }
+    `;
+    shadow.appendChild(style);
+
+    setShadowRoot(shadow);
+    return () => { host.remove(); };
+  }, []);
+
+  const toggleChat = () => setIsOpen(v => !v);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!input.trim()) return;
+    const text = input;
+    setMessages(prev => [...prev, { sender: "user", text }]);
+    setInput("");
+    setIsLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      setMessages(prev => [...prev, { sender: "ai", text: data.reply }]);
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [...prev, { sender: "ai", text: "Desculpe, não consegui pensar em uma resposta. Tente novamente." }]);
     } finally {
       setIsLoading(false);
     }
-  };
+  }
 
-  return (
-    // Este é o container geral do nosso widget
-    <div className="chat-widget-container">
-      {/* A janela do chat só aparece se isOpen for true */}
+  if (!shadowRoot) return null; // espera montar o Shadow DOM
+
+  // UI dentro do Shadow DOM (sem interferência do CSS externo)
+  const ui = (
+    <div className="wrap" role="dialog" aria-label="Chat com IA">
       {isOpen && (
-        <div className="chat-container">
-          <div className="chat-header">
+        <div className="c-panel">
+          <div className="c-header">
             <h2>Chat com IA</h2>
-            <button className="close-btn" onClick={toggleChat}>X</button>
+            <button className="close-btn" onClick={toggleChat}>×</button>
           </div>
-          <div className="message-list">
-            {messages.map((msg, index) => (
-              <div key={index} className={`message ${msg.sender}`}>
-                <p>{msg.text}</p>
-              </div>
+
+          <div className="c-list" aria-live="polite">
+            {messages.map((m, i) => (
+              <div key={i} className={`msg ${m.sender}`}><p>{m.text}</p></div>
             ))}
             {isLoading && (
-              <div className="message ai">
-                <p>Pensando...</p>
+              <div className="msg ai typing">
+                Pensando<span className="dot">.</span><span className="dot">.</span><span className="dot">.</span>
               </div>
             )}
           </div>
-          <form className="message-form" onSubmit={handleSubmit}>
+
+          <form className="c-form" onSubmit={handleSubmit}>
             <input
               type="text"
               value={input}
@@ -78,20 +168,16 @@ function Chat() {
               placeholder="Digite sua mensagem..."
               disabled={isLoading}
             />
-            <button type="submit" disabled={isLoading}>
-              Enviar
-            </button>
+            <button type="submit" disabled={isLoading}>Enviar</button>
           </form>
         </div>
       )}
-      
-      {/* Esta é a bolha que fica sempre visível */}
-      <button className="chat-bubble" onClick={toggleChat}>
-        {/* Usando um emoji de balão de chat como ícone */}
+
+      <button className="c-bubble" onClick={toggleChat} aria-expanded={isOpen} title={isOpen ? "Fechar chat" : "Abrir chat"}>
         💬
       </button>
     </div>
   );
-}
 
-export default Chat;
+  return createPortal(ui, shadowRoot);
+}
