@@ -149,8 +149,8 @@ li h3, li p{ margin:0; line-height:1.5; }
 
 /* ===== SEXTA DOBRA (Quote) ===== */
 .main-six{ min-height:80svh; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(0,31,63,.95); padding:24px 16px; }
-.main-six h2{ color:#fff; font-size:clamp(1.6rem,4.5vw,2.3rem); text-align:center; opacity:0; margin:0 0 6px; text-shadow:0 0 0 #38bdf8,0 0 0 #fff; animation:fadeShadow 2s forwards; }
-.main-six p{ color:#fff; font-size:clamp(1.1rem,3.6vw,1.6rem); margin:0; text-align:center; opacity:0; text-shadow:0 0 0 #38bdf8,0 0 0 #fff; animation:fadeShadow 2s 1s forwards; }
+.main-six h2{ color:#fff; font-size:clamp(1.6rem,4.5vw,2.3rem); text-align:center; opacity:1; margin:0 0 6px; text-shadow:0 0 0 #38bdf8,0 0 0 #fff; animation:fadeShadow 2s forwards; }
+.main-six p{ color:#fff; font-size:clamp(1.1rem,3.6vw,1.6rem); margin:0; text-align:center; opacity:1; text-shadow:0 0 0 #38bdf8,0 0 0 #fff; animation:fadeShadow 2s 1s forwards; }
 @keyframes fadeShadow{ to{opacity:1; text-shadow:0 0 16px #38bdf8,0 0 32px #38bdf8,0 0 8px #fff} }
 
 /* ===== SÉTIMA DOBRA (CTAs) ===== */

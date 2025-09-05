@@ -1,25 +1,30 @@
+/* =========================
+   Projects — Desktop first
+   ========================= */
+
 .projects-container {
   display: flex;
-  flex-direction: row; /* Deixa lado a lado */
-  min-height: 100vh;
+  flex-direction: row;           /* lado a lado no desktop */
+  min-height: 100svh;
   background-color: #001f3f;
   font-family: 'Poppins', sans-serif;
-  width: 100vw;
+  width: 100%;                   /* <- evita overflow do 100vw */
 }
 
-/* A BOX da esquerda */
+/* Sidebar (esquerda) — desktop */
 .projects-left {
-  position: sticky;      /* Faz ela acompanhar o scroll mas dentro do container */
-  top: 100px;             /* Distância do topo */
-  margin-left: 150px;     /* Distância da borda esquerda */
-  width: 350px;          /* Largura da box */
-  height: 440px;         /* Altura da box (ou pode usar auto se quiser que acompanhe o conteúdo) */
+  position: sticky;
+  top: 100px;
+  margin-left: 150px;
+  width: 350px;
+  height: 440px;
   background-color: #003366;
   color: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 10px rgba(0,0,0,.3);
 }
+
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -27,65 +32,107 @@
   gap: 20px;
 }
 
+/* Foto — deixe responsiva por proporção */
 .profile-photo {
-  width: 290px;
-  height: 400px;
+  width: 100%;
+  aspect-ratio: 3 / 3.5;           /* mantém proporção elegante no mobile */
   object-fit: cover;
-  border-radius: 10px; /* arredondamento sutil */
+  border-radius: 10px;
   border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
 }
 
-.social-icons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
+.social-icons { display: flex; gap: 20px; justify-content: center; }
 .social-icons a {
-  color: white;
-  font-size: 24px;
-  transition: transform 0.2s ease, color 0.2s ease;
+  color: white; font-size: 24px;
+  transition: transform .2s ease, color .2s ease;
 }
+.social-icons a:hover { transform: scale(1.2); color: #4ea3ff; }
 
-.social-icons a:hover {
-  transform: scale(1.2);
-  color: #4ea3ff;
-}
-
-
-/* A parte direita (conteúdo principal) */
+/* Conteúdo (direita) */
 .projects-right {
-  flex: 1;               /* Ocupa o restante do espaço disponível */
+  flex: 1;
   padding: 30px;
   color: white;
 }
-.projects-right h1 {
-  font-size: 4rem;
-  margin-left: 40px;
-  margin-bottom: 0; /* reduz o espaço embaixo do h1 */
-  text-shadow: 0 0 0px #38bdf8, 0 0 0px #fff;
-  animation: fadeShadow 2s forwards;
-}
 
+.projects-right h1,
 .projects-right h2 {
+  margin: 0 0 0 40px;
   font-size: 4rem;
-  margin-left: 40px;
-  margin-top: 0; /* reduz o espaço acima do h2 */
   text-shadow: 0 0 0px #38bdf8, 0 0 0px #fff;
   animation: fadeShadow 2s forwards;
 }
 
+/* Cards */
 .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center; /* ou 'flex-start' se quiser alinhado à esquerda */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 40px;                 /* 50px -> 40px fica mais compacto */
+  justify-items: stretch;    /* <= antes estava "center" */
+  align-items: start;        /* garante alinhamento pelo topo */
 }
 
+/* =========================
+   Quebras de layout
+   ========================= */
+
+/* Tablet grande: diminui margem/coluna */
+@media (max-width: 1100px) {
+  .projects-left { margin-left: 40px; }
+  .projects-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 36px; }
+}
+
+/* Mobile (<= 768px): empilha, remove sticky e medidas rígidas */
 @media (max-width: 768px) {
-  .projects-grid {
-    flex-direction: column;
+  .projects-container {
+    flex-direction: column;          /* sidebar vai pra cima */
     align-items: center;
+    padding: 16px 12px;
+    gap: 16px;
   }
+
+  .projects-left {
+    position: static;                /* remove sticky */
+    top: auto;
+    margin: 0;                       /* zera deslocamento lateral */
+    width: min(92vw, 420px);         /* sidebar ocupa a largura útil */
+    height: auto;                    /* libera altura */
+    padding: 16px;
+  }
+
+  .profile-photo {
+    margin-top: 80px;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .projects-right {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .projects-right h1,
+  .projects-right h2 {
+    margin: 0 auto 6px auto;         /* centraliza títulos */
+    text-align: center;
+    font-size: clamp(1.6rem, 8vw, 2.4rem); /* reduz bem no celular */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;      /* uma coluna */
+    gap: 20px;
+  }
+}
+
+/* Mobile estreito (<= 380px): ajustes finos */
+@media (max-width: 380px) {
+  .projects-left { width: 94vw; padding: 12px; }
+  .projects-right { padding: 8px; }
+  .projects-grid { gap: 16px; }
+}
+
+/* animação já usada por você */
+@keyframes fadeShadow {
+  to { text-shadow: 0 0 16px #38bdf8, 0 0 32px #38bdf8, 0 0 8px #fff; }
 }
