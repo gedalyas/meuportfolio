@@ -3,6 +3,12 @@ import React, { useEffect } from 'react';
 import '../design/Projects.css';
 import ProjectOne from './Projects/ProjectOne';
 import FotoSelf from '../assets/images/FotoSelf.jpg';
+import acoeskivi from '../assets/images/acoeskivi.jpg';
+import appfinance from '../assets/images/appfinance.jpg';
+import dashboardfinancias from '../assets/images/dashboardfinancias.jpg';
+import meuport from '../assets/images/meuport.png';
+
+
 
 function Projects() {
   useEffect(() => {
@@ -12,45 +18,40 @@ function Projects() {
     };
   }, []);
 
-  // === Lista de projetos (exemplos) ===
+  // === Lista de projetos ===
   const projects = [
     {
-      title: 'FinFlow — Finanças Pessoais',
+      title: 'PowerFin — Finanças Pessoais',
       description: 'App multiusuário com metas, limites, recorrências e IA para dicas financeiras.',
-      tags: ['• React', '• Node', '• SQLite'],
-      cover: FotoSelf, // troque por sua imagem real
-      href: 'https://github.com/gedalyas/finflow'
-    },
-    {
-      title: 'Nutri S3 — E-commerce',
-      description: 'Loja focada em suplementos para cavalos atletas com SEO e Merchant Center.',
-      tags: ['• Next.js', '• Stripe', '• SEO'],
-      cover: FotoSelf, // troque por sua imagem real
-      href: 'https://nutris3.com.br'
+      tags: ['• React', '• Node', '• SQLite', '• OpenAI API', '• OpenFinance API'],
+      cover: appfinance,
+      href: 'https://github.com/gedalyas/financas-pessoais.git'
     },
     {
       title: 'Stock Analyzer',
       description: 'Indicadores técnicos (RSI/MACD), watchlist e alertas.',
-      tags: ['• Python', '• Kivy', '• yfinance'],
-      cover: FotoSelf, // troque por sua imagem real
+      tags: ['• Python', '• Kivy', '• yfinance', '• Matplotlib'],
+      cover: acoeskivi,
       href: 'https://github.com/gedalyas/stock-analyzer'
     },
     {
-      title: 'Portfolio (Este site)',
-      description: 'SPA com animações, grid responsivo e cards interativos.',
-      tags: ['• React', '• styled-components', '• UX'],
-      cover: FotoSelf
+      title: 'Portfolio',
+      description: 'Site com animações, grid responsivo, cards interativos e agente de IA.',
+      tags: ['• React', '• styled-components', '• UX', '• Gemini AI API'],
+      cover: meuport,
+      href: 'https://github.com/gedalyas/meuportfolio.git'
     },
     {
-      title: 'Assistente Financeiro (IA)',
-      description: 'Leitura de gastos do usuário e estratégias de economia.',
-      tags: ['• OpenAI', '• Chat', '• Tokenização'],
-      cover: FotoSelf
+      title: 'FinDavid',
+      description: 'Dashboard financeiro com gráficos, metas e personalização para usuarios.',
+      tags: ['• HTML', '• CSS'],
+      cover: dashboardfinancias,
+      href: 'https://github.com/gedalyas/FinDavid.git'
     },
     {
       title: 'PDF → Excel Converter',
       description: 'Extração de tabelas com pdfplumber e exportação .xlsx.',
-      tags: ['• Python', '• pdfplumber', '• openpyxl'],
+      tags: ['• Python', '• pdfplumber', '• openpyxl', '• Pandas'],
       cover: FotoSelf,
       href: 'https://github.com/gedalyas/pdf-to-excel'
     }
