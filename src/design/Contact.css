@@ -1,138 +1,190 @@
+/* ===== Base: Mobile-first ===== */
+:root {
+  --bg: #001f3f;
+  --fg: #ffffff;
+  --muted: #ffffff1a;
+  --muted-hover: #ffffff30;
+  --ring: #00d4ff;
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(0,0,0,.3);
+  --shadow-lg: 0 8px 25px rgba(0,212,255,.4);
+}
+
+/* Evita jitter horizontal e respeita safe-areas no mobile */
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Poppins', sans-serif; }
+body.no-scroll { overflow: hidden; }
+
 .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  width: 100vw;
-  background-color: #001f3f;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  padding: 2rem;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;                /* coluna única no mobile */
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  overflow: hidden;
+  justify-items: center;
+  gap: 24px;
+  min-height: 100svh;                        /* melhor para mobile que 100vh */
+  width: 100%;                               /* 100% evita overflow do 100vw */
+  padding: calc(16px + env(safe-area-inset-top)) clamp(16px, 4vw, 32px) calc(16px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  background-color: var(--bg);
 }
 
-.contact-left, .contact-right {
-  flex: 1 1 300px;
-  padding: 2rem;
+/* Blocos */
+.contact-left,
+.contact-right {
+  width: min(100%, 960px);                   /* limita largura em telas grandes */
 }
 
+/* Tipografia fluida */
 .contact-left h2 {
-  font-size: 6rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0;
-  padding-left:2rem;
-  white-space: nowrap;
-  font-weight: 400;
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 8px 0;
+  /* de ~32px no mobile até ~72px em telas grandes */
+  font-size: clamp(2rem, 6vw, 4.5rem);
 }
 
 .contact-left p {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-left: 0;
-  padding-left:2rem;
+  margin: 0 0 20px 0;
   line-height: 1.6;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  opacity: .95;
 }
 
+/* Ícones: touch-target >= 44px */
 .contact-icons {
   display: flex;
-  gap: 1.2rem;
   flex-wrap: wrap;
-  margin-left: 0;
-  padding-left:2rem;
+  gap: 12px 14px;
+  justify-content: center;                   /* mobile centralizado */
 }
 
 .icon-link {
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
   border-radius: 50%;
-  padding: 1rem;
-  font-size: 1.8rem;
-  color: #fff;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--muted);
+  transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.icon-link:hover {
-  background-color: #ffffff30;
-  transform: scale(1.1);
-  color: #00d4ff;
+.icon-link:hover,
+.icon-link:active {
+  background-color: var(--muted-hover);
+  transform: scale(1.06);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 40%, transparent);
 }
 
+.icon-link:focus-visible {
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* Imagem */
 .contact-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .setup-image {
-  max-width: 70%;
+  width: min(90vw, 680px);
+  max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   filter: grayscale(100%);
-  transition: filter 0.5s ease, transform 0.4s ease;
+  transition: filter .4s ease, transform .25s ease, box-shadow .25s ease;
   cursor: pointer;
+  object-fit: cover;
 }
 
-.setup-image:hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .setup-image:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
+/* ===== Animações com fallback de acessibilidade ===== */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
-@media (max-width: 768px) {
+.contact-left { animation: slideInLeft 600ms ease-out both; }
+.contact-right { animation: slideInRight 700ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-left, .contact-right { animation: none !important; }
+  .icon-link { transition: none; }
+  .setup-image { transition: none; }
+}
+
+/* ===== Desktop / tablets ===== */
+@media (min-width: 768px) {
   .contact-container {
-    flex-direction: column;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;          /* lado a lado */
+    align-items: center;
+    justify-items: stretch;
+  }
+
+  .contact-left {
+    text-align: left;
+    justify-self: start;
   }
 
   .contact-icons {
-    justify-content: center;
+    justify-content: flex-start;             /* alinha à esquerda no desktop */
   }
 
-  .contact-left, .contact-right {
-    padding: 1rem;
+  .setup-image {
+    width: min(70%, 560px);
   }
 }
 
-/* Animação da esquerda */
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+@media (min-width: 1200px) {
+  .contact-left h2 { font-size: clamp(3rem, 5vw, 6rem); }
+}
+/* ===== Correções de layout vs Menu fixo ===== */
+
+/* Topo compensa a barra do menu no mobile (ex.: 64px) */
+.contact-container {
+  /* mantém os seus valores atuais e garante espaçamento abaixo do topo fixo */
+  padding-top: calc(var(--nav-h, 64px) + 16px + env(safe-area-inset-top));
+}
+
+/* Lado esquerdo compensa o menu vertical no desktop (ex.: 60px + gap) */
+@media (min-width: 1024px) {
+  .contact-container {
+    padding-left: calc(var(--nav-w, 60px) + var(--nav-gap, 16px) + clamp(24px, 4vw, 64px));
   }
 }
 
-/* Animação da direita */
-@keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Título menor no teto pra não “comer” o menu e quebrar linha melhor */
+.contact-left h2 {
+  font-size: clamp(2rem, 5vw, 4rem); /* antes chegava a ~6rem */
+  margin-top: 4px;                    /* dá um respiro abaixo da barra fixed */
 }
 
-.contact-left {
-  animation: slideInLeft 1s ease-out forwards;
+/* Garante que os ícones não “grudem” na esquerda no desktop */
+@media (min-width: 768px) {
+  .contact-icons { justify-content: flex-start; }
 }
 
-.contact-right {
-  animation: slideInRight 1s ease-out forwards;
-  animation-delay: 0.2s;
-}
-body.no-scroll{
-  overflow: hidden;
+/* Opcional: se o Contact precisar rolar em telas menores, remova o no-scroll */
+/* Sobe a foto um pouco no desktop */
+@media (min-width: 1024px) {
+  .setup-image {
+    margin-top: -24px; /* ajuste aqui: -16, -24, -32px... */
+  }
 }
 

@@ -7,6 +7,7 @@ import acoeskivi from '../assets/images/acoeskivi.jpg';
 import appfinance from '../assets/images/appfinance.jpg';
 import dashboardfinancias from '../assets/images/dashboardfinancias.jpg';
 import meuport from '../assets/images/meuport.png';
+import codigopdf from '../assets/images/codigopdf.png';
 
 
 
@@ -52,8 +53,8 @@ function Projects() {
       title: 'PDF → Excel Converter',
       description: 'Extração de tabelas com pdfplumber e exportação .xlsx.',
       tags: ['• Python', '• pdfplumber', '• openpyxl', '• Pandas'],
-      cover: FotoSelf,
-      href: 'https://github.com/gedalyas/pdf-to-excel'
+      cover: codigopdf,
+      href: 'https://github.com/gedalyas/PDFTOEXCEL.git'
     }
   ];
 
@@ -78,7 +79,6 @@ function Projects() {
 
       <div className="projects-right">
         <h1>Recent Projects </h1>
-        <h2>and Achievements</h2>
 
         <div className="projects-grid">
           {projects.map((p, i) => (
