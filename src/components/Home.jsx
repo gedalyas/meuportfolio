@@ -1,7 +1,6 @@
 import React from "react";
 import "../design/Home.css";
 import SocialIcons from "../components/SocialIcons";
-import Localization from "../components/Localization";
 import Menu from "../components/Menu";
 import UnifiedCard from "../components/UnifiedCard";
 import { TbWorldCode } from "react-icons/tb";
@@ -12,45 +11,35 @@ export default function Home() {
   return (
     <div className="tela-bem-vindo">
       <div className="home-content">
-        {/* BLOCO HERO = títulos + cards (verticalmente centralizados) */}
-        <section className="hero" aria-label="Introdução e atalhos">
-          <h1 className="frase-animada">
-            {"Hello there , my name is".split("").map((letra, index) => (
-              <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
-                {letra}
-              </span>
-            ))}
+        {/* BLOCO HERO = títulos + cards */}
+        <section className="hero" aria-label="Introduction and shortcuts">
+          {/* Texto contínuo (traduz corretamente) */}
+          <h1 className="frase-animada type" style={{ ["--n"]: 24 }}>
+            Hello there, my name is
           </h1>
 
-          <p className="intro-text frase-animada">
-            {"Davi  Almeida".split("").map((letra, index) => (
-              <span key={index} style={{ animationDelay: `${(index + 25) * 0.05}s` }}>
-                {letra}
-              </span>
-            ))}
+          {/* Nome sem tradução */}
+          <p className="intro-text">
+            <span className="notranslate" translate="no">Davi Almeida</span>
           </p>
 
-          <p className="additional-text frase-animada">
-            {"App developer in Brazil".split("").map((letra, index) => (
-              <span key={index} style={{ animationDelay: `${(index + 50) * 0.05}s` }}>
-                {letra}
-              </span>
-            ))}
+          <p className="additional-text fadein">
+            App developer in Brazil
           </p>
 
-          <div className="icones-container">
+          <div
+            className="icones-container notranslate"
+            translate="no"
+          >
             <UnifiedCard icon={<TbWorldCode />} backText="Web Dev" />
             <UnifiedCard icon={<GoGraph />} backText="Data Scientist" />
-            <UnifiedCard icon={<AiFillOpenAI />} backText="IA Developer" />
+            <UnifiedCard icon={<AiFillOpenAI />} backText="AI Developer" />
           </div>
+
         </section>
 
-        {/* Meta */}
         <SocialIcons />
-        <Localization />
       </div>
-
-      {/* Menu lateral */}
       <Menu />
     </div>
   );

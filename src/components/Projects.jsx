@@ -23,35 +23,35 @@ function Projects() {
   const projects = [
     {
       title: 'PowerFin — Finanças Pessoais',
-      description: 'App multiusuário com metas, limites, recorrências e IA para dicas financeiras.',
+      description: 'Multi-user app with goals, limits, recurrences, and AI for financial tips.',
       tags: ['• React', '• Node', '• SQLite', '• OpenAI API', '• OpenFinance API'],
       cover: appfinance,
       href: 'https://github.com/gedalyas/financas-pessoais.git'
     },
     {
       title: 'Stock Analyzer',
-      description: 'Indicadores técnicos (RSI/MACD), watchlist e alertas.',
+      description: 'Technical indicators (RSI/MACD), watchlist and alerts.',
       tags: ['• Python', '• Kivy', '• yfinance', '• Matplotlib'],
       cover: acoeskivi,
-      href: 'https://github.com/gedalyas/stock-analyzer'
+      href: 'https://github.com/gedalyas/Analise-a-es.git'
     },
     {
       title: 'Portfolio',
-      description: 'Site com animações, grid responsivo, cards interativos e agente de IA.',
+      description: 'Website with animations, responsive grid, interactive cards, and AI agent.',
       tags: ['• React', '• styled-components', '• UX', '• Gemini AI API'],
       cover: meuport,
       href: 'https://github.com/gedalyas/meuportfolio.git'
     },
     {
       title: 'FinDavid',
-      description: 'Dashboard financeiro com gráficos, metas e personalização para usuarios.',
+      description: 'Financial dashboard with graphs, goals, and customization for users.',
       tags: ['• HTML', '• CSS'],
       cover: dashboardfinancias,
       href: 'https://github.com/gedalyas/FinDavid.git'
     },
     {
       title: 'PDF → Excel Converter',
-      description: 'Extração de tabelas com pdfplumber e exportação .xlsx.',
+      description: 'Extract tables with pdfplumber and export .xlsx.',
       tags: ['• Python', '• pdfplumber', '• openpyxl', '• Pandas'],
       cover: codigopdf,
       href: 'https://github.com/gedalyas/PDFTOEXCEL.git'

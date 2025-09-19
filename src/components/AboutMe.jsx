@@ -255,11 +255,15 @@ function AboutMe() {
             <ul>
               <li>
                 <h3>College União Acadêmica de Minas Gerais</h3>
-                <p>Bacharelado em Ciência da Computação (2024 - 2027)</p>
+                <p>Bachelor’s in Computer Science (2024 - 2027)</p>
               </li>
               <li>
-                <h3>Curso Network Defense - Cisco</h3>
+                <h3>Network Defense Course - Cisco</h3>
                 <p>Network monitoring and protection techniques, including access control, firewalls, cloud security and encryption. Assessing and responding to security alerts. (2025)</p>
+              </li>
+              <li>
+                <h3>Figma Course – Catholic University of Brasília</h3>
+                <p>Training in prototype creation and design for commercial projects and prototypes.</p>
               </li>
             </ul>
           </div>
@@ -338,7 +342,7 @@ function AboutMe() {
 
       </div>
 
-      {/* 3. ADICIONE O CHAT AQUI, FORA DO CONTAINER PRINCIPAL */}
+      
       <Chat />
     </>
   );

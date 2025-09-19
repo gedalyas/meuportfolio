@@ -111,7 +111,7 @@ body .tela-bem-vindo {
   align-items: center;                    /* centro horizontal */
   justify-content: center;                /* centro vertical */
   gap: clamp(10px, 2.5vh, 22px);
-  text-align: center;                     /* centraliza todos os textos dentro da hero */
+  text-align: center;         
 }
 
 /* ===== Tipografia (usando variáveis) ===== */
@@ -127,7 +127,7 @@ body .tela-bem-vindo {
   font-family: 'Inter', sans-serif;
   font-size: var(--fs-title);
   line-height: var(--lh-title);
-  color: #A8FF8D;
+  color: #00ffcc;
   margin: 0;
   text-align: center;
   word-break: break-word;
@@ -213,3 +213,23 @@ body .tela-bem-vindo .icones-container {
   bottom: clamp(12px, 3vw, 24px);
   z-index: 10;
 }
+/* efeito de “digitação” sem split("") */
+.type {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .08em solid currentColor;
+  /* --n = número de caracteres aprox. (ajuste!) */
+  width: calc(var(--n, 24) * 1ch);
+  animation: typing 1.8s steps(var(--n, 24)) 0.1s both,
+             caret 1s steps(1) infinite;
+}
+@keyframes typing { from { width: 0 } to { width: calc(var(--n, 24) * 1ch) } }
+@keyframes caret { 50% { border-color: transparent } }
+
+/* aparece suavemente */
+.fadein { opacity: 0; animation: fade 0.6s 1.9s both; }
+@keyframes fade { to { opacity: 1 } }
+
+/* impede tradução em elementos marcados */
+.notranslate { unicode-bidi: isolate; }

@@ -14,7 +14,11 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
 
       <div className="project-info">
         <div className="flex-pr">
-          <h3 className="project-title">{title}</h3>
+          {/* NOME — NÃO traduzir */}
+          <h3 className="project-title notranslate" translate="no">
+            {title}
+          </h3>
+
           <div className="project-hover" aria-hidden>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
               strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24"
@@ -25,10 +29,16 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
           </div>
         </div>
 
-        {description && <p className="project-desc">{description}</p>}
+        {/* DESCRIÇÃO — permitir tradução */}
+        {description && (
+          <p className="project-desc" translate="yes">
+            {description}
+          </p>
+        )}
 
+        {/* TAGS — NÃO traduzir */}
         {!!tags.length && (
-          <div className="types">
+          <div className="types notranslate" translate="no">
             {tags.map((t, i) => (
               <span key={i} className="project-type">{t}</span>
             ))}
@@ -41,7 +51,13 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
   return (
     <StyledWrapper>
       {href ? (
-        <a className="card-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${title}`}>
+        <a
+          className="card-link"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Abrir ${title}`}
+        >
           {CardContent}
         </a>
       ) : (
@@ -53,34 +69,31 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
 
 const StyledWrapper = styled.div`
   /* ===== Config da animação “offset” ===== */
-  --shift: 14px; /* deslocamento base (desktop) */
+  --shift: 14px;
 
   .card-link { display:block; color:inherit; text-decoration:none; }
 
   .article-wrapper {
-    position: relative;            /* para z-index no hover */
+    position: relative;
     z-index: 0;
     width: 100%;
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,.15);
     background: #fff;
-    overflow: hidden;               /* cantos arredondados tbm na imagem */
+    overflow: hidden;
     transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     will-change: transform, box-shadow;
     cursor: pointer;
   }
-
-  /* sua animação clássica: dupla sombra + translate negativo */
   .article-wrapper:hover {
     transform: translate(calc(-1 * var(--shift)), calc(-1 * var(--shift)));
     box-shadow:
       var(--shift) var(--shift) 0 #4e84ff,
       calc(var(--shift) * 2) calc(var(--shift) * 2) 0 #4444bd;
     border-color: #0578c5;
-    z-index: 3; /* sobe na pilha para não ficar atrás de vizinhos */
+    z-index: 3;
   }
 
-  /* seta gira e ganha leve fundo */
   .project-hover {
     flex: 0 0 auto;
     border-radius: 999px;
@@ -93,35 +106,15 @@ const StyledWrapper = styled.div`
     background-color: #e6eefc;
   }
 
-  /* Capa com proporção estável */
-  .container-project {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #e5e7eb;
-    position: relative;
-  }
-  .cover-img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .cover-fallback {
-    width: 100%; height: 100%;
-    display: grid; place-items: center;
-    color: #6b7280;
-    font-size: .95rem;
-  }
+  .container-project { width: 100%; aspect-ratio: 16 / 9; background: #e5e7eb; position: relative; }
+  .cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display:block; }
+  .cover-fallback { width:100%; height:100%; display:grid; place-items:center; color:#6b7280; font-size:.95rem; }
 
-  .project-info {
-    padding: 14px 14px 16px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .flex-pr { display:flex; align-items:center; justify-content:space-between; gap: 10px; }
+  .project-info { padding: 14px 14px 16px; display:flex; flex-direction:column; gap:10px; }
+  .flex-pr { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 
   .project-title {
-    margin: 0;
-    font-weight: 700;
+    margin: 0; font-weight: 700;
     font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
     color: #0f172a;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -134,21 +127,16 @@ const StyledWrapper = styled.div`
 
   .types { display:flex; flex-wrap:wrap; gap: 8px; }
   .project-type {
-    background: #eef2ff;
-    color: #1e3a8a;
-    font-weight: 600;
-    padding: .28em .6em;
-    border-radius: 999px;
-    font-size: 12px;
-    letter-spacing: -.2px;
-    white-space: nowrap;
+    background: #eef2ff; color: #1e3a8a; font-weight: 600;
+    padding: .28em .6em; border-radius: 999px; font-size: 12px; letter-spacing: -.2px; white-space: nowrap;
   }
 
-  /* Responsivo: diminui o “offset” para não invadir a sidebar no mobile */
+  /* Garante que o conteúdo com .notranslate fique isolado (evita interferência de libs de tradução) */
+  .notranslate { unicode-bidi: isolate; }
+
   @media (max-width: 1100px) { :root & { --shift: 10px; } }
   @media (max-width: 768px)  { :root & { --shift: 6px; } }
 
-  /* Acessibilidade: se o usuário prefere menos movimento, desativa */
   @media (prefers-reduced-motion: reduce) {
     .article-wrapper { transition: none; }
     .article-wrapper:hover { transform: none; box-shadow: none; }
