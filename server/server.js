@@ -10,8 +10,25 @@ const app = express();
 app.set("trust proxy", true);
 const port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "1mb" }));
+
+// ✅ Ajuste depois do deploy para o domínio real do seu front
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "https://seu-front.vercel.app",      // troque para a sua URL final
+  "https://www.seudominio.com",        // se usar domínio próprio
+  "https://seudominio.com"
+];
+
+app.use(
+  cors({
+    origin(origin, cb) {
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+      return cb(new Error("Origin not allowed by CORS"));
+    },
+    methods: ["GET", "POST"],
+  })
+);
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -21,10 +38,12 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const REFUSAL =
   "Posso falar apenas sobre o Davi (perfil, serviços, projetos e contatos). Reformule sua pergunta.";
 
-// === FILTRO ULTRA SIMPLES (1ª mensagem precisa estar “sobre você”) ===
+// normalização simples
 function norm(s = "") {
   return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
+
+// PRIMEIRA mensagem precisa estar no escopo
 function inScopeStrict(text = "") {
   const t = norm(text);
   if (t.includes("davi")) return true;
@@ -39,15 +58,20 @@ function inScopeStrict(text = "") {
   return intent;
 }
 
-// Sessões simples por IP+UA para manter contexto por 30 min
+// Sessões simples por IP+UA (30 min)
 const sessions = new Map();
 const SESSION_TTL_MS = 30 * 60 * 1000;
 
 function sessionKeyFromReq(req) {
   const ua = req.headers["user-agent"] || "ua";
-  const ip = req.ip || req.connection?.remoteAddress || "ip";
+  const ip =
+    req.ip ||
+    req.headers["x-forwarded-for"]?.toString().split(",")[0]?.trim() ||
+    req.connection?.remoteAddress ||
+    "ip";
   return `${ip}::${ua}`;
 }
+
 function getSession(key) {
   const now = Date.now();
   const s = sessions.get(key);
@@ -59,16 +83,18 @@ function getSession(key) {
   s.last = now;
   return s;
 }
+
 function createSession() {
   return { verified: false, history: [], last: Date.now() };
 }
+
 function saveSession(key, s) {
   s.last = Date.now();
   sessions.set(key, s);
 }
 
 /* ======================
-   PROMPT (SEM RECUSA; SEMPRE ENCAMINHA)
+   PROMPT BASE
 ====================== */
 const PROFILE_BASE = `
 Você é o assistente pessoal de Davi Almeida Souto. Considere que TODA conversa neste chat é sobre o Davi, seus serviços, projetos, experiência e contato.
@@ -88,14 +114,18 @@ COMO RESPONDER (OBRIGATÓRIO)
 3) Proponha próximos passos + CTA: convide para uma conversa curta e indique "Contact".
 4) Seja conciso (3–6 frases). Não invente fatos. Se faltar dado, diga que precisa alinhar requisitos.
 
-EXEMPLOS
+EXEMPLO
 Usuário: "Estou com um problema na empresa e acho que o Davi pode resolver."
 Assistente: "Consigo ajudar, sim. Você pode me dizer qual área impacta mais (ex.: estoque, financeiro, vendas) e se já usa algum sistema/planilha? Se fizer sentido, marcamos uma conversa rápida — meus contatos estão na seção 'Contact with me'."
 `;
 
 /* ======================
-   ROTA
+   ROTAS
 ====================== */
+
+// Health (para checagem no Render)
+app.get("/health", (_req, res) => res.json({ ok: true }));
+
 app.post("/api/chat", async (req, res) => {
   try {
     const { message } = req.body || {};
@@ -106,7 +136,7 @@ app.post("/api/chat", async (req, res) => {
     const key = sessionKeyFromReq(req);
     let sess = getSession(key) || createSession();
 
-    // Pré-filtro apenas na PRIMEIRA mensagem
+    // Pré-filtro só na primeira msg
     if (!sess.verified) {
       const allowed = inScopeStrict(message);
       console.log(`[FIRST] allowed=${allowed} | msg="${message}"`);
@@ -125,11 +155,11 @@ app.post("/api/chat", async (req, res) => {
         topK: 40,
         topP: 0.9,
         maxOutputTokens: 320,
-        responseMimeType: "text/plain",
-      },
+        responseMimeType: "text/plain"
+      }
     });
 
-    // histórico (até 10 turnos)
+    // histórico (até 20 turnos)
     const history = sess.history.slice(-20);
     const chat = model.startChat({ history });
 
@@ -139,14 +169,12 @@ app.post("/api/chat", async (req, res) => {
     let text = (response.text() || "").trim();
 
     if (!text) {
-      text =
-        "Consigo te ajudar com isso. Pode me dizer qual área impacta mais (ex.: estoque, financeiro, vendas) e se você já usa algum sistema/planilha? Se fizer sentido, marcamos uma conversa rápida — meus contatos estão na seção “Contact with me”.";
+      text = "Consigo te ajudar com isso. Pode me dizer qual área impacta mais (ex.: estoque, financeiro, vendas) e se você já usa algum sistema/planilha? Se fizer sentido, marcamos uma conversa rápida — meus contatos estão na seção “Contact with me”.";
     }
 
-    // (DEBUG) ver a saída do modelo:
     console.log(`[MODEL OUT] ${text}`);
 
-    // Atualiza histórico/sessão
+    // Atualiza histórico
     history.push({ role: "user", parts: [{ text: message }] });
     history.push({ role: "model", parts: [{ text }] });
     sess.history = history;
@@ -155,7 +183,7 @@ app.post("/api/chat", async (req, res) => {
     console.log(`[RESP] ok`);
     return res.status(200).json({ reply: text });
   } catch (error) {
-    console.error("Erro na chamada da API Gemini:", error);
+    console.error("Erro na chamada da API Gemini:", error?.message || error);
     return res.status(500).json({ error: "Falha ao obter resposta da IA." });
   }
 });
