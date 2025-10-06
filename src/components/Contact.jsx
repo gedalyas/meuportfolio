@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { FaInstagram, FaLinkedin, FaEnvelope, FaWhatsapp, FaGithub } from 'react-icons/fa';
 import FotoSetup from '../assets/images/FotoSetup.jpg';
-import "../design/contact.css";
+import "../design/Contact.css";
 import Menu from './Menu';
 
 function Contact() {

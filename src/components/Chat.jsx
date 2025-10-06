@@ -1,7 +1,7 @@
 // src/components/Chat.jsx
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import fotoperfil from "../assets/images/fotoperfil.png"; // ⇦ ajuste a extensão se for .png
+import fotoperfil from "../assets/images/fotoperfil.png"; // ajuste o caminho/extensão se necessário
 
 export default function Chat() {
   const [shadowRoot, setShadowRoot] = useState(null);
@@ -10,6 +10,7 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Monta host + Shadow DOM
   useEffect(() => {
     const host = document.createElement("div");
     host.id = "ai-chat-host";
@@ -25,7 +26,6 @@ export default function Chat() {
     document.body.appendChild(host);
 
     const shadow = host.attachShadow({ mode: "open" });
-
     const style = document.createElement("style");
     style.textContent = `
       :host, .wrap, .c-panel, .c-bubble { box-sizing: border-box; }
@@ -108,39 +108,57 @@ export default function Chat() {
       .typing .dot { animation: blink 1.2s infinite; display:inline-block; }
       .typing .dot:nth-child(2){ animation-delay:.15s; }
       .typing .dot:nth-child(3){ animation-delay:.3s; }
-      @keyframes blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0} }
+      @keyframes blink { 0%,20%{opacity:0} 50%{opacity:1} 100%{opacity:0 } }
 
       @media (max-width: 600px) {
         .c-panel { width: calc(100vw - 32px); max-height: min(75vh, 600px); }
       }
     `;
     shadow.appendChild(style);
-
     setShadowRoot(shadow);
+
     return () => { host.remove(); };
   }, []);
+
+  // Auto-scroll ao fim quando chegam mensagens/estado de digitação
+  useEffect(() => {
+    if (!shadowRoot) return;
+    const list = shadowRoot.querySelector(".c-list");
+    if (list) list.scrollTop = list.scrollHeight;
+  }, [messages, isLoading, shadowRoot]);
 
   const toggleChat = () => setIsOpen(v => !v);
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (!input.trim()) return;
+
     const text = input;
     setMessages(prev => [...prev, { sender: "user", text }]);
     setInput("");
     setIsLoading(true);
+
+    // Histórico curto (últimas 8 mensagens) para dar contexto ao modelo
+    const history = messages.slice(-8).map(m => ({
+      role: m.sender === "user" ? "user" : "model",
+      content: m.text
+    }));
+
     try {
-      const res = await fetch("http://localhost:5000/api/chat", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ message: text, history })
       });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
       setMessages(prev => [...prev, { sender: "ai", text: data.reply }]);
     } catch (err) {
       console.error(err);
-      setMessages(prev => [...prev, { sender: "ai", text: "Desculpe, não consegui pensar em uma resposta. Tente novamente." }]);
+      setMessages(prev => [
+        ...prev,
+        { sender: "ai", text: "Desculpe, não consegui pensar em uma resposta. Tente novamente." }
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -180,13 +198,16 @@ export default function Chat() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Digite sua mensagem..."
               disabled={isLoading}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) handleSubmit(e);
+              }}
             />
             <button type="submit" disabled={isLoading}>Enviar</button>
           </form>
         </div>
       )}
 
-      {/* bolha com sua foto */}
+      {/* Bolha com sua foto */}
       <button
         className="c-bubble"
         onClick={toggleChat}
