@@ -1,0 +1,7 @@
+# Ignorar no deploy
+server/
+dist/
+node_modules/
+.vscode/
+.git/
+*.log
