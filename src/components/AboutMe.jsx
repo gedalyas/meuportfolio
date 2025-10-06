@@ -160,29 +160,6 @@ function AboutMe() {
     };
   }, []);
 
-  // ============================
-  // DEBUG: badge de breakpoint
-  // ============================
-  useEffect(() => {
-    const flag = document.createElement('div');
-    flag.style.cssText =
-      'position:fixed;bottom:8px;left:8px;background:#111;color:#0f0;z-index:99999;padding:6px 8px;font:12px/1 monospace;border-radius:6px;opacity:.9';
-    function update() {
-      flag.textContent =
-        `w=${window.innerWidth} ` +
-        `mq820=${window.matchMedia('(min-width:820px)').matches} ` +
-        `mq900=${window.matchMedia('(min-width:900px)').matches}`;
-    }
-    update();
-    window.addEventListener('resize', update);
-    document.body.appendChild(flag);
-    return () => {
-      window.removeEventListener('resize', update);
-      flag.remove();
-    };
-  }, []);
-  // ============================
-
   const scrollDown = () => {
     window.scrollBy({
       top: 670, // para mudar o tanto do scroll, basta alterar esse valor
@@ -191,10 +168,15 @@ function AboutMe() {
     });
   };
 
+  
   return (
+    // 2. USE UM FRAGMENTO DO REACT (<>) PARA ENVOLVER TUDO
     <>
+      {/* SEU CÓDIGO DA PÁGINA FICA EXATAMENTE COMO ESTAVA, DENTRO DESTE DIV */}
       <div className="about-container">
-        <header className="main-header"></header>
+        <header className="main-header">
+
+        </header>
 
         <Menu />
         <div className="about-main">
@@ -212,6 +194,7 @@ function AboutMe() {
             <img src={FotoPrimeira} alt="Minha foto" className="about-image" />
           </div>
         </div>
+
 
         <div className="about-mainsecond">
           <div className="about-who">
@@ -237,7 +220,6 @@ function AboutMe() {
             </p>
           </div>
         </div>
-
         <div className="about-mainthird">
           <div className="about-skills">
             <h2>Skills and Expertise</h2>
@@ -250,19 +232,19 @@ function AboutMe() {
             </div>
           </div>
         </div>
-
         <div className="about-mainquard">
           <div className="about-lang">
             <h2>LANGUAGE & FRAMEWORK</h2>
             <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | NodeJS | TailwindCSS  <strong>MySQL</strong> |
               PostgreSQL | MongoDB | <strong>Python</strong> | VBA | <strong>R</strong> | Pandas | Quantib | Yfinance | Matplotlib </p>
+
           </div>
           <div className="about-tools">
             <h2>TOOLS</h2>
             <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter</strong>  Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
+
           </div>
         </div>
-
         <div className="about-mainfive">
           <div className="about-education">
             <div className="underline-five">
@@ -305,14 +287,12 @@ function AboutMe() {
             </div>
           </div>
         </div>
-
         <div className="main-six">
           <h2>
             <strong>"There are no limits to what you can accomplish</strong>
           </h2>
           <p>except the limits you place on your own thinking."</p>
         </div>
-
         <div className="main-seven">
           <h1>Ready to create something amazing?</h1>
           <div className="path-container">
@@ -359,8 +339,10 @@ function AboutMe() {
             <p>© {new Date().getFullYear()} Davi Almeida. All rights reserved.</p>
           </div>
         </footer>
+
       </div>
 
+      
       <Chat />
     </>
   );
