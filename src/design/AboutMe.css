@@ -339,3 +339,16 @@ li h3, li p{ margin:0; line-height:1.5; }
     clip-path: inset(0 round 20px);
   }
 }
+/* ==== CENTER CONTAINERS (desktop) ==== */
+@media (min-width:820px){
+  /* 1) Centraliza o bloco About Me (primeira dobra) */
+  .about-main{
+    max-width: min(1200px, 92vw);
+    margin: 0 auto;                          /* <-- centra */
+    padding-inline: clamp(16px, 4vw, 32px);   /* respiro nas laterais */
+  }
+
+  /* 2) Mantém texto à esquerda e foto à direita, bem alinhados */
+  .about-left{ justify-self: end; }
+  .about-right{ justify-self: start; }
+}
