@@ -298,18 +298,18 @@ function AboutMe() {
           <div className="path-container">
             <div className="main-seven-row">
               <div className="cta-card" data-path="left">
-                <a href="https://www.davisouto.dev/projects">
+                <Link to="/projects">
                   <span className="icon">🚀</span>
                   <h2>Explore My Work</h2>
                   <p>See detailed case studies</p>
-                </a>
+                </Link>
               </div>
               <div className="cta-card light" data-path="right">
-                <a href="https://www.davisouto.dev/contact">
+                <Link to="/contact">
                   <span className="icon">✨</span>
                   <h2>Start a Project</h2>
                   <p>Let's build together</p>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
