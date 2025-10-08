@@ -353,13 +353,66 @@ li h3, li p{ margin:0; line-height:1.5; }
   .about-right{ justify-self: start; }
 }
 /* === TÍTULO "About Me" em uma única linha (desktop) === */
+/* === SEPARAR .about-left e .about-right (desktop) === */
 @media (min-width:820px){
+  /* mais respiro entre as colunas */
+  .about-main{
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) min(520px, 40vw) !important;
+    column-gap: clamp(48px, 8vw, 120px) !important;   /* <— mais GAP */
+    align-items: center !important;
+    max-width: min(1200px, 92vw);
+    margin: 0 auto;
+    padding-inline: clamp(16px, 4vw, 32px);
+  }
+
+  /* garante que o texto não encoste na foto */
+  .about-left{
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 1rem 0 !important;
+    padding-right: clamp(16px, 4vw, 48px) !important; /* respiro do lado da foto */
+    max-width: 680px;                                  /* largura confortável do texto */
+    z-index: 2;                                        /* fica acima se encostar */
+  }
+
+  /* título sem deslocamentos e sem quebrar à toa */
   .about-left h2{
-    white-space: nowrap !important;    /* não quebra */
+    transform: none !important;
+    padding-left: 0 !important;
+    white-space: nowrap !important;                    /* “About Me” na mesma linha */
+    font-size: clamp(3rem, 6vw, 4.6rem) !important;
     line-height: 1.05 !important;
-    letter-spacing: .5px;
-    /* ajusta o tamanho para caber na coluna esquerda sem estourar */
-    font-size: clamp(2.8rem, 5vw, 4.6rem) !important;
+    margin: 0 0 .75rem 0 !important;
+  }
+  .underline .line.short,
+  .underline .line.long{
+    position: static !important;
+    transform: none !important;
+    margin-inline: 0 !important;
+  }
+  .about-left p{
+    transform: none !important;
+    padding-left: 0 !important;
+    margin: 1rem 0 0 0 !important;
+    max-width: 68ch;
+  }
+
+  /* coluna da foto com margem própria, sem 105vh */
+  .about-right{
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    justify-self: start;
+    margin-left: clamp(8px, 2vw, 24px) !important;     /* separa fisicamente da esquerda */
+  }
+  .about-image{
+    width: 100% !important;
+    max-width: min(520px, 40vw) !important;            /* casa com a coluna da direita */
+    display: block;
+    border-radius: 20px;
+    clip-path: inset(0 round 20px);
   }
 }
+
 
