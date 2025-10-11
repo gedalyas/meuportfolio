@@ -59,11 +59,10 @@
 body .tela-bem-vindo {
   position: relative;
   width: 100%;
-  min-height: 100svh;
+  min-height: 100dvh; /* ► dvh evita “sobra” causada pela UI do navegador */
   background: radial-gradient(circle at 45% 20%, #001f3f, #000);
   background-size: cover;
 
-  /* usamos flex pra controlar a altura sem criar scroll */
   display: flex;
   flex-direction: column;
 
@@ -75,13 +74,21 @@ body .tela-bem-vindo {
   padding-right: 16px;
   padding-top: calc(var(--nav-h, 64px) + 12px + env(safe-area-inset-top));
   padding-bottom: max(16px, env(safe-area-inset-bottom));
+
+  /* bloqueia bounce/overscroll e qualquer scroll lateral residual */
+  overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
-/* 🔒 trava a tela e remove o scroll no CELULAR (se quiser manter) */
+/* 🔒 trava a tela e remove o scroll no CELULAR */
 @media (max-width: 768px) {
+  html, body {
+    height: 100%;
+    overscroll-behavior-y: none; /* sem “puxar” além do fim */
+  }
   body .tela-bem-vindo {
-    height: 100svh;
-    overflow: hidden; /* corta qualquer overflow vertical no mobile */
+    height: 100dvh;  /* altura visível real no mobile */
+    overflow: clip;  /* corta overflow sem criar scrollbar */
   }
 }
 
@@ -105,11 +112,11 @@ body .tela-bem-vindo {
    Aqui deixamos tudo centralizado no MOBILE.
 */
 .hero{
-  min-block-size: 80svh;                  /* ajuste fino vertical (mantido) */
+  min-block-size: 80dvh;  /* ► dvh ajuda a evitar sobra vertical no mobile */
   display: flex;
   flex-direction: column;
-  align-items: center;                    /* centro horizontal */
-  justify-content: center;                /* centro vertical */
+  align-items: center;      /* centro horizontal */
+  justify-content: center;  /* centro vertical */
   gap: clamp(10px, 2.5vh, 22px);
   text-align: center;         
 }
@@ -213,6 +220,7 @@ body .tela-bem-vindo .icones-container {
   bottom: clamp(12px, 3vw, 24px);
   z-index: 10;
 }
+
 /* efeito de “digitação” sem split("") */
 .type {
   display: inline-block;
