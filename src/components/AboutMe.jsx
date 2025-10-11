@@ -235,13 +235,13 @@ function AboutMe() {
         <div className="about-mainquard">
           <div className="about-lang">
             <h2>LANGUAGE & FRAMEWORK</h2>
-            <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | NodeJS | TailwindCSS  <strong>MySQL</strong> |
+            <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | NodeJS | TailwindCSS | <strong>MySQL</strong> |
               PostgreSQL | MongoDB | <strong>Python</strong> | VBA | <strong>R</strong> | Pandas | Quantib | Yfinance | Matplotlib </p>
 
           </div>
           <div className="about-tools">
             <h2>TOOLS</h2>
-            <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter</strong>  Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
+            <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter</strong> | Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
 
           </div>
         </div>
