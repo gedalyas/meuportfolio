@@ -241,3 +241,28 @@ body .tela-bem-vindo .icones-container {
 
 /* impede tradução em elementos marcados */
 .notranslate { unicode-bidi: isolate; }
+
+/* ===== Lock global de scroll quando a Home está ativa (MOBILE) ===== */
+@media (max-width: 768px){
+  html.page-home-lock,
+  body.page-home-lock{
+    height: 100%;
+    overflow: hidden;                 /* nada de scroll */
+    overscroll-behavior: none;        /* sem bounce */
+    -webkit-overflow-scrolling: auto; /* desativa momentum no iOS */
+  }
+
+  /* “fixa” o body — evita 1px de sobra em alguns iPhones */
+  body.page-home-lock{
+    position: fixed;
+    inset: 0;                         /* top/right/bottom/left: 0 */
+    width: 100%;
+  }
+
+  /* garante que o container principal não crie rolagem própria */
+  body .tela-bem-vindo{
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: clip;
+  }
+}

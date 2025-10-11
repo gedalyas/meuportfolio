@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../design/Home.css";
 import SocialIcons from "../components/SocialIcons";
 import Menu from "../components/Menu";
@@ -8,6 +8,20 @@ import { GoGraph } from "react-icons/go";
 import { AiFillOpenAI } from "react-icons/ai";
 
 export default function Home() {
+  // 🔒 Travar scroll no mobile quando a Home estiver montada
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    html.classList.add("page-home-lock");
+    body.classList.add("page-home-lock");
+
+    return () => {
+      html.classList.remove("page-home-lock");
+      body.classList.remove("page-home-lock");
+    };
+  }, []);
+
   return (
     <div className="tela-bem-vindo">
       <div className="home-content">
@@ -35,7 +49,6 @@ export default function Home() {
             <UnifiedCard icon={<GoGraph />} backText="Data Scientist" />
             <UnifiedCard icon={<AiFillOpenAI />} backText="AI Developer" />
           </div>
-
         </section>
 
         <SocialIcons />
