@@ -13,19 +13,54 @@
 /* Evita jitter horizontal e respeita safe-areas no mobile */
 html, body { height: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Poppins', sans-serif; }
+
+/* Compatibilidade com o que você já tinha */
 body.no-scroll { overflow: hidden; }
 
+/* 🔒 Lock global quando Contact estiver ativo (igual Home) */
+@media (max-width: 768px){
+  html.page-contact-lock,
+  body.page-contact-lock{
+    height: 100%;
+    overflow: hidden;              /* bloqueia rolagem do documento */
+    overscroll-behavior: none;     /* sem bounce no mobile */
+    -webkit-overflow-scrolling: auto;
+  }
+
+  /* fixa o body para evitar 1px de sobra em alguns iPhones */
+  body.page-contact-lock{
+    position: fixed;
+    inset: 0;                      /* top/right/bottom/left: 0 */
+    width: 100%;
+  }
+}
+
+/* ===== Layout principal ===== */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr;                /* coluna única no mobile */
   align-items: center;
   justify-items: center;
   gap: 24px;
-  min-height: 100svh;                        /* melhor para mobile que 100vh */
+
+  /* ► use 100dvh para evitar “sobra” da UI do navegador no mobile */
+  min-height: 100dvh;
   width: 100%;                               /* 100% evita overflow do 100vw */
   padding: calc(16px + env(safe-area-inset-top)) clamp(16px, 4vw, 32px) calc(16px + env(safe-area-inset-bottom));
   box-sizing: border-box;
   background-color: var(--bg);
+
+  /* se algum filho “vazar”, não cria scrollbar */
+  overflow-x: hidden;
+}
+
+/* Garante que o container não crie rolagem própria no mobile (com lock ativo) */
+@media (max-width: 768px){
+  .contact-container{
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: clip;
+  }
 }
 
 /* Blocos */
@@ -154,6 +189,7 @@ body.no-scroll { overflow: hidden; }
 @media (min-width: 1200px) {
   .contact-left h2 { font-size: clamp(3rem, 5vw, 6rem); }
 }
+
 /* ===== Correções de layout vs Menu fixo ===== */
 
 /* Topo compensa a barra do menu no mobile (ex.: 64px) */
@@ -180,11 +216,9 @@ body.no-scroll { overflow: hidden; }
   .contact-icons { justify-content: flex-start; }
 }
 
-/* Opcional: se o Contact precisar rolar em telas menores, remova o no-scroll */
-/* Sobe a foto um pouco no desktop */
+/* Sobe a foto um pouco no desktop (opcional) */
 @media (min-width: 1024px) {
   .setup-image {
     margin-top: -24px; /* ajuste aqui: -16, -24, -32px... */
   }
 }
-

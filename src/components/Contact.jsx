@@ -5,11 +5,20 @@ import "../design/Contact.css";
 import Menu from './Menu';
 
 function Contact() {
-  // Bloqueia scroll só enquanto a página de contato está ativa
+  // 🔒 Bloqueia o scroll enquanto a página de contato está ativa
   useEffect(() => {
-    document.body.classList.add('no-scroll');
+    const html = document.documentElement;
+    const body = document.body;
+
+    // Mantém compatibilidade com seu no-scroll atual e adiciona o lock global
+    body.classList.add('no-scroll');
+    html.classList.add('page-contact-lock');
+    body.classList.add('page-contact-lock');
+
     return () => {
-      document.body.classList.remove('no-scroll');
+      body.classList.remove('no-scroll');
+      html.classList.remove('page-contact-lock');
+      body.classList.remove('page-contact-lock');
     };
   }, []);
 
