@@ -204,8 +204,8 @@ function AboutMe() {
               <div className="line long-sec"></div>
             </div>
             <div className="collage-container">
-              <img src={fotopraia} alt="Imagem 1" className="img img1" />
-              <img src={fotorj} alt="Imagem 2" className="img img2" />
+              <img src={fotorj} alt="Imagem 1" className="img img1" />
+              <img src={fotopraia} alt="Imagem 2" className="img img2" />
               <img src={fotfut} alt="Imagem 3" className="img img3" />
             </div>
           </div>
@@ -264,6 +264,10 @@ function AboutMe() {
               <li>
                 <h3>Figma Course – Catholic University of Brasília</h3>
                 <p>Training in prototype creation and design for commercial projects and prototypes.</p>
+              </li>
+              <li>
+                <h3>Gestor AIA</h3>
+                <p>Practical course on applied AI: prompts, agents, n8n/APIs, and ROI. From pilot to deployment, including real projects, playbooks, and business metrics.</p>
               </li>
             </ul>
           </div>

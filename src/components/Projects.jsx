@@ -8,6 +8,7 @@ import appfinance from '../assets/images/appfinance.jpg';
 import dashboardfinancias from '../assets/images/dashboardfinancias.jpg';
 import meuport from '../assets/images/meuport.png';
 import codigopdf from '../assets/images/codigopdf.png';
+import FluxCompras from '../assets/images/FluxCompras.jpg';
 
 
 
@@ -55,7 +56,15 @@ function Projects() {
       tags: ['• Python', '• pdfplumber', '• openpyxl', '• Pandas'],
       cover: codigopdf,
       href: 'https://github.com/gedalyas/PDFTOEXCEL.git'
+    },
+    {
+      title: 'Fluxo de Compras',
+      description: 'Purchasing system + AI agent for price research + market news.',
+      tags: ['• React', '• Node', '• SQLite', '• Perplexity API', '• GoogleAPI'],
+      cover: FluxCompras,
+      href: 'https://github.com/gedalyas/FluxCompras.git'
     }
+  
   ];
 
   return (
