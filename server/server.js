@@ -1,4 +1,4 @@
-// /server/server.js
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -12,12 +12,12 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json({ limit: "1mb" }));
 
-// ✅ Ajuste depois do deploy para o domínio real do seu front
+
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
-  "https://seu-front.vercel.app",      // troque para a sua URL final
-  "https://www.seudominio.com",        // se usar domínio próprio
-  "https://seudominio.com"
+  "https://www.davisouto.dev/",      // troque para a sua URL final
+  "https://www.davisouto.dev",        // se usar domínio próprio
+  "https://davisouto.dev"
 ];
 
 app.use(
