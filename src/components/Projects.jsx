@@ -25,7 +25,7 @@ function Projects() {
   // === Lista de projetos ===
   const projects = [
     {
-      title: 'PowerFin — Finanças Pessoais',
+      title: 'Prospera — Brasil Tecnologias',
       description: 'Multi-user app with goals, limits, recurrences, and AI for financial tips.',
       tags: ['• React', '• Node', '• SQLite', '• OpenAI API', '• OpenFinance API'],
       cover: appfinance,
