@@ -10,6 +10,7 @@ import meuport from '../assets/images/meuport.png';
 import codigopdf from '../assets/images/codigopdf.png';
 import FluxCompras from '../assets/images/FluxCompras.jpg';
 import SitePoltrona from '../assets/images/foto-site-poltrona.png';
+import fotomaos from '../assets/images/maoscom.png';
 
 
 
@@ -66,13 +67,14 @@ function Projects() {
       href: 'https://github.com/gedalyas/FluxCompras.git'
     },
     {
-      title: 'Website for renting post-surgical armchairs.',
-      description: 'Website for a client with a company specializing in post-surgical chair rentals.',
-      tags: ['• TypeScript', '• Tailwind CSS', '• HTML','• React'],
-      cover: SitePoltrona,
-      href: 'https://www.poltronasposcirurgicas.com/'
+      title: 'Website for professional nursing training.',
+      description: 'Website developed for a company specializing in hospital nursing training, first aid courses, and DEA cabinet implementation across Minas Gerais.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotomaos,
+      href: 'https://www.maosbr.com'
     },
-  
+
+
   ];
 
   return (
