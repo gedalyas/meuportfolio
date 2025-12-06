@@ -73,8 +73,12 @@ function Projects() {
       cover: fotomaos,
       href: 'https://www.maosbr.com'
     },
-
-
+    {
+      title: 'Poltrona E-commerce',
+      description: 'E-commerce website for a furniture store, featuring product showcases, shopping cart functionality, and secure checkout process.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: SitePoltrona,
+      href: 'https://www.poltronasposcirurgicas.com/'},
   ];
 
   return (
