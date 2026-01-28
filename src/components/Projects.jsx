@@ -11,7 +11,11 @@ import codigopdf from '../assets/images/codigopdf.png';
 import FluxCompras from '../assets/images/FluxCompras.jpg';
 import SitePoltrona from '../assets/images/foto-site-poltrona.png';
 import fotomaos from '../assets/images/maoscom.png';
-
+import fotofisiogabrielapedrosa from '../assets/images/fisiogabrielapedrosa.png';
+import fotodeboracorretora from '../assets/images/sitedebora.png';
+import fotowalneide from '../assets/images/sitewalneide.png';
+import fotogiovana from '../assets/images/sitegiovana.png';
+import fotositepraiapaixao from '../assets/images/sitepraiadapaixao.png';
 
 
 function Projects() {
@@ -29,7 +33,7 @@ function Projects() {
       description: 'Multi-user app with goals, limits, recurrences, and AI for financial tips.',
       tags: ['• React', '• Node', '• SQLite', '• OpenAI API', '• OpenFinance API'],
       cover: appfinance,
-      href: 'https://github.com/gedalyas/financas-pessoais.git'
+      href: 'https://www.prosperafinancas.com/'
     },
     {
       title: 'Stock Analyzer',
@@ -74,11 +78,47 @@ function Projects() {
       href: 'https://www.maosbr.com'
     },
     {
-      title: 'Poltrona E-commerce',
-      description: 'E-commerce website for a furniture store, featuring product showcases, shopping cart functionality, and secure checkout process.',
+      title: 'Poltrona',
+      description: ' Website for a furniture store, featuring product showcases, shopping cart functionality, and secure checkout process.',
       tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
       cover: SitePoltrona,
-      href: 'https://www.poltronasposcirurgicas.com/'},
+      href: 'https://www.poltronasposcirurgicas.com/'
+    },
+    {
+      title: 'Website for Physiotherapists',
+      description: 'Professional website for a physiotherapist, focused on presenting services, strengthening authority, and generating patient leads.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotofisiogabrielapedrosa,
+      href: 'https://www.fisiogabrielapedrosa.com/',
+    },
+    {
+      title: 'Real Estate Broker',
+      description: 'Professional real estate website focused on property listings, advanced search filters, and lead generation.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotodeboracorretora,
+      href: 'https://www.deboragarciacorretora.com/'
+    },
+    {
+      title: 'Real Estate Broker',
+      description: 'Professional real estate website focused on property listings, advanced search filters, and lead generation.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotowalneide,
+      href: 'https://www.walneidemaiacorretora.com/'
+    },
+    {
+      title: 'Real Estate Broker',
+      description: 'Professional real estate website focused on property listings, advanced search filters, and lead generation.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotogiovana,
+      href: 'https://www.giovanasaudeimoveis.com/'
+    },
+    {
+      title: 'Hotel Praia da Paixão',
+      description: 'Professional hotel website focused on showcasing the experience, accommodations, and driving direct reservations.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: fotositepraiapaixao,
+      href: 'https://www.praiadapaixao.com.br/'
+    },
   ];
 
   return (
