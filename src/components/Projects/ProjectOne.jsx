@@ -70,13 +70,20 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
 const StyledWrapper = styled.div`
   /* ===== Config da animação “offset” ===== */
   --shift: 14px;
+  
+  /* 🔒 Garante que o wrapper não ultrapasse o container pai */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 
-  .card-link { display:block; color:inherit; text-decoration:none; }
+  .card-link { display:block; color:inherit; text-decoration:none; width: 100%; max-width: 100%; }
 
   .article-wrapper {
     position: relative;
     z-index: 0;
     width: 100%;
+    max-width: 100%;          /* 🔒 não ultrapassa container */
+    box-sizing: border-box;   /* 🔒 inclui border no cálculo de largura */
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,.15);
     background: #fff;
@@ -135,7 +142,64 @@ const StyledWrapper = styled.div`
   .notranslate { unicode-bidi: isolate; }
 
   @media (max-width: 1100px) { :root & { --shift: 10px; } }
-  @media (max-width: 768px)  { :root & { --shift: 6px; } }
+  @media (max-width: 768px)  { 
+    :root & { --shift: 4px; }  /* 🔒 reduz deslocamento no mobile */
+    
+    /* 🔒 Reduz tamanho do card no mobile */
+    .article-wrapper {
+      width: calc(100vw - 56px);   /* 🔒 largura bem reduzida */
+      max-width: 300px;            /* 🔒 máximo menor */
+      margin: 0 auto;
+    }
+    
+    .container-project {
+      aspect-ratio: 16 / 8;        /* 🔒 imagem mais baixa */
+    }
+    
+    .project-info {
+      padding: 8px;                /* 🔒 padding mínimo */
+    }
+    
+    .flex-pr {
+      gap: 6px;                    /* 🔒 reduz gap */
+    }
+    
+    .project-title {
+      font-size: 0.875rem;         /* 🔒 título menor */
+    }
+    
+    .project-desc {
+      font-size: 0.75rem;          /* 🔒 descrição bem menor */
+      line-height: 1.25;
+      -webkit-line-clamp: 2;
+    }
+    
+    .project-type {
+      font-size: 9px;              /* 🔒 tags bem pequenas */
+      padding: 0.18em 0.4em;
+    }
+    
+    .types {
+      gap: 4px;                    /* 🔒 gap mínimo entre tags */
+    }
+    
+    .project-hover {
+      width: 28px;                 /* 🔒 ícone menor */
+      height: 28px;
+    }
+    
+    .project-hover svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* 🔒 Remove o efeito de deslocamento no mobile para evitar overflow */
+    .article-wrapper:hover {
+      transform: none;
+      box-shadow: 0 4px 12px rgba(78, 132, 255, 0.3);
+      border-color: #0578c5;
+    }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .article-wrapper { transition: none; }
