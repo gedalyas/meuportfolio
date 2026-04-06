@@ -11,6 +11,7 @@ import DataIcon from './DataIcon';
 import AutIcon from './AutIcon';
 import { Link } from 'react-router-dom';
 import Chat from './Chat';
+import logodavi from '../assets/images/logo-redonda.png';
 
 function AboutMe() {
   useEffect(() => {
@@ -168,7 +169,7 @@ function AboutMe() {
     });
   };
 
-  
+
   return (
     // 2. USE UM FRAGMENTO DO REACT (<>) PARA ENVOLVER TUDO
     <>
@@ -213,10 +214,10 @@ function AboutMe() {
           <div className="about-rightsec">
             <h2>Davi Almeida</h2>
             <p>
-              Hey there, I’m <strong>Davi Almeida</strong>, a <strong>tech enthusiast</strong> and <strong>aspiring Web Developer</strong>. Originating from Brazil, in the city of Ipatinga, I’m currently embarking on a fascinating journey at <strong>Unileste University</strong>, where I’m pursuing my degree in <strong>Computer Science</strong>.
-              My passion for technology and coding knows no bounds. I’m constantly exploring new areas like design, data science, and the ever-evolving world of AI. I believe that in today’s fast-paced digital landscape, being a <strong>lifelong learner</strong> is not just a choice but a necessity.
-              Outside of tech, I’m passionate about sports, especially soccer, fitness, and competitive games. These activities fuel my drive, discipline, and teamwork, which I also carry into my professional life.
-              Let’s connect and explore this dynamic world of tech (and maybe even sports) together!
+              Hey, I’m <strong>Davi Almeida</strong>, a <strong>Software Engineer</strong> from Brazil. I currently work at <strong>TECHzafe</strong>, building <strong>websites, e-commerce platforms, systems, automations, and integrations</strong> for different business contexts.
+              My experience involves creating projects from scratch, structuring digital solutions that help companies strengthen their online presence, improve operations, and support sales processes with more efficiency.
+              I work with <strong>React, Node.js, JavaScript, APIs, and integrations</strong>, focusing on solutions that combine technical structure, practical usability, and real business application.
+              This portfolio showcases selected projects that reflect my work in developing tailored digital products for real-world needs.
             </p>
           </div>
         </div>
@@ -235,13 +236,13 @@ function AboutMe() {
         <div className="about-mainquard">
           <div className="about-lang">
             <h2>LANGUAGE & FRAMEWORK</h2>
-            <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | NodeJS | TailwindCSS | <strong>MySQL</strong> |
-              PostgreSQL | MongoDB | <strong>Python</strong> | VBA | <strong>R</strong> | Pandas | Quantib | Yfinance | Matplotlib </p>
+            <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>javascript</strong> | Typescript | <strong>React</strong> | Node.js | Next.js | TailwindCSS | <strong>MySQL</strong> |
+              PostgreSQL | <strong>Python</strong> | VBA  | Pandas | Yfinance | Matplotlib </p>
 
           </div>
           <div className="about-tools">
             <h2>TOOLS</h2>
-            <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter</strong> | Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi</p>
+            <p><strong>Git</strong> | <strong>GitHub</strong> | <strong>Figma</strong> | Canva | <strong>VSCode</strong> | <strong>Excel</strong> | <strong>Jupyter</strong> | Apache Net Beans | <strong>MySql Workbench</strong> | Power Bi | Thunder Client</p>
 
           </div>
         </div>
@@ -278,14 +279,16 @@ function AboutMe() {
               <h2>Experience</h2>
               <ul>
                 <li>
-                  <h3>Purchasing Manager - Enterprise Comercial JK Casa dos Parafusos</h3>
-                  <p>I work in purchasing management with a focus on demand analysis and defining commercial strategies based on seasonality, with the aim of optimizing inventory and maximizing profits throughout the year. I develop automation solutions using SQL for data storage and manipulation, integrating with VBA in Excel for efficient extraction and visualization of information, facilitating strategic decision-making. (2023 - presente)</p>
+                  <h3>Software Engineer - TECHzafe</h3>
+                  <p>
+                    I work on the development of websites, e-commerce platforms, systems, automations, and integrations for different business contexts. My current role involves building projects from scratch, connecting APIs, platforms, and services, and creating tailored digital solutions that support online presence, sales operations, and internal business processes. I mainly work with React, Node.js, JavaScript, Shopify, APIs, and integrations. (2025 - Present)
+                  </p>
                 </li>
                 <li>
-                  <h3>Web Developer - Freelancer</h3>
-                  <p> Development of a small business focused on creating custom software solutions for clients, with involvement in all stages of the process from client acquisition to final delivery of results.
-                    Current project: building an industrial monitoring system that integrates sensors installed on a partner company's machine with an API, using the incoming data for real-time visualization.
-                    Python is used for handling API data, and React is used for the front-end interface.(2025)</p>
+                  <h3>Purchasing Manager - Enterprise Comercial JK Casa dos Parafusos</h3>
+                  <p>
+                    I work in purchasing management with a focus on demand analysis, inventory planning, and commercial strategies based on seasonality, aiming to optimize stock levels and improve profitability throughout the year. I also develop automation solutions using SQL and VBA in Excel to store, manipulate, extract, and visualize data more efficiently, supporting strategic decision-making and operational control. (2023 - Present)
+                  </p>
                 </li>
               </ul>
             </div>
@@ -322,8 +325,7 @@ function AboutMe() {
         <footer className="main-footer">
           <div className="footer-content">
             <div className="footer-brand">
-              <span className="footer-logo">DA</span>
-              <p className="footer-tagline">Turning ideas into digital experiences</p>
+              <img src={logodavi} alt="Logo Davi Almeida" className="footer-logo" />
             </div>
 
             <div className="footer-social">
@@ -346,7 +348,7 @@ function AboutMe() {
 
       </div>
 
-      
+
       <Chat />
     </>
   );
