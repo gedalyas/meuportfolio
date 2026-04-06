@@ -5,8 +5,6 @@ import ProjectOne from './Projects/ProjectOne';
 import FotoSelf from '../assets/images/FotoSelf.jpg';
 import acoeskivi from '../assets/images/acoeskivi.jpg';
 import appfinance from '../assets/images/appfinance.jpg';
-import dashboardfinancias from '../assets/images/dashboardfinancias.jpg';
-import meuport from '../assets/images/meuport.png';
 import codigopdf from '../assets/images/codigopdf.png';
 import FluxCompras from '../assets/images/FluxCompras.jpg';
 import SitePoltrona from '../assets/images/foto-site-poltrona.png';
@@ -16,14 +14,17 @@ import fotodeboracorretora from '../assets/images/sitedebora.png';
 import fotowalneide from '../assets/images/sitewalneide.png';
 import fotogiovana from '../assets/images/sitegiovana.png';
 import fotositepraiapaixao from '../assets/images/sitepraiadapaixao.png';
+import crmimobtech from '../assets/images/crmimobtech.png';
+import jvrimoveis from '../assets/images/fotojvr.png';
+import realminas from '../assets/images/realminas.png';
+import laboratoriohemo from '../assets/images/sitelaboratorio-hemolabor.png';
+import techzafe from '../assets/images/printtechzafe.png';
+import suplementosdudu from '../assets/images/printsuplementosdudu.png';
 
 
 function Projects() {
   useEffect(() => {
-    document.body.style.overflowX = 'hidden';
-    return () => {
-      document.body.style.overflowX = 'auto';
-    };
+
   }, []);
 
   // === Lista de projetos ===
@@ -41,20 +42,6 @@ function Projects() {
       tags: ['• Python', '• Kivy', '• yfinance', '• Matplotlib'],
       cover: acoeskivi,
       href: 'https://github.com/gedalyas/Analise-a-es.git'
-    },
-    {
-      title: 'Portfolio',
-      description: 'Website with animations, responsive grid, interactive cards, and AI agent.',
-      tags: ['• React', '• styled-components', '• UX', '• Gemini AI API'],
-      cover: meuport,
-      href: 'https://github.com/gedalyas/meuportfolio.git'
-    },
-    {
-      title: 'FinDavid',
-      description: 'Financial dashboard with graphs, goals, and customization for users.',
-      tags: ['• HTML', '• CSS'],
-      cover: dashboardfinancias,
-      href: 'https://github.com/gedalyas/FinDavid.git'
     },
     {
       title: 'PDF → Excel Converter',
@@ -119,6 +106,49 @@ function Projects() {
       cover: fotositepraiapaixao,
       href: 'https://www.praiadapaixao.com.br/'
     },
+    {
+      title: 'Imobtech CRM',
+      description: 'Real estate CRM for lead management, agent conversations, AI support, and calendar workflows.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• React', '• N8N'],
+      cover: crmimobtech,
+      href: 'https://github.com/gedalyas/imobitech'
+    },
+    {
+      title: 'JVR Imóveis',
+      description: 'Real estate website built to showcase listings, strengthen local presence, and generate leads.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: jvrimoveis,
+      href: 'https://www.jvrimoveis.com.br/'
+    },
+    {
+      title: 'RM Engenharia e Construção',
+      description: 'Website for a civil engineering company focused on projects, construction management, and credibility.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: realminas,
+      href: 'https://www.realminasengenharia.com.br/'
+    },
+    {
+      title: 'Hemolabor',
+      description: 'Laboratory website built to present services, strengthen trust, and simplify access to exam results.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: laboratoriohemo,
+      href: 'https://www.laboratoriosaleselanna.com.br/'
+    },
+    {
+      title: 'TechZafe',
+      description: 'Digital studio focused on websites, systems, e-commerce, and automations for business growth.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: techzafe,
+      href: 'https://www.techzafe.com/'
+    },
+    {
+      title: 'Suplementos Dudu',
+      description: 'Supplement store built to drive sales with a strong catalog, offers, and a smooth buying flow.',
+      tags: ['• JavaScript', '• CSS', '• HTML', '• Liquid'],
+      cover: suplementosdudu,
+      href: 'https://www.suplementosdudu.com./'
+    }
+
   ];
 
   return (

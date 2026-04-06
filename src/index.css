@@ -21,16 +21,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #root {
+html, body {
   height: 100%;
   width: 100%;
+}
+
+#root {
+  width: 100%;
+  /* sem height: 100% */
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;          /* 🔒 corta scroll horizontal em qualquer tela */
+  /* overflow-x: hidden; teste----------------------------------*/ 
 }
 
 /* === novo: mídia nunca deve passar da largura do container === */

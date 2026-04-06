@@ -4,22 +4,24 @@
 
 .projects-container {
   display: flex;
-  flex-direction: row;           /* lado a lado no desktop */
+  flex-direction: row;
+  align-items: flex-start;
   min-height: 100svh;
+  height: auto;          /* ← adiciona isso */
   background-color: #001f3f;
   font-family: 'Poppins', sans-serif;
-  width: 100%;                   /* <- evita overflow do 100vw */
-  overflow-x: hidden;            /* 🔒 trava scroll horizontal */
-  max-width: 100vw;              /* garante que não ultrapasse viewport */
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Sidebar (esquerda) — desktop */
 .projects-left {
   position: sticky;
-  top: 100px;
+  top: 125px;                     /* distância do topo ao colar */
   margin-left: 150px;
   width: 350px;
-  height: 440px;
+  height: auto;                  /* era 440px — libera altura */
+  flex-shrink: 0;                /* evita que o card encolha */
   background-color: #003366;
   color: white;
   padding: 20px;
@@ -37,7 +39,7 @@
 /* Foto — deixe responsiva por proporção */
 .profile-photo {
   width: 100%;
-  aspect-ratio: 3 / 3.5;           /* mantém proporção elegante no mobile */
+  aspect-ratio: 3 / 3.5;
   object-fit: cover;
   border-radius: 10px;
   border: 3px solid white;
@@ -56,8 +58,8 @@
   flex: 1;
   padding: 30px;
   color: white;
-  max-width: 100%;               /* 🔒 evita que flex: 1 ultrapasse */
-  overflow-x: hidden;            /* 🔒 trava overflow horizontal */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .projects-right h1,
@@ -72,11 +74,11 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(260px, 1fr));
-  gap: 40px;                 /* 50px -> 40px fica mais compacto */
-  justify-items: stretch;    /* <= antes estava "center" */
-  align-items: start;        /* garante alinhamento pelo topo */
-  max-width: 100%;           /* 🔒 não ultrapassa container pai */
-  overflow-x: hidden;        /* 🔒 trava overflow horizontal */
+  gap: 40px;
+  justify-items: stretch;
+  align-items: start;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -92,52 +94,53 @@
 /* Mobile (<= 768px): empilha, remove sticky e medidas rígidas */
 @media (max-width: 768px) {
   .projects-container {
-    flex-direction: column;          /* sidebar vai pra cima */
+    flex-direction: column;
     align-items: center;
     padding: 16px 12px;
     gap: 16px;
-    overflow-x: hidden;              /* 🔒 reforça travamento no mobile */
+    overflow-x: hidden;
   }
 
   .projects-left {
     position: static;                /* remove sticky */
     top: auto;
-    margin: 0;                       /* zera deslocamento lateral */
-    width: min(92vw, 420px);         /* sidebar ocupa a largura útil */
-    max-width: 100%;                 /* 🔒 nunca ultrapassa viewport */
-    height: auto;                    /* libera altura */
+    margin: 0;
+    width: min(92vw, 420px);
+    max-width: 100%;
+    height: auto;
     padding: 16px;
+    flex-shrink: unset;
   }
 
   .profile-photo {
     margin-top: 80px;
     width: 100%;
-    max-width: 100%;                 /* 🔒 nunca ultrapassa container */
+    max-width: 100%;
     aspect-ratio: 3 / 4;
   }
 
   .projects-right {
     width: 100%;
-    max-width: 100%;                 /* 🔒 nunca ultrapassa viewport */
-    padding: 12px 8px;               /* 🔒 reduz padding lateral */
-    overflow-x: hidden;              /* 🔒 reforça travamento */
+    max-width: 100%;
+    padding: 12px 8px;
+    overflow-x: hidden;
   }
 
   .projects-right h1,
   .projects-right h2 {
-    margin: 0 auto 6px auto;         /* centraliza títulos */
+    margin: 0 auto 6px auto;
     text-align: center;
-    font-size: clamp(1.6rem, 8vw, 2.4rem); /* reduz bem no celular */
-    max-width: 100%;                 /* 🔒 nunca ultrapassa container */
-    word-wrap: break-word;           /* 🔒 quebra palavras longas */
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;      /* uma coluna */
+    grid-template-columns: 1fr;
     gap: 20px;
-    max-width: 100%;                 /* 🔒 nunca ultrapassa container */
+    max-width: 100%;
     width: 100%;
-    padding: 0;                      /* 🔒 remove padding extra */
+    padding: 0;
   }
 }
 

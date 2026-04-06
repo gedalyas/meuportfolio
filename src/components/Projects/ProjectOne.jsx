@@ -20,7 +20,7 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
           </h3>
 
           <div className="project-hover" aria-hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
               strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24"
               strokeWidth={2} fill="none" stroke="currentColor">
               <line y2={12} x2={19} y1={12} x1={5} />
@@ -68,8 +68,7 @@ const ProjectOne = ({ title, description, tags = [], cover, href }) => {
 };
 
 const StyledWrapper = styled.div`
-  /* ===== Config da animação “offset” ===== */
-  --shift: 14px;
+  
   
   /* 🔒 Garante que o wrapper não ultrapasse o container pai */
   width: 100%;
@@ -93,10 +92,10 @@ const StyledWrapper = styled.div`
     cursor: pointer;
   }
   .article-wrapper:hover {
-    transform: translate(calc(-1 * var(--shift)), calc(-1 * var(--shift)));
+    transform: translateY(-8px);
     box-shadow:
-      var(--shift) var(--shift) 0 #4e84ff,
-      calc(var(--shift) * 2) calc(var(--shift) * 2) 0 #4444bd;
+      0 8px 0 #4e84ff,
+      0 16px 0 #4444bd;
     border-color: #0578c5;
     z-index: 3;
   }
@@ -141,7 +140,6 @@ const StyledWrapper = styled.div`
   /* Garante que o conteúdo com .notranslate fique isolado (evita interferência de libs de tradução) */
   .notranslate { unicode-bidi: isolate; }
 
-  @media (max-width: 1100px) { :root & { --shift: 10px; } }
   @media (max-width: 768px)  { 
     :root & { --shift: 4px; }  /* 🔒 reduz deslocamento no mobile */
     
