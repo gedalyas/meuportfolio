@@ -30,11 +30,25 @@ function Projects() {
   // === Lista de projetos ===
   const projects = [
     {
+      title: 'Hemolabor',
+      description: 'Laboratory website built to present services, strengthen trust, and simplify access to exam results.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: laboratoriohemo,
+      href: 'https://www.laboratoriosaleselanna.com.br/'
+    },
+    {
       title: 'Prospera — Brasil Tecnologias',
       description: 'Multi-user app with goals, limits, recurrences, and AI for financial tips.',
       tags: ['• React', '• Node', '• SQLite', '• OpenAI API', '• OpenFinance API'],
       cover: appfinance,
       href: 'https://www.prosperafinancas.com/'
+    },
+    {
+      title: 'Imobtech CRM',
+      description: 'Real estate CRM for lead management, agent conversations, AI support, and calendar workflows.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• React', '• N8N'],
+      cover: crmimobtech,
+      href: 'https://github.com/gedalyas/imobitech'
     },
     {
       title: 'Stock Analyzer',
@@ -63,6 +77,13 @@ function Projects() {
       tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
       cover: fotomaos,
       href: 'https://www.maosbr.com'
+    },
+    {
+      title: 'RM Engenharia e Construção',
+      description: 'Website for a civil engineering company focused on projects, construction management, and credibility.',
+      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
+      cover: realminas,
+      href: 'https://www.realminasengenharia.com.br/'
     },
     {
       title: 'Poltrona',
@@ -106,13 +127,7 @@ function Projects() {
       cover: fotositepraiapaixao,
       href: 'https://www.praiadapaixao.com.br/'
     },
-    {
-      title: 'Imobtech CRM',
-      description: 'Real estate CRM for lead management, agent conversations, AI support, and calendar workflows.',
-      tags: ['• TypeScript', '• Tailwind CSS', '• React', '• N8N'],
-      cover: crmimobtech,
-      href: 'https://github.com/gedalyas/imobitech'
-    },
+    
     {
       title: 'JVR Imóveis',
       description: 'Real estate website built to showcase listings, strengthen local presence, and generate leads.',
@@ -120,20 +135,8 @@ function Projects() {
       cover: jvrimoveis,
       href: 'https://www.jvrimoveis.com.br/'
     },
-    {
-      title: 'RM Engenharia e Construção',
-      description: 'Website for a civil engineering company focused on projects, construction management, and credibility.',
-      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
-      cover: realminas,
-      href: 'https://www.realminasengenharia.com.br/'
-    },
-    {
-      title: 'Hemolabor',
-      description: 'Laboratory website built to present services, strengthen trust, and simplify access to exam results.',
-      tags: ['• TypeScript', '• Tailwind CSS', '• HTML', '• React'],
-      cover: laboratoriohemo,
-      href: 'https://www.laboratoriosaleselanna.com.br/'
-    },
+    
+    
     {
       title: 'TechZafe',
       description: 'Digital studio focused on websites, systems, e-commerce, and automations for business growth.',
