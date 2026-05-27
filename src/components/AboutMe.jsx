@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import '../design/AboutMe.css';
 import Menu from './Menu';
 import FotoPrimeira from '../assets/images/FotoPrimeira.jpg';
-import fotfut from '../assets/images/fotfut.jpg';
 import fotorj from '../assets/images/fotorj.jpg';
 import fotopraia from '../assets/images/fotopraia.jpg';
 import WebIcon from './WebIcon';
@@ -35,7 +34,7 @@ function AboutMe() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: '0px 0px -60px 0px' }
     );
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -49,6 +48,7 @@ function AboutMe() {
         {/* HERO */}
         <section className="hero-section">
           <div className="hero-text">
+            <span className="hero-badge">Software Engineer</span>
             <h1>About Me</h1>
             <div className="hero-underline">
               <span className="hu-short" />
@@ -59,25 +59,43 @@ function AboutMe() {
               className="scroll-btn"
               onClick={() => whoRef.current?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Scroll Down
+              Scroll Down ↓
             </button>
           </div>
           <div className="hero-image">
-            <img src={FotoPrimeira} alt="Davi Almeida" />
+            <div className="hero-image-wrap">
+              <img src={FotoPrimeira} alt="Davi Almeida" />
+            </div>
           </div>
         </section>
 
         {/* WHO I AM */}
         <section className="who-section" ref={whoRef}>
-          <div className="who-photos reveal">
-            <h2>Who I Am?</h2>
-            <div className="collage">
-              <img src={fotorj}    alt="Rio de Janeiro" className="col-img col-img-1" />
-              <img src={fotopraia} alt="Praia"          className="col-img col-img-2" />
-              <img src={fotfut}    alt="Futebol"        className="col-img col-img-3" />
+          <div className="who-left reveal">
+            <h2 className="who-title">Who I Am?</h2>
+            <div className="photos-grid">
+              <img src={fotorj}    alt="Rio de Janeiro" className="col-img" />
+              <img src={fotopraia} alt="Praia"          className="col-img" />
+            </div>
+            <div className="who-cards">
+              <div className="who-card">
+                <span className="wc-icon">💼</span>
+                <div>
+                  <strong>Software Engineer</strong>
+                  <p>TECHzafe · 2025–Present</p>
+                </div>
+              </div>
+              <div className="who-card">
+                <span className="wc-icon">🎓</span>
+                <div>
+                  <strong>CS Student</strong>
+                  <p>União Acadêmica · 2024–2027</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="who-text reveal">
+
+          <div className="who-right reveal">
             <h2>Davi Almeida</h2>
             <p>
               Hey, I'm <strong>Davi Almeida</strong>, a <strong>Software Engineer</strong> from
@@ -197,10 +215,13 @@ function AboutMe() {
 
         {/* QUOTE */}
         <div className="quote-section">
-          <blockquote className="quote-text">
-            <p>"There are no limits to what you can accomplish</p>
-            <p>except the limits you place on your own thinking."</p>
-          </blockquote>
+          <div className="quote-inner">
+            <span className="quote-mark">&#8220;</span>
+            <blockquote className="quote-text">
+              <p>There are no limits to what you can accomplish</p>
+              <p>except the limits you place on your own thinking.</p>
+            </blockquote>
+          </div>
         </div>
 
         {/* CTA */}
