@@ -1,5 +1,5 @@
 // Linha do tempo. Empregadores aparecem pelo nome; clientes, só pelo setor.
-// TODO(conteúdo): confirmar cargos, períodos e o que pode ser dito do trabalho na Arko.
+// TODO(conteúdo): confirmar os períodos (Arko, Techzafe, compras).
 
 export const experience = [
   {
@@ -7,8 +7,8 @@ export const experience = [
     role: { pt: 'Desenvolvedor de software', en: 'Software developer' },
     org: 'Arko Consultoria',
     body: {
-      pt: 'Sistemas internos de uma consultoria de planejamento financeiro: CRM com carteiras de clientes, automação de demandas operacionais e indicadores de relacionamento como NPS e retenção.',
-      en: 'Internal systems for a financial planning firm: a CRM with client portfolios, automation of operational requests, and relationship metrics such as NPS and retention.',
+      pt: 'Consultoria financeira para médicos. Trabalho direto nos dois sistemas da empresa: o interno, usado pela equipe operacional — CRM com carteiras de clientes, demandas e indicadores de relacionamento como NPS e retenção — e o externo, a plataforma usada pelos próprios clientes.',
+      en: 'Financial consultancy for physicians. I work directly on both of the company’s systems: the internal one, used by the operations team — a CRM with client portfolios, operational requests and relationship metrics such as NPS and retention — and the external one, the platform the clients themselves use.',
     },
     tags: ['TypeScript', 'React', 'Node.js', 'PostgreSQL'],
   },
