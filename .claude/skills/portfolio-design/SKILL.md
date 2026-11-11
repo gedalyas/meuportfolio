@@ -1,6 +1,6 @@
 ---
 name: portfolio-design
-description: Sistema de design e de conteúdo do portfólio do Davi Almeida (este repositório) — tokens de cor e superfície nos temas escuro e claro, tipografia (Inter, Instrument Serif, JetBrains Mono), componentes existentes, anatomia da home e do estudo de caso, gráficos, movimento, acessibilidade e tom de texto em PT/EN — e um roteiro de revisão. Use sempre que for mexer na interface do site, adicionar ou editar um projeto/estudo de caso, criar um gráfico ou uma página nova, mudar textos, revisar visual/hierarquia/densidade/cor/tipografia, ou quando o pedido citar "design", "deixar mais profissional", "adicionar projeto" ou "revisar o site".
+description: Sistema de design e de conteúdo do portfólio do Davi Almeida (este repositório) — tokens de cor e superfície (tema único, escuro), tipografia (Inter, Instrument Serif, JetBrains Mono), componentes existentes, anatomia da home e do estudo de caso, gráficos, movimento, acessibilidade e tom de texto em PT/EN — e um roteiro de revisão. Use sempre que for mexer na interface do site, adicionar ou editar um projeto/estudo de caso, criar um gráfico ou uma página nova, mudar textos, revisar visual/hierarquia/densidade/cor/tipografia, ou quando o pedido citar "design", "deixar mais profissional", "adicionar projeto" ou "revisar o site".
 ---
 
 # Design do portfólio — referência e revisão
@@ -34,6 +34,7 @@ Site editorial, calmo e orientado a dados de um desenvolvedor pleno migrando par
 - **Clientes só pelo setor** ("corretora de imóveis no sul da Bahia"). Empregadores (Arko Consultoria, Techzafe) podem ser citados. Nunca nomes de pessoas do cliente, telefones, IDs de conta ou credenciais — o repositório é público.
 - **Só números reais**, sempre com período e fonte no bloco "Limitações e fontes". Dado sintético é dito como sintético.
 - **Sempre bilíngue.** Todo texto visível é `{ pt, en }` (conteúdo em `src/content/`, interface em `src/i18n/ui.js`). Nunca tradução automática.
+- **Tema único escuro.** Sem tema claro e sem botão de troca.
 - **Sem IA no site.** O chat foi removido de propósito; não proponha de novo sem pedido.
 - **Uma foto pessoal só**, na seção Sobre. A home não tem screenshots. No estudo de caso, **até duas imagens**, sempre com legenda dizendo o que provam (`CaseFigure`). Prints vêm do site público ou do site de marketing do produto; sem telefone, nome de pessoa ou marca do cliente visível — recorte. Ilustração/dado de exemplo é dito na legenda.
 - Textos marcados `TODO(conteúdo)` são rascunhos aguardando confirmação do Davi: não os apresente como fato confirmado.

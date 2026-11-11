@@ -6,7 +6,7 @@
 - **Durações:** cor/fundo/borda 200ms `--ease-out`; barras do gráfico 700ms `--ease-expo`; entrada ao rolar 500ms (fade + 8px).
 - **Gráfico conversa com o número:** hover ou foco numa linha troca o número principal; as outras linhas esmaecem.
 - **Âncoras:** `ScrollManager` (em `App.jsx`) rola até o `id` do hash a cada navegação; rota nova sem hash volta ao topo. `scroll-padding-top` compensa a barra fixa.
-- **Tema e idioma:** trocam na hora, persistem em `localStorage` (sempre em try/catch) e não piscam no carregamento (script inline).
+- **Idioma:** duas bandeiras lado a lado no topo (Brasil = PT, EUA = EN); a ativa fica colorida, a outra esmaecida. Troca na hora, persiste em `localStorage` (sempre em try/catch) e não pisca no carregamento (script inline). Tema é fixo (escuro).
 
 ## Acessibilidade (obrigatório)
 

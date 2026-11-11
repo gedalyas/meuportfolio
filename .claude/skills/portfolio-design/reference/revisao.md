@@ -5,7 +5,7 @@ Objetivo: apontar o que afasta uma tela da calma, da clareza e da credibilidade 
 ## Antes de começar
 
 1. Leia `SKILL.md` e o arquivo de referência do eixo em questão.
-2. Veja a tela renderizada: `npm run build && npx vite preview`, em 375px e 1280px, temas escuro e claro, PT e EN. Sem isso, diga que revisou só o código.
+2. Veja a tela renderizada: `npm run build && npx vite preview`, em 375px e 1280px, PT e EN. Sem isso, diga que revisou só o código.
 3. Não edite nada sem pedido; entregue achados.
 
 ## Eixos

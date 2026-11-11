@@ -9,9 +9,7 @@ export const ui = {
   navLabel: { pt: 'Seções', en: 'Sections' },
   homeLabel: { pt: 'Davi Almeida, página inicial', en: 'Davi Almeida, home' },
 
-  themeToDark: { pt: 'Usar tema escuro', en: 'Switch to dark theme' },
-  themeToLight: { pt: 'Usar tema claro', en: 'Switch to light theme' },
-  langSwitch: { pt: 'Read in English', en: 'Ler em português' },
+  langGroup: { pt: 'Idioma', en: 'Language' },
 
   ctaWork: { pt: 'Ver trabalhos', en: 'See work' },
   ctaContact: { pt: 'Falar comigo', en: 'Get in touch' },

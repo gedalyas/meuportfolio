@@ -1,6 +1,6 @@
 # Portfólio — Davi Almeida
 
-Site pessoal: engenharia de software com foco em dados. Página única editorial com estudos de caso, em português e inglês, temas escuro e claro.
+Site pessoal: engenharia de software com foco em dados. Página única editorial com estudos de caso, em português e inglês, tema escuro.
 
 ## Stack
 
@@ -22,7 +22,6 @@ npm run preview   # serve o build
 |---|---|
 | `src/content/` | todo o conteúdo (perfil, experiência, projetos), em `{ pt, en }` |
 | `src/i18n/` | provider de idioma e strings de interface |
-| `src/theme/` | provider de tema |
 | `src/components/` | componentes (cada um com seu `.module.css`) |
 | `src/pages/` | Home, estudo de caso, 404 |
 | `.claude/skills/portfolio-design/` | sistema de design, regras de conteúdo e roteiro de revisão |

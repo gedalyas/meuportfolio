@@ -20,8 +20,8 @@
   height: auto;
 }
 
-/* Prints são claros: no tema escuro, baixa um pouco o brilho para não ofuscar a página. */
-:global(:root[data-theme='dark']) .img {
+/* Prints são claros: baixa um pouco o brilho para não ofuscar a página escura. */
+.img {
   filter: brightness(0.9) saturate(0.92);
 }
 

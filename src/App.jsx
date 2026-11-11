@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import LanguageProvider from './i18n/LanguageProvider';
-import ThemeProvider from './theme/ThemeProvider';
 import { useLang } from './i18n/context';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
@@ -54,11 +53,9 @@ function Shell() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <LanguageProvider>
-          <Shell />
-        </LanguageProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <Shell />
+      </LanguageProvider>
     </BrowserRouter>
   );
 }

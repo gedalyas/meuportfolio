@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,27 +22,20 @@
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#232222" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#232222" />
+    <meta name="color-scheme" content="dark" />
 
-    <!-- Aplica tema e idioma salvos antes da primeira pintura (evita o flash). -->
+    <!-- Aplica o idioma salvo (ou o do navegador) antes da primeira pintura. -->
     <script>
       (function () {
-        var root = document.documentElement;
-        var theme = null;
         var lang = null;
         try {
-          theme = localStorage.getItem('theme');
           lang = localStorage.getItem('lang');
         } catch (e) {}
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
         if (lang !== 'pt' && lang !== 'en') {
           lang = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
         }
-        root.setAttribute('data-theme', theme);
-        root.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+        document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
       })();
     </script>
   </head>

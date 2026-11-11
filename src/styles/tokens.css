@@ -2,12 +2,10 @@
  * Tokens do portfólio. Fonte única de cor, tipo, forma e movimento.
  * Documentados em .claude/skills/portfolio-design/reference/tokens.md — mude os dois juntos.
  *
- * Tema escuro é o padrão; o claro é uma tradução (mesma lógica de luminosidade, não os mesmos hex).
- * O script inline do index.html sempre define data-theme; a media query cobre o caso sem JS.
+ * O site tem um tema só: escuro e quente. Não há tema claro nem botão de troca.
  */
 
-:root,
-:root[data-theme='dark'] {
+:root {
   color-scheme: dark;
 
   /* Superfícies: elevação por luminosidade, não por sombra */
@@ -47,63 +45,6 @@
   --attention: #dcd3b1;
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme='dark']) {
-    color-scheme: light;
-    --bg: #faf9f7;
-    --bg-recessed: #f3f1f0;
-    --bg-raised: #ffffff;
-    --bg-hover: #f2f0ee;
-    --bg-active: #ebe8e5;
-    --text: #1c1b1b;
-    --text-muted: #6b6a69;
-    --text-subtle: #8a8988;
-    --border: rgb(13 11 9 / 0.08);
-    --border-strong: rgb(13 11 9 / 0.16);
-    --accent: #4a5879;
-    --accent-strong: #2f3a55;
-    --focus: #1c1b1b;
-    --data-1: #596fa3;
-    --data-1-soft: #95a5ca;
-    --data-2: #8c9a80;
-    --data-3: #afa173;
-    --data-4: #844c37;
-    --data-5: #776ca3;
-    --data-other: rgb(114 113 112 / 0.38);
-    --data-track: rgb(13 11 9 / 0.05);
-    --positive: #3f7d57;
-    --negative: #a3504a;
-    --attention: #887f62;
-  }
-}
-
-:root[data-theme='light'] {
-  color-scheme: light;
-  --bg: #faf9f7;
-  --bg-recessed: #f3f1f0;
-  --bg-raised: #ffffff;
-  --bg-hover: #f2f0ee;
-  --bg-active: #ebe8e5;
-  --text: #1c1b1b;
-  --text-muted: #6b6a69;
-  --text-subtle: #8a8988;
-  --border: rgb(13 11 9 / 0.08);
-  --border-strong: rgb(13 11 9 / 0.16);
-  --accent: #4a5879;
-  --accent-strong: #2f3a55;
-  --focus: #1c1b1b;
-  --data-1: #596fa3;
-  --data-1-soft: #95a5ca;
-  --data-2: #8c9a80;
-  --data-3: #afa173;
-  --data-4: #844c37;
-  --data-5: #776ca3;
-  --data-other: rgb(114 113 112 / 0.38);
-  --data-track: rgb(13 11 9 / 0.05);
-  --positive: #3f7d57;
-  --negative: #a3504a;
-  --attention: #887f62;
-}
 
 :root {
   /* Famílias com papéis fixos */

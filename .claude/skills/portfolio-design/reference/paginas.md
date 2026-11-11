@@ -39,6 +39,6 @@ Edite só `src/content/projects.js` (a ordem do array é a ordem na home):
 - [ ] `sources`: período, método, limitações. Sem dado público → diga isso.
 - [ ] Nenhum nome de cliente/pessoa, telefone, ID ou credencial. Números conferidos na fonte.
 - [ ] PT e EN revisados por humano (não traduza com ferramenta automática sem revisar).
-- [ ] `npm run lint && npm run build`; olhar a página em 375px e 1280px nos dois temas.
+- [ ] `npm run lint && npm run build`; olhar a página em 375px e 1280px nos dois idiomas.
 
 Projeto de ciência de dados: a seção de dados vira o centro — pergunta → dados (origem, tamanho, período) → método → resultado com gráfico → limitações. Link para o notebook/repositório público.
