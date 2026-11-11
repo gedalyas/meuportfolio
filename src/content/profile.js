@@ -4,7 +4,7 @@
 export const profile = {
   name: 'Davi Almeida',
   eyebrow: { pt: 'Engenharia de software · Dados', en: 'Software engineering · Data' },
-  location: { pt: 'Ipatinga, MG — Brasil', en: 'Ipatinga, Brazil' },
+  location: { pt: 'Belo Horizonte, MG — Brasil', en: 'Belo Horizonte, Brazil' },
   lead: {
     pt: 'Desenvolvedor de software na Arko Consultoria. Construo sistemas em que o dado é o produto: painéis de indicadores para e-commerce, funis de atendimento e plataformas que a própria equipe do cliente opera. Agora estou levando essa base para a ciência de dados.',
     en: 'Software developer at Arko Consultoria. I build systems where data is the product: KPI dashboards for e-commerce, sales-chat funnels and platforms the client’s own team runs. I am now taking that foundation into data science.',
@@ -82,8 +82,8 @@ export const stack = [
 
 export const about = [
   {
-    pt: 'Sou de Ipatinga, Minas Gerais. Comecei a programar para resolver problemas de um setor de compras: consultas SQL e planilhas que mostravam sazonalidade e giro de estoque antes de cada pedido. Dali fui para o desenvolvimento full-stack, atendendo empresas pelo meu estúdio, e hoje trabalho na Arko Consultoria.',
-    en: 'I am from Ipatinga, Minas Gerais, Brazil. I started programming to solve problems in a purchasing department: SQL queries and spreadsheets that surfaced seasonality and stock turnover before each order. From there I moved into full-stack development, serving companies through my own studio, and today I work at Arko Consultoria.',
+    pt: 'Sou de Ipatinga e moro em Belo Horizonte, Minas Gerais. Comecei a programar para resolver problemas de um setor de compras: consultas SQL e planilhas que mostravam sazonalidade e giro de estoque antes de cada pedido. Dali fui para o desenvolvimento full-stack, atendendo empresas pelo meu estúdio, e hoje trabalho na Arko Consultoria.',
+    en: 'I am from Ipatinga and live in Belo Horizonte, Minas Gerais, Brazil. I started programming to solve problems in a purchasing department: SQL queries and spreadsheets that surfaced seasonality and stock turnover before each order. From there I moved into full-stack development, serving companies through my own studio, and today I work at Arko Consultoria.',
   },
   {
     pt: 'O próximo passo é a ciência de dados. Estou aprofundando estatística, modelagem e Python para analisar com rigor os dados que hoje já sei coletar, modelar e servir em produção.',
