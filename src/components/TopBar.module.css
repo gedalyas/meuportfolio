@@ -27,6 +27,13 @@
   line-height: 1;
   letter-spacing: 0.005em;
   white-space: nowrap;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+/* Some enquanto o nome grande da home está visível (evita o nome duas vezes). */
+.brand[data-hidden] {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav {

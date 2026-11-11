@@ -4,7 +4,7 @@ Todos em `src/components/`, cada um com seu `.module.css`. Recebem texto **já t
 
 | Componente | O que é | Regras |
 |---|---|---|
-| `TopBar` | barra fixa: nome em serifa, âncoras (≥ 768px) e duas bandeiras de idioma (`Flags.jsx`) | ganha hairline inferior ao rolar; cada bandeira é um botão com `aria-label`, `aria-pressed` e `lang` |
+| `TopBar` | barra fixa: nome em serifa, âncoras (≥ 768px) e duas bandeiras de idioma (`Flags.jsx`) | na home o nome some enquanto o título grande (`#hero-title`) está visível e aparece ao rolar; ganha hairline inferior ao rolar; cada bandeira é um botão com `aria-label`, `aria-pressed` e `lang` |
 | `Footer` | © + link do código | — |
 | `SectionHeading` | H2 serif + parágrafo opcional | toda seção começa por ele; o `id` do H2 é a âncora |
 | `FactsStrip` | faixa de 4 fatos separada por hairlines (2×2 no celular) | sem cartão; `compact` para valores longos (estudo de caso); fatos verificáveis, nunca métrica inventada |

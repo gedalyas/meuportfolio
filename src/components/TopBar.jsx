@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../i18n/context';
 import { FlagBR, FlagUS } from './Flags';
 import styles from './TopBar.module.css';
@@ -20,6 +20,9 @@ export default function TopBar() {
   const { lang, setLang, t } = useLang();
   const [scrolled, setScrolled] = useState(false);
 
+  const { pathname } = useLocation();
+  const [heroVisible, setHeroVisible] = useState(() => window.location.pathname === '/');
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -27,10 +30,31 @@ export default function TopBar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Na home o nome já está no título grande: a barra só mostra o nome depois que ele sai da tela.
+  useEffect(() => {
+    const hero = document.getElementById('hero-title');
+    if (!hero || !('IntersectionObserver' in window)) {
+      setHeroVisible(false);
+      return undefined;
+    }
+    const io = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting), {
+      rootMargin: '-56px 0px 0px 0px',
+    });
+    io.observe(hero);
+    return () => io.disconnect();
+  }, [pathname]);
+
   return (
     <header className={styles.bar} data-scrolled={scrolled || undefined}>
       <div className={`container ${styles.inner}`}>
-        <Link to="/" className={styles.brand} aria-label={t('homeLabel')}>
+        <Link
+          to="/"
+          className={styles.brand}
+          aria-label={t('homeLabel')}
+          data-hidden={heroVisible || undefined}
+          aria-hidden={heroVisible || undefined}
+          tabIndex={heroVisible ? -1 : undefined}
+        >
           Davi Almeida
         </Link>
 
