@@ -3,32 +3,32 @@
 
 export const experience = [
   {
-    period: { pt: '2026 — hoje', en: '2026 — now' },
+    period: { pt: 'Desde 2026', en: 'Since 2026' },
     role: { pt: 'Desenvolvedor de software · líder do CRM', en: 'Software developer · CRM lead' },
     org: 'Arko Consultoria',
     body: {
-      pt: 'Consultoria financeira para médicos. Construo e lidero o CRM interno — mais de mil clientes com dados tratados 24/7, cerca de 60 usuários simultâneos e 1.700 demandas por mês, com diversas integrações — e trabalho na plataforma externa usada pelos próprios clientes.',
-      en: 'Financial consultancy for physicians. I build and lead the internal CRM — over a thousand clients with data processed 24/7, about 60 concurrent users and 1,700 requests a month, with many integrations — and work on the external platform the clients themselves use.',
+      pt: 'Consultoria financeira para médicos. Construo e lidero o CRM interno, que trata dados de mais de mil clientes 24 horas por dia, tem cerca de 60 usuários simultâneos e recebe umas 1.700 demandas por mês. Também trabalho na plataforma que os clientes usam.',
+      en: 'Financial consultancy for physicians. I build and lead the internal CRM, which processes data for over a thousand clients around the clock, has about 60 concurrent users and handles some 1,700 requests a month. I also work on the platform the clients use.',
     },
     tags: ['TypeScript', 'APIs', 'LGPD'],
   },
   {
-    period: { pt: '2025 — hoje', en: '2025 — now' },
+    period: { pt: 'Desde 2025', en: 'Since 2025' },
     role: { pt: 'Fundador e desenvolvedor', en: 'Founder and developer' },
     org: 'Techzafe',
     body: {
-      pt: 'Estúdio próprio. Plataformas imobiliárias com painel administrativo, atendimento com IA no WhatsApp, sistemas de conciliação financeira e uma linha de apps Shopify. Do levantamento de requisitos ao deploy e à manutenção.',
-      en: 'My own studio. Real-estate platforms with admin panels, AI-assisted WhatsApp sales chat, financial reconciliation systems and a line of Shopify apps. From requirements to deployment and maintenance.',
+      pt: 'Meu estúdio. Fiz plataformas imobiliárias com painel próprio, atendimento com IA no WhatsApp, um sistema de conciliação financeira para uma escola e apps para Shopify. Cuido de tudo, da primeira conversa com o cliente até a manutenção.',
+      en: 'My studio. I’ve built real-estate platforms with their own admin panels, AI-assisted WhatsApp sales chat, a financial reconciliation system for a school and Shopify apps. I handle everything, from the first conversation with the client to maintenance.',
     },
     tags: ['React', 'Express', 'Claude API', 'Shopify'],
   },
   {
-    period: { pt: '2023 — 2025', en: '2023 — 2025' },
+    period: { pt: '2023 a 2025', en: '2023 to 2025' },
     role: { pt: 'Gerente de compras', en: 'Purchasing manager' },
     org: 'Comercial JK Casa dos Parafusos',
     body: {
-      pt: 'Análise de demanda e sazonalidade para definir compras e níveis de estoque. Automatizei a extração e a visualização de dados de vendas com SQL e VBA no Excel — foi onde comecei a trabalhar com dados.',
-      en: 'Demand and seasonality analysis to plan purchases and stock levels. I automated the extraction and visualisation of sales data with SQL and VBA in Excel — where I started working with data.',
+      pt: 'Planejava compras e estoque olhando demanda e sazonalidade. Automatizei a extração e os relatórios de vendas com SQL e VBA no Excel. Foi ali que comecei a trabalhar com dados.',
+      en: 'I planned purchasing and stock levels based on demand and seasonality, and automated sales extraction and reporting with SQL and VBA in Excel. That’s where I started working with data.',
     },
     tags: ['SQL', 'Excel / VBA'],
   },
@@ -36,7 +36,7 @@ export const experience = [
 
 export const education = [
   {
-    period: '2024 — 2027',
+    period: { pt: '2024 a 2027', en: '2024 to 2027' },
     title: { pt: 'Bacharelado em Ciência da Computação', en: 'BSc in Computer Science' },
     org: 'União Acadêmica de Minas Gerais',
   },

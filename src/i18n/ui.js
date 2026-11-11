@@ -16,12 +16,17 @@ export const ui = {
 
   workTitle: { pt: 'Trabalhos selecionados', en: 'Selected work' },
   workIntro: {
-    pt: 'Quatro sistemas que projetei e construí, do CRM de uma operação inteira a produtos próprios. Cada estudo de caso mostra o problema, as decisões técnicas e o que os números dizem.',
-    en: 'Four systems I designed and built, from a whole company’s CRM to my own products. Each case study covers the problem, the technical decisions and what the numbers say.',
+    pt: 'Quatro sistemas que projetei e construí. Em cada um conto o que estava em jogo, como desenhei o fluxo e o que os números mostraram.',
+    en: 'Four systems I designed and built. For each one I explain what was at stake, how I mapped the flow and what the numbers showed.',
   },
   caseStudy: { pt: 'Estudo de caso', en: 'Case study' },
+  stakeTitle: { pt: 'Valor em jogo', en: 'What was at stake' },
 
   principlesTitle: { pt: 'Como eu trabalho', en: 'How I work' },
+  principlesIntro: {
+    pt: 'Antes de abrir o editor, eu desenho como a operação funciona hoje e combino o que precisa melhorar e como vamos medir. Na prática, é mais ou menos assim:',
+    en: 'Before opening the editor, I map how the operation works today and agree on what needs to improve and how we will measure it. In practice, it goes roughly like this:',
+  },
   experienceTitle: { pt: 'Experiência', en: 'Experience' },
   educationLabel: { pt: 'Formação', en: 'Education' },
   stackTitle: { pt: 'Ferramentas', en: 'Toolkit' },

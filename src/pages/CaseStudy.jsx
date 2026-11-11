@@ -7,6 +7,7 @@ import FactsStrip from '../components/FactsStrip';
 import FlowDiagram from '../components/FlowDiagram';
 import FunnelBars from '../components/charts/FunnelBars';
 import CaseFigure from '../components/CaseFigure';
+import ProcessFlow from '../components/sketch/ProcessFlow';
 import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from '../components/Icons';
 import NotFound from './NotFound';
 import styles from './CaseStudy.module.css';
@@ -63,6 +64,15 @@ export default function CaseStudy() {
 
         <FactsStrip items={facts} compact />
 
+        {project.stake ? (
+          <aside className={styles.stake} aria-labelledby="stake-title">
+            <h2 id="stake-title" className="eyebrow">
+              {t('stakeTitle')}
+            </h2>
+            <p className={styles.stakeText}>{p(project.stake)}</p>
+          </aside>
+        ) : null}
+
         {project.cover && project.images?.[project.cover] ? (
           <CaseFigure figure={project.images[project.cover]} priority />
         ) : null}
@@ -86,6 +96,9 @@ export default function CaseStudy() {
                 {p(para)}
               </p>
             ))}
+            {section.process && project.process ? (
+              <ProcessFlow title={project.process.title} steps={project.process.steps} />
+            ) : null}
             {section.flow ? (
               <FlowDiagram
                 label={t('architecture')}

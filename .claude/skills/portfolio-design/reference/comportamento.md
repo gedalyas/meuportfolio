@@ -29,4 +29,11 @@
 - Títulos de seção curtos e substantivos: "Problema", "Abordagem", "Decisões e trade-offs", "O que os dados mostraram".
 - Proibido: "apaixonado por tecnologia", "aspirante", "soluções inovadoras", emoji, citação motivacional, porcentagem sem fonte.
 
+**Sem cara de texto gerado (regra do Davi):**
+
+- Nunca use travessão (—). Troque por ponto, vírgula ou parênteses. Para períodos, escreva "Desde 2026" ou "2023 a 2025".
+- Evite as fórmulas: "não é X, é Y", "não só X, mas também Y", "do X ao Y", trincas de adjetivos em toda frase, dois-pontos para anunciar lista em todo parágrafo, frases de efeito no fim.
+- Prefira frases curtas, primeira pessoa e verbo concreto ("troquei", "desenhei", "deixei escrito"). Pode ter um toque coloquial ("me chama", "com calma").
+- Leia em voz alta: se soar como apresentação de vendas, reescreva.
+
 **EN:** mesmo conteúdo, escrito para leitor internacional (não tradução literal). Explique siglas locais na primeira vez ("privacy law (LGPD)"). Ortografia britânica ou americana — escolha uma por texto; o site hoje usa grafia britânica em alguns termos (`modelling`, `neighbourhood`), mantenha consistente ao editar.

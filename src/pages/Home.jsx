@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/context';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import useReveal from '../hooks/useReveal';
-import { about, contact, facts, principles, profile, stack } from '../content/profile';
+import { about, contact, facts, method, profile, stack } from '../content/profile';
 import { education, experience } from '../content/experience';
 import { projects } from '../content/projects';
 import FactsStrip from '../components/FactsStrip';
 import SectionHeading from '../components/SectionHeading';
 import WorkList from '../components/WorkList';
-import NumberedList from '../components/NumberedList';
+import ProcessFlow from '../components/sketch/ProcessFlow';
 import Timeline from '../components/Timeline';
 import StackGroups from '../components/StackGroups';
 import ContactBlock from '../components/ContactBlock';
@@ -56,8 +56,8 @@ export default function Home() {
 
       {/* ---------- Como trabalho ---------- */}
       <section className={`container ${styles.section}`} aria-labelledby="principles" data-reveal>
-        <SectionHeading id="principles" title={t('principlesTitle')} />
-        <NumberedList items={principles.map((x) => ({ title: p(x.title), body: p(x.body) }))} />
+        <SectionHeading id="principles" title={t('principlesTitle')} intro={t('principlesIntro')} />
+        <ProcessFlow title={method.title} steps={method.steps} />
       </section>
 
       {/* ---------- Experiência ---------- */}
@@ -83,7 +83,6 @@ export default function Home() {
         <SectionHeading id="stack" title={t('stackTitle')} intro={t('stackIntro')} />
         <StackGroups
           groups={stack.map((g) => ({ ...g, group: p(g.group) }))}
-          focusLabel={lang === 'pt' ? 'foco atual' : 'current focus'}
         />
       </section>
 

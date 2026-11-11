@@ -26,13 +26,14 @@ Site editorial, calmo e orientado a dados de um desenvolvedor pleno migrando par
 4. **Três famílias, papéis fixos.** Inter para texto e números (`tabular-nums`); Instrument Serif só em H1/H2 e no nome; JetBrains Mono só em rótulos CAPS e na numeração 01/02.
 5. **Elevação por luminosidade, não por sombra.** Blocos de dado são *recessed* (`--bg-recessed`), hover sobe a luminosidade (`--bg-hover`). Bordas a 8%. Sombra só em popover.
 6. **Texto antes do gráfico.** Toda página e todo bloco de dado abre com um parágrafo que diz o que foi feito e o que o número significa. O gráfico é a prova.
-7. **Prova antes de adjetivo.** Toda afirmação tem número, link ou decisão técnica concreta. "Aumentou a conversão" sem número e fonte não entra.
+7. **Valor e fluxo antes de stack.** Cada projeto abre dizendo o que estava em jogo para o negócio (`stake`) e mostra o fluxo desenhado (`ProcessFlow`) antes da arquitetura. Toda afirmação tem número, link ou decisão concreta; "aumentou a conversão" sem número e fonte não entra.
 8. **Densidade baixa, coluna de leitura.** Coluna de ~736px (`--col`), muito respiro vertical, listas separadas por hairline, sem cartões desnecessários e sem screenshots na home.
 
 ## Cuidados (regras de conteúdo)
 
 - **Clientes só pelo setor** ("corretora de imóveis no sul da Bahia"). Empregadores (Arko Consultoria, Techzafe) podem ser citados. Nunca nomes de pessoas do cliente, telefones, IDs de conta ou credenciais — o repositório é público.
 - **Só números reais**, sempre com período e fonte no bloco "Limitações e fontes". Dado sintético é dito como sintético.
+- **Texto sem cara de IA.** Nada de travessão (—), nem "não é X, é Y", nem trincas em todo parágrafo, nem dois-pontos em toda frase. Primeira pessoa, frases curtas, verbos concretos (ver `comportamento.md`).
 - **Sempre bilíngue.** Todo texto visível é `{ pt, en }` (conteúdo em `src/content/`, interface em `src/i18n/ui.js`). Nunca tradução automática.
 - **Tema único escuro.** Sem tema claro e sem botão de troca.
 - **Sem IA no site.** O chat foi removido de propósito; não proponha de novo sem pedido.

@@ -193,3 +193,17 @@ ol {
     transform: none;
   }
 }
+
+/* ---------- Camada de esboço (Sketch.jsx) ---------- */
+
+.sketch-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.sketch-layer svg {
+  display: block;
+  overflow: visible;
+}

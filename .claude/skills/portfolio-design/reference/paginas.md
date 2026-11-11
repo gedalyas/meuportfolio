@@ -7,7 +7,7 @@ Rotas em `src/App.jsx`: `/` (Home), `/projetos/:slug` (CaseStudy), `*` (NotFound
 1. **Hero** — eyebrow mono "Engenharia de software · Dados" → nome em serifa grande → resumo (muted, ~40rem) → botão claro "Ver trabalhos" + contornado "Falar comigo" → localização.
 2. **FactsStrip** — 4 fatos verificáveis (`facts` em `src/content/profile.js`).
 3. **Trabalhos selecionados** (`#work`) — `WorkList` com `projects`.
-4. **Como eu trabalho** — `NumberedList` com `principles`.
+4. **Como eu trabalho**: `SectionHeading` com intro + `ProcessFlow` do `method` (em `src/content/profile.js`).
 5. **Experiência** (`#experience`) — `Timeline` de `experience` + rótulo "Formação" + `Timeline` de `education`.
 6. **Ferramentas** — `StackGroups` com `stack` (grupo Dados com `focus`).
 7. **Sobre** (`#about`) — a única foto (`src/assets/portrait.webp`, 4:5, ~480×600) + parágrafos de `about`.
@@ -17,9 +17,10 @@ Rotas em `src/App.jsx`: `/` (Home), `/projetos/:slug` (CaseStudy), `*` (NotFound
 
 1. `←` "Todos os trabalhos" → `/#work`.
 2. Eyebrow "Estudo de caso · 0N · ano" → H1 serif → resumo (o que foi feito e o resultado, em 3–5 linhas) → botão "Ver no ar" se houver `link`.
-3. `FactsStrip compact` — Papel · Período · Stack · Status.
+3. `FactsStrip compact`: Papel · Período · Stack · Status.
+   - `stake`: bloco "Valor em jogo" com filete azul à esquerda, uma ou duas frases sobre o que o negócio ganha ou perde.
    - `cover` (opcional): a imagem principal logo abaixo dos fatos.
-4. Seções na ordem do array `sections`, tipicamente: **Problema** → **Abordagem** (`flow: true` insere o `FlowDiagram`) → **Decisões e trade-offs** (bullets com o porquê de cada escolha) → **O que os dados mostraram** (`chart`) quando houver dado real.
+4. Seções na ordem do array `sections`, tipicamente: **Problema** → **O fluxo** (`process: true` insere o `ProcessFlow` de `project.process`) → **Arquitetura** (`flow: true` insere o `FlowDiagram`) → **Decisões e trade-offs** (bullets com o porquê de cada escolha) → **O que os dados mostraram** (`chart`) quando houver dado real. `stats` numa seção mostra uma faixa de números (ex.: Escala).
 5. **Limitações e fontes** — bloco recessed com `sources`.
 6. **Próximo estudo de caso** — link circular para o seguinte.
 
@@ -33,6 +34,8 @@ Edite só `src/content/projects.js` (a ordem do array é a ordem na home):
 - [ ] `summary` `{pt,en}`: texto antes do gráfico — o que é, para quem, o que aconteceu.
 - [ ] `facts`: `role`, `period`, `stack`, `status` (cada um string ou `{pt,en}`).
 - [ ] `link` só se o projeto está no ar e pode ser divulgado; repositório privado → diga em `sources`.
+- [ ] `stake` `{pt,en}`: o valor em jogo para o negócio, sem falar de tecnologia.
+- [ ] `process`: `{ title, steps }` com o fluxo do negócio (ver `ProcessFlow` em `componentes.md`); marque com `tone: 'accent'` o passo onde o valor aparece.
 - [ ] `flow`: 3–6 etapas `{ layer, label }`.
 - [ ] `sections`: Problema, Abordagem (`flow: true`), Decisões e trade-offs; dados reais → `chart`.
 - [ ] Imagens (opcional, até 2): WebP em `src/assets/cases/<slug>-<nome>-{lg,sm}.webp` (lg ≤ 1600px, sm 960px, qualidade ~80), importadas no topo de `projects.js` em `figures` com `width`, `height`, `alt` e `caption` `{pt,en}`; use `cover: '<chave>'` e/ou `figure: '<chave>'` numa seção. Capture com viewport 1440×900 e escala 2, recorte o que interessa e tire telefone, nomes e números não verificáveis.

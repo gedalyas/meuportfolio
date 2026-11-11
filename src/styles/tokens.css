@@ -39,6 +39,12 @@
   --data-other: rgb(159 158 157 / 0.5);
   --data-track: rgb(245 241 236 / 0.05);
 
+  /* Esboço (fluxogramas) */
+  --sketch-stroke: #c5c3c2;
+  --sketch-muted: #8a8988;
+  --sketch-fill: rgb(104 135 207 / 0.45);
+  --sketch-dot: rgb(245 241 236 / 0.07);
+
   /* Status abafados */
   --positive: #7fb894;
   --negative: #d98b86;

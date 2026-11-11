@@ -1,0 +1,237 @@
+/* Quadro com pontilhado discreto, como uma folha de esboço. */
+.figure {
+  --main-w: 15.5rem;
+  margin-block: 1.75rem;
+  padding: 1.25rem 1rem 1.5rem;
+  background-color: var(--bg-recessed);
+  background-image: radial-gradient(var(--sketch-dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-position: -9px -9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.steps {
+  display: grid;
+  margin-top: 1.25rem;
+}
+
+/*
+ * Celular. Passo comum: nó centralizado e seta embaixo.
+ * Passo com desvio: grade de duas colunas; a seta principal desce na linha do centro
+ * (borda direita da coluna esquerda) e o desvio ocupa a coluna da direita.
+ */
+.step {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.step[data-branch] {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'main main'
+    'conn branch';
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- Nós ---------- */
+
+.node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: var(--main-w);
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.node[data-shape='pill'] {
+  padding-inline: 1.25rem;
+}
+
+.node[data-shape='diamond'] {
+  min-height: 8.5rem;
+  padding: 1.25rem 3rem;
+}
+
+.nodeText {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+  justify-items: center;
+}
+
+/* No nó em destaque, o texto ganha um fundo para não brigar com a hachura. */
+.node[data-tone='accent'] .nodeText {
+  padding: 0.3rem 0.6rem;
+  background: var(--bg-recessed);
+  border-radius: var(--radius-sm);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.06em;
+  color: var(--text-subtle);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.node[data-shape='pill'] .label,
+.node[data-side] .label {
+  color: var(--text-muted);
+}
+
+.note {
+  font-size: var(--fs-micro);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* ---------- Conector principal ---------- */
+
+.connector {
+  position: relative;
+  justify-self: center;
+  width: 2rem;
+  min-height: 2.5rem;
+}
+
+.step[data-branch] .connector {
+  justify-self: end;
+  margin-right: -1rem;
+}
+
+.connectorLabel,
+.branchLabel {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  color: var(--text-subtle);
+}
+
+.connectorLabel {
+  top: 0.5rem;
+  right: calc(100% - 0.25rem);
+}
+
+/* ---------- Desvio ---------- */
+
+.step[data-branch] .main {
+  grid-area: main;
+}
+
+.step[data-branch] .connector {
+  grid-area: conn;
+}
+
+.branch {
+  grid-area: branch;
+  display: grid;
+  align-content: start;
+  padding: 0 0 0.75rem 1.5rem;
+}
+
+.branchArrow {
+  position: relative;
+  display: block;
+  height: 1.75rem;
+  width: 2rem;
+  justify-self: end;
+  margin-right: 18%;
+}
+
+.arrowRight,
+.arrowDown {
+  position: absolute;
+  inset: 0;
+}
+
+.arrowRight {
+  display: none;
+}
+
+.branchLabel {
+  top: 0.35rem;
+  left: calc(100% - 0.25rem);
+}
+
+.branch .node {
+  max-width: none;
+  padding: 0.6rem 0.75rem;
+}
+
+/* ---------- Desktop: desvio ao lado do losango ---------- */
+
+@media (min-width: 40rem) {
+  .figure {
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+
+  .step,
+  .step[data-branch] {
+    grid-template-columns: var(--main-w) minmax(0, 1fr);
+    grid-template-areas:
+      'main branch'
+      'conn .';
+    align-items: center;
+  }
+
+  .step .main {
+    grid-area: main;
+  }
+
+  .step .connector {
+    grid-area: conn;
+  }
+
+  .connector,
+  .step[data-branch] .connector {
+    justify-self: center;
+    margin-right: 0;
+  }
+
+  .connectorLabel {
+    right: auto;
+    left: calc(100% - 0.25rem);
+  }
+
+  .branch {
+    grid-template-columns: 4.5rem minmax(0, 16rem);
+    align-items: center;
+    padding: 0;
+  }
+
+  .branchArrow {
+    height: 1.5rem;
+    width: auto;
+    justify-self: stretch;
+    margin-right: 0;
+  }
+
+  .arrowRight {
+    display: block;
+  }
+
+  .arrowDown {
+    display: none;
+  }
+
+  .branchLabel {
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
