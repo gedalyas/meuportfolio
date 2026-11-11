@@ -1,0 +1,26 @@
+.footer {
+  margin-top: var(--space-section);
+  padding-block: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--text);
+}

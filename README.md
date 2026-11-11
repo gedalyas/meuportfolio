@@ -1,12 +1,34 @@
-# React + Vite
+# Portfólio — Davi Almeida
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site pessoal: engenharia de software com foco em dados. Página única editorial com estudos de caso, em português e inglês, temas escuro e claro.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vite 6 + React 19 + React Router 7. CSS Modules sobre tokens em `src/styles/tokens.css`. Fontes auto-hospedadas (`@fontsource`). Sem backend.
 
-## Expanding the ESLint configuration
+## Rodar
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm install
+npm run dev       # http://localhost:5173
+npm run lint
+npm run build     # gera dist/
+npm run preview   # serve o build
+```
+
+## Onde fica o quê
+
+| Caminho | Conteúdo |
+|---|---|
+| `src/content/` | todo o conteúdo (perfil, experiência, projetos), em `{ pt, en }` |
+| `src/i18n/` | provider de idioma e strings de interface |
+| `src/theme/` | provider de tema |
+| `src/components/` | componentes (cada um com seu `.module.css`) |
+| `src/pages/` | Home, estudo de caso, 404 |
+| `.claude/skills/portfolio-design/` | sistema de design, regras de conteúdo e roteiro de revisão |
+
+Para adicionar um projeto, siga o checklist em `.claude/skills/portfolio-design/reference/paginas.md`.
+
+## Deploy
+
+Vercel, com rewrite de SPA em `vercel.json`.

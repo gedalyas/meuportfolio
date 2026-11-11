@@ -1,0 +1,63 @@
+.figure {
+  margin-block: 1.75rem;
+  padding: 1.25rem;
+  background: var(--bg-recessed);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.flow {
+  --gap: 1.25rem;
+  display: grid;
+  gap: var(--gap);
+  margin-top: 1rem;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.25rem;
+  padding: 0.75rem 0.875rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* Conector entre etapas: vertical no celular, horizontal no desktop */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: var(--gap);
+  background: var(--border-strong);
+}
+
+.layer {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
+
+@media (min-width: 48rem) {
+  .flow {
+    --gap: 0.875rem;
+    grid-template-columns: repeat(var(--steps), minmax(0, 1fr));
+  }
+
+  .step:not(:last-child)::after {
+    left: 100%;
+    top: 50%;
+    width: var(--gap);
+    height: 1px;
+  }
+}

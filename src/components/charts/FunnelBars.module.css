@@ -1,0 +1,160 @@
+.figure {
+  margin-block: 1.75rem;
+  padding: 1.25rem;
+  background: var(--bg-recessed);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Número principal ---------- */
+
+.head {
+  display: grid;
+  gap: 0.125rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.statValue {
+  font-size: var(--fs-stat);
+  line-height: 1.1;
+}
+
+.statPct {
+  font-size: var(--fs-h3);
+  color: var(--accent);
+}
+
+.statLabel {
+  font-size: var(--fs-base);
+  min-height: 1.6em;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* ---------- Linhas ---------- */
+
+.rows {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'label value'
+    'track track';
+  gap: 0.375rem 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  transition: opacity var(--dur) var(--ease-out);
+  outline-offset: 2px;
+}
+
+.row[data-dim] {
+  opacity: 0.45;
+}
+
+.label {
+  grid-area: label;
+  font-size: var(--fs-sm);
+}
+
+.value {
+  grid-area: value;
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.valuePct {
+  min-width: 3.25rem;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.track {
+  grid-area: track;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--data-track);
+  overflow: hidden;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  width: calc(var(--w) * 100%);
+  min-width: 2px;
+  border-radius: inherit;
+  background: var(--data-other);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 700ms var(--ease-expo);
+}
+
+.row[data-intent] .bar {
+  background: var(--data-1);
+}
+
+.figure:global(.is-visible) .bar {
+  transform: scaleX(1);
+}
+
+/* ---------- Legenda ---------- */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1rem;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 2px;
+  background: var(--data-other);
+}
+
+.swatch[data-intent] {
+  background: var(--data-1);
+}
+
+@media (min-width: 40rem) {
+  .row {
+    grid-template-columns: 13.5rem minmax(0, 1fr) 6.5rem;
+    grid-template-areas: 'label track value';
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transform: none;
+  }
+}
