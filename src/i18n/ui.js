@@ -16,8 +16,8 @@ export const ui = {
 
   workTitle: { pt: 'Trabalhos selecionados', en: 'Selected work' },
   workIntro: {
-    pt: 'Quatro sistemas que projetei e coloquei em produção. Cada estudo de caso mostra o problema, as decisões técnicas e o que os dados disseram.',
-    en: 'Four systems I designed and shipped. Each case study covers the problem, the technical decisions and what the data said.',
+    pt: 'Quatro sistemas que projetei e construí, do CRM de uma operação inteira a produtos próprios. Cada estudo de caso mostra o problema, as decisões técnicas e o que os números dizem.',
+    en: 'Four systems I designed and built, from a whole company’s CRM to my own products. Each case study covers the problem, the technical decisions and what the numbers say.',
   },
   caseStudy: { pt: 'Estudo de caso', en: 'Case study' },
 
@@ -26,8 +26,8 @@ export const ui = {
   educationLabel: { pt: 'Formação', en: 'Education' },
   stackTitle: { pt: 'Ferramentas', en: 'Toolkit' },
   stackIntro: {
-    pt: 'O que uso no dia a dia, agrupado pelo papel que cumpre. A coluna de dados é onde estou investindo agora.',
-    en: 'What I use day to day, grouped by role. The data column is where I am investing now.',
+    pt: 'O que uso no dia a dia, agrupado pelo papel que cumpre.',
+    en: 'What I use day to day, grouped by role.',
   },
   aboutTitle: { pt: 'Sobre', en: 'About' },
   portraitAlt: { pt: 'Retrato de Davi Almeida', en: 'Portrait of Davi Almeida' },

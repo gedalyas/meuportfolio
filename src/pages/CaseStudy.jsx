@@ -70,6 +70,17 @@ export default function CaseStudy() {
         {project.sections.map((section) => (
           <section key={section.title.pt} className={styles.section} data-reveal>
             <h2 className={styles.h2}>{p(section.title)}</h2>
+            {section.stats ? (
+              <div className={styles.stats}>
+                <FactsStrip
+                  items={section.stats.map((s) => ({
+                    label: p(s.label),
+                    value: p(s.value),
+                    caption: p(s.caption),
+                  }))}
+                />
+              </div>
+            ) : null}
             {section.paragraphs?.map((para) => (
               <p key={para.pt} className={styles.paragraph}>
                 {p(para)}

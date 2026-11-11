@@ -4,13 +4,13 @@
 export const experience = [
   {
     period: { pt: '2026 — hoje', en: '2026 — now' },
-    role: { pt: 'Desenvolvedor de software', en: 'Software developer' },
+    role: { pt: 'Desenvolvedor de software · líder do CRM', en: 'Software developer · CRM lead' },
     org: 'Arko Consultoria',
     body: {
-      pt: 'Consultoria financeira para médicos. Trabalho direto nos dois sistemas da empresa: o interno, usado pela equipe operacional — CRM com carteiras de clientes, demandas e indicadores de relacionamento como NPS e retenção — e o externo, a plataforma usada pelos próprios clientes.',
-      en: 'Financial consultancy for physicians. I work directly on both of the company’s systems: the internal one, used by the operations team — a CRM with client portfolios, operational requests and relationship metrics such as NPS and retention — and the external one, the platform the clients themselves use.',
+      pt: 'Consultoria financeira para médicos. Construo e lidero o CRM interno — mais de mil clientes com dados tratados 24/7, cerca de 60 usuários simultâneos e 1.700 demandas por mês, com diversas integrações — e trabalho na plataforma externa usada pelos próprios clientes.',
+      en: 'Financial consultancy for physicians. I build and lead the internal CRM — over a thousand clients with data processed 24/7, about 60 concurrent users and 1,700 requests a month, with many integrations — and work on the external platform the clients themselves use.',
     },
-    tags: ['TypeScript', 'React', 'Node.js', 'PostgreSQL'],
+    tags: ['TypeScript', 'APIs', 'LGPD'],
   },
   {
     period: { pt: '2025 — hoje', en: '2025 — now' },

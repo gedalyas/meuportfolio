@@ -14,8 +14,6 @@ import benchConnectionsLg from '../assets/cases/benchcommerce-connections-lg.web
 import benchConnectionsSm from '../assets/cases/benchcommerce-connections-sm.webp';
 import guaratibaCondoLg from '../assets/cases/guaratiba-condo-lg.webp';
 import guaratibaCondoSm from '../assets/cases/guaratiba-condo-sm.webp';
-import techzafeAppsLg from '../assets/cases/techzafe-apps-lg.webp';
-import techzafeAppsSm from '../assets/cases/techzafe-apps-sm.webp';
 
 const figures = {
   benchOverview: {
@@ -60,23 +58,109 @@ const figures = {
       en: 'Gated-community page: listings appear automatically when their record matches the community or neighbourhood, with separate counts for sale and rent.',
     },
   },
-  techzafeApps: {
-    lg: techzafeAppsLg,
-    sm: techzafeAppsSm,
-    width: 1600,
-    height: 703,
-    alt: {
-      pt: 'Seção de apps para Shopify do site da Techzafe, com o card do app Techzafe Frete.',
-      en: 'Shopify apps section of the Techzafe website, with the Techzafe Frete app card.',
-    },
-    caption: {
-      pt: 'O primeiro app da linha, Techzafe Frete: calculadora de frete na página do produto a partir do CEP do cliente.',
-      en: 'The first app in the line, Techzafe Frete: a shipping calculator on the product page based on the customer’s postcode.',
-    },
-  },
 };
 
 export const projects = [
+  {
+    slug: 'arko-crm',
+    kind: 'product',
+    year: '2026',
+    title: 'CRM da Arko',
+    tagline: {
+      pt: 'O CRM que construo e lidero numa consultoria financeira para médicos: mais de mil clientes, cerca de 60 pessoas usando ao mesmo tempo e 1.700 demandas por mês.',
+      en: 'The CRM I build and lead at a financial consultancy for physicians: over a thousand clients, about 60 people using it at once and 1,700 requests a month.',
+    },
+    meta: 'TypeScript · integrações · dados 24/7',
+    summary: {
+      pt: 'A Arko é uma consultoria financeira para médicos. Construo e lidero o CRM que a operação inteira usa no dia a dia: carteiras de clientes, demandas, reuniões e indicadores de relacionamento, alimentados por integrações que tratam dados de mais de mil clientes 24 horas por dia. Também trabalho na plataforma externa, usada pelos próprios clientes.',
+      en: 'Arko is a financial consultancy for physicians. I build and lead the CRM the whole operations team uses every day: client portfolios, requests, meetings and relationship metrics, fed by integrations that process data for over a thousand clients around the clock. I also work on the external platform the clients themselves use.',
+    },
+    facts: {
+      role: { pt: 'Construo e lidero o CRM', en: 'I build and lead the CRM' },
+      period: { pt: '2026 — hoje', en: '2026 — now' },
+      stack: { pt: 'TypeScript · sistema interno e externo', en: 'TypeScript · internal and external systems' },
+      status: { pt: 'Em produção', en: 'In production' },
+    },
+    flow: [
+      { layer: { pt: 'Fontes', en: 'Sources' }, label: { pt: 'Agenda, mensagens, reuniões, cobrança', en: 'Calendar, messaging, meetings, billing' } },
+      { layer: { pt: 'Ingestão', en: 'Ingestion' }, label: { pt: 'Integrações tratando dados 24/7', en: 'Integrations processing data 24/7' } },
+      { layer: { pt: 'Modelo', en: 'Model' }, label: { pt: 'Clientes, carteiras, demandas', en: 'Clients, portfolios, requests' } },
+      { layer: 'API', label: { pt: 'TypeScript, escopo por papel', en: 'TypeScript, role-based scope' } },
+      { layer: { pt: 'Uso', en: 'Use' }, label: { pt: 'CRM da operação + plataforma do cliente', en: 'Operations CRM + client platform' } },
+    ],
+    sections: [
+      {
+        title: { pt: 'Escala', en: 'Scale' },
+        stats: [
+          { label: { pt: 'Clientes', en: 'Clients' }, value: { pt: '1.000+', en: '1,000+' }, caption: { pt: 'com dados tratados 24/7', en: 'with data processed 24/7' } },
+          { label: { pt: 'Uso simultâneo', en: 'Concurrent users' }, value: '~60', caption: { pt: 'pessoas da operação', en: 'operations staff' } },
+          { label: { pt: 'Demandas', en: 'Requests' }, value: { pt: '~1.700', en: '~1,700' }, caption: { pt: 'por mês', en: 'a month' } },
+          { label: { pt: 'Sistemas', en: 'Systems' }, value: '2', caption: { pt: 'interno e externo, em TypeScript', en: 'internal and external, in TypeScript' } },
+        ],
+        paragraphs: [
+          {
+            pt: 'São esses números que definem as prioridades técnicas. Com dezenas de pessoas abrindo e movendo demandas ao mesmo tempo, consistência, permissão e histórico importam mais do que qualquer tela.',
+            en: 'These numbers set the technical priorities. With dozens of people opening and moving requests at the same time, consistency, permissions and history matter more than any screen.',
+          },
+        ],
+      },
+      {
+        title: { pt: 'Problema', en: 'Problem' },
+        paragraphs: [
+          {
+            pt: 'Cada cliente gera um fluxo contínuo de pedidos operacionais — abertura e migração de conta, portabilidade, envio de ordens, cartão — que passa por várias pessoas até ser concluído. Sem um sistema único, a informação se espalha entre agenda, conversas e planilhas, e fica difícil saber o que está pendente e com quem.',
+            en: 'Every client generates a continuous stream of operational requests — account opening and migration, portability, order submission, cards — that passes through several people before it is done. Without a single system, information scatters across calendars, chats and spreadsheets, and it gets hard to know what is pending and with whom.',
+          },
+        ],
+      },
+      {
+        title: { pt: 'Abordagem', en: 'Approach' },
+        flow: true,
+        paragraphs: [
+          {
+            pt: 'O CRM concentra a ficha de cada cliente, a carteira de cada consultor, as demandas com seus fluxos e as reuniões. As integrações trazem para dentro dele o que acontece fora — agenda e videochamada, grupos de mensagem, reuniões gravadas, cobranças recorrentes — e transformam esses eventos em tarefas para a pessoa certa.',
+            en: 'The CRM holds each client’s record, each consultant’s portfolio, requests with their workflows, and meetings. Integrations bring in what happens outside — calendar and video calls, messaging groups, recorded meetings, recurring billing — and turn those events into tasks for the right person.',
+          },
+          {
+            pt: 'Lidero a evolução do sistema: arquitetura, modelo de dados, integrações e a priorização técnica junto com a operação.',
+            en: 'I lead the system’s evolution: architecture, data model, integrations and technical prioritisation together with the operations team.',
+          },
+        ],
+      },
+      {
+        title: { pt: 'Decisões e trade-offs', en: 'Decisions and trade-offs' },
+        bullets: [
+          {
+            pt: 'Permissão aplicada no servidor, não na tela: cada consultor enxerga a própria carteira, líderes enxergam a equipe, e toda consulta já chega filtrada pelo papel de quem pede.',
+            en: 'Permissions enforced on the server, not in the UI: each consultant sees their own portfolio, leads see their team, and every query arrives already filtered by the requester’s role.',
+          },
+          {
+            pt: 'Demandas não se editam nem se apagam: abrem, mudam de etapa e fecham, sempre com histórico. Numa operação financeira, a trilha de auditoria vale mais que a conveniência de corrigir no lugar.',
+            en: 'Requests are never edited or deleted: they open, change stage and close, always with history. In a financial operation, the audit trail is worth more than the convenience of fixing things in place.',
+          },
+          {
+            pt: 'Tarefas geradas por regra: tipos de reunião e eventos disparam os próximos passos automaticamente, com gatilhos que a própria operação configura.',
+            en: 'Rule-generated tasks: meeting types and events trigger the next steps automatically, with triggers the operations team configures itself.',
+          },
+          {
+            pt: 'Dados sensíveis — CPF, contas de investimento, transcrições de reuniões — tratados como tal desde o modelo: acesso mínimo, LGPD e revisão de segurança como parte do processo.',
+            en: 'Sensitive data — tax IDs, investment accounts, meeting transcripts — treated as such from the data model up: least-privilege access, LGPD compliance and security review as part of the process.',
+          },
+        ],
+      },
+    ],
+    sources: [
+      {
+        pt: 'Números aproximados de novembro de 2026, tirados do próprio sistema.',
+        en: 'Approximate figures from November 2026, taken from the system itself.',
+      },
+      {
+        pt: 'Sistema interno: não publico prints nem dados, porque toda tela mostra informação de clientes. Posso detalhar a arquitetura numa conversa.',
+        en: 'Internal system: I do not publish screenshots or data, since every screen shows client information. I can walk through the architecture in a call.',
+      },
+    ],
+  },
+
   {
     slug: 'benchcommerce',
     kind: 'product',
@@ -361,86 +445,6 @@ export const projects = [
       {
         pt: 'Não publico aqui dados de tráfego ou de negócio do cliente.',
         en: 'I do not publish the client’s traffic or business data here.',
-      },
-    ],
-  },
-
-  {
-    slug: 'techzafe',
-    kind: 'platform',
-    year: '2025',
-    title: 'Techzafe',
-    tagline: {
-      pt: 'Meu estúdio de software e uma linha de apps Shopify próprios para substituir apps genéricos de uma loja de moda.',
-      en: 'My software studio, and a line of in-house Shopify apps replacing a fashion store’s generic third-party apps.',
-    },
-    meta: 'React · TypeScript · Shopify · PostgreSQL',
-    summary: {
-      pt: 'O Techzafe é o estúdio pelo qual atendo pequenas e médias empresas com sites, sistemas sob medida e apps Shopify. O projeto mais recente é uma linha de apps próprios, um por funcionalidade, para substituir os nove apps de terceiros que uma loja de moda pagava — e depois vender os mesmos apps a outras lojas.',
-      en: 'Techzafe is the studio through which I serve small and mid-sized companies with websites, custom systems and Shopify apps. The latest project is a line of in-house apps, one per feature, to replace the nine third-party apps a fashion store was paying for — and then sell the same apps to other stores.',
-    },
-    facts: {
-      role: { pt: 'Fundador e desenvolvedor', en: 'Founder and developer' },
-      period: { pt: '2025 — hoje', en: '2025 — now' },
-      stack: 'React Router · Prisma · PostgreSQL · Railway',
-      status: { pt: 'No ar', en: 'Live' },
-    },
-    link: { href: 'https://techzafe.com', label: 'techzafe.com' },
-    images: { apps: figures.techzafeApps },
-    flow: [
-      { layer: { pt: 'Loja', en: 'Store' }, label: { pt: 'Admin e vitrine Shopify', en: 'Shopify admin & storefront' } },
-      { layer: 'App', label: { pt: 'Um app público por funcionalidade', en: 'One public app per feature' } },
-      { layer: { pt: 'Base', en: 'Core' }, label: { pt: 'Pacote comum: escopos, webhooks LGPD', en: 'Shared package: scopes, privacy webhooks' } },
-      { layer: { pt: 'Dados', en: 'Data' }, label: { pt: 'PostgreSQL por app', en: 'PostgreSQL per app' } },
-      { layer: 'Deploy', label: { pt: 'Um serviço por app no Railway', en: 'One Railway service per app' } },
-    ],
-    sections: [
-      {
-        title: { pt: 'Problema', en: 'Problem' },
-        paragraphs: [
-          {
-            pt: 'Pequenas lojas acumulam apps genéricos e planilhas para tarefas que deveriam ser simples, como frete ou faturamento. Pagam várias assinaturas, ficam presas à lógica de cada fornecedor e não conseguem cruzar os dados entre eles.',
-            en: 'Small stores pile up generic apps and spreadsheets for tasks that should be simple, such as shipping or invoicing. They pay several subscriptions, get locked into each vendor’s logic and cannot join data across them.',
-          },
-        ],
-      },
-      {
-        title: { pt: 'Abordagem', en: 'Approach' },
-        figure: 'apps',
-        flow: true,
-        paragraphs: [
-          {
-            pt: 'Um repositório com um app Shopify público por funcionalidade, cada um publicado e cobrado à parte, e um pacote base com o que todos repetem: escopos mínimos, versão da API fixada, webhooks obrigatórios de privacidade e banco PostgreSQL próprio. Cada backend vira um serviço independente no Railway.',
-            en: 'One repository with a public Shopify app per feature, each published and billed separately, plus a core package with what they all share: minimal scopes, a pinned API version, mandatory privacy webhooks and their own PostgreSQL database. Each backend runs as an independent Railway service.',
-          },
-          {
-            pt: 'Pelo estúdio também faço os sistemas sob medida da mesma loja — como o de faturamento — e sites institucionais com foco em busca orgânica.',
-            en: 'Through the studio I also build the same store’s custom systems — such as invoicing — and company websites focused on organic search.',
-          },
-        ],
-      },
-      {
-        title: { pt: 'Decisões e trade-offs', en: 'Decisions and trade-offs' },
-        bullets: [
-          {
-            pt: 'Um app por funcionalidade, não um superapp: cada um pode ser vendido sozinho a outras lojas, e um problema num app não derruba os outros.',
-            en: 'One app per feature, not a super-app: each can be sold on its own to other stores, and an issue in one app does not take down the rest.',
-          },
-          {
-            pt: 'PostgreSQL desde a primeira migração, no lugar do SQLite que vem no template oficial: trocar depois, com dados de lojas em produção, sairia muito mais caro.',
-            en: 'PostgreSQL from the first migration, replacing the SQLite that ships with the official template: switching later, with production store data, would cost far more.',
-          },
-          {
-            pt: 'Escopos mínimos e webhooks de LGPD no pacote base, para que nenhum app novo nasça pedindo mais acesso do que precisa.',
-            en: 'Minimal scopes and privacy webhooks in the core package, so no new app is born asking for more access than it needs.',
-          },
-        ],
-      },
-    ],
-    sources: [
-      {
-        pt: 'Apps em validação com a primeira loja cliente; ainda sem métricas de instalação públicas.',
-        en: 'Apps are being validated with the first client store; no public install metrics yet.',
       },
     ],
   },

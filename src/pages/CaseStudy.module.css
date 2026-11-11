@@ -73,6 +73,10 @@
   font-size: var(--fs-body);
 }
 
+.stats {
+  margin-block: 1.25rem 1.5rem;
+}
+
 .paragraph + .paragraph {
   margin-top: 1rem;
 }
