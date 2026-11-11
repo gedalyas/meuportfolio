@@ -6,6 +6,7 @@ import { getProject, projects } from '../content/projects';
 import FactsStrip from '../components/FactsStrip';
 import FlowDiagram from '../components/FlowDiagram';
 import FunnelBars from '../components/charts/FunnelBars';
+import CaseFigure from '../components/CaseFigure';
 import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from '../components/Icons';
 import NotFound from './NotFound';
 import styles from './CaseStudy.module.css';
@@ -62,6 +63,10 @@ export default function CaseStudy() {
 
         <FactsStrip items={facts} compact />
 
+        {project.cover && project.images?.[project.cover] ? (
+          <CaseFigure figure={project.images[project.cover]} priority />
+        ) : null}
+
         {project.sections.map((section) => (
           <section key={section.title.pt} className={styles.section} data-reveal>
             <h2 className={styles.h2}>{p(section.title)}</h2>
@@ -75,6 +80,9 @@ export default function CaseStudy() {
                 label={t('architecture')}
                 steps={project.flow.map((s) => ({ layer: p(s.layer), label: p(s.label) }))}
               />
+            ) : null}
+            {section.figure && project.images?.[section.figure] ? (
+              <CaseFigure figure={project.images[section.figure]} />
             ) : null}
             {section.chart === 'funnel' && project.chart ? <FunnelBars chart={project.chart} /> : null}
             {section.bullets ? (

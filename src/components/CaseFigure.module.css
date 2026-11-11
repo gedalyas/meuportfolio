@@ -1,0 +1,33 @@
+.figure {
+  margin-block: 1.75rem;
+}
+
+.frame {
+  display: block;
+  overflow: hidden;
+  background: var(--bg-recessed);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.frame:hover {
+  border-color: var(--border-strong);
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+/* Prints são claros: no tema escuro, baixa um pouco o brilho para não ofuscar a página. */
+:global(:root[data-theme='dark']) .img {
+  filter: brightness(0.9) saturate(0.92);
+}
+
+.caption {
+  margin-top: 0.75rem;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--text-muted);
+}

@@ -18,6 +18,7 @@ Rotas em `src/App.jsx`: `/` (Home), `/projetos/:slug` (CaseStudy), `*` (NotFound
 1. `←` "Todos os trabalhos" → `/#work`.
 2. Eyebrow "Estudo de caso · 0N · ano" → H1 serif → resumo (o que foi feito e o resultado, em 3–5 linhas) → botão "Ver no ar" se houver `link`.
 3. `FactsStrip compact` — Papel · Período · Stack · Status.
+   - `cover` (opcional): a imagem principal logo abaixo dos fatos.
 4. Seções na ordem do array `sections`, tipicamente: **Problema** → **Abordagem** (`flow: true` insere o `FlowDiagram`) → **Decisões e trade-offs** (bullets com o porquê de cada escolha) → **O que os dados mostraram** (`chart`) quando houver dado real.
 5. **Limitações e fontes** — bloco recessed com `sources`.
 6. **Próximo estudo de caso** — link circular para o seguinte.
@@ -34,6 +35,7 @@ Edite só `src/content/projects.js` (a ordem do array é a ordem na home):
 - [ ] `link` só se o projeto está no ar e pode ser divulgado; repositório privado → diga em `sources`.
 - [ ] `flow`: 3–6 etapas `{ layer, label }`.
 - [ ] `sections`: Problema, Abordagem (`flow: true`), Decisões e trade-offs; dados reais → `chart`.
+- [ ] Imagens (opcional, até 2): WebP em `src/assets/cases/<slug>-<nome>-{lg,sm}.webp` (lg ≤ 1600px, sm 960px, qualidade ~80), importadas no topo de `projects.js` em `figures` com `width`, `height`, `alt` e `caption` `{pt,en}`; use `cover: '<chave>'` e/ou `figure: '<chave>'` numa seção. Capture com viewport 1440×900 e escala 2, recorte o que interessa e tire telefone, nomes e números não verificáveis.
 - [ ] `sources`: período, método, limitações. Sem dado público → diga isso.
 - [ ] Nenhum nome de cliente/pessoa, telefone, ID ou credencial. Números conferidos na fonte.
 - [ ] PT e EN revisados por humano (não traduza com ferramenta automática sem revisar).

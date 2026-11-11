@@ -6,6 +6,76 @@
 // - todo texto visível em { pt, en };
 // - `kind: 'data'` fica reservado para estudos de ciência de dados (notebooks, modelos).
 
+// Imagens: prints dos sites públicos (ou do site de marketing, no caso de produto em pré-lançamento),
+// em WebP com duas larguras. Uma imagem só entra com legenda dizendo o que ela prova.
+import benchOverviewLg from '../assets/cases/benchcommerce-overview-lg.webp';
+import benchOverviewSm from '../assets/cases/benchcommerce-overview-sm.webp';
+import benchConnectionsLg from '../assets/cases/benchcommerce-connections-lg.webp';
+import benchConnectionsSm from '../assets/cases/benchcommerce-connections-sm.webp';
+import guaratibaCondoLg from '../assets/cases/guaratiba-condo-lg.webp';
+import guaratibaCondoSm from '../assets/cases/guaratiba-condo-sm.webp';
+import techzafeAppsLg from '../assets/cases/techzafe-apps-lg.webp';
+import techzafeAppsSm from '../assets/cases/techzafe-apps-sm.webp';
+
+const figures = {
+  benchOverview: {
+    lg: benchOverviewLg,
+    sm: benchOverviewSm,
+    width: 1272,
+    height: 948,
+    alt: {
+      pt: 'Tela de visão geral com faturamento, margem de contribuição, ROAS, CAC e um gráfico de faturamento por semana.',
+      en: 'Overview screen with revenue, contribution margin, ROAS, CAC and a weekly revenue chart.',
+    },
+    caption: {
+      pt: 'Visão geral: faturamento, margem, ROAS e CAC calculados a partir das vendas do ERP, com a fonte indicada no gráfico. Ilustração do site do produto, com dados de exemplo.',
+      en: 'Overview: revenue, margin, ROAS and CAC computed from ERP sales, with the source named on the chart. Illustration from the product site, with sample data.',
+    },
+  },
+  benchConnections: {
+    lg: benchConnectionsLg,
+    sm: benchConnectionsSm,
+    width: 1272,
+    height: 939,
+    alt: {
+      pt: 'Tela de conexões listando Bling, Shopify, Mercado Livre, Meta Ads e Google Ads como conectados.',
+      en: 'Connections screen listing Bling, Shopify, Mercado Livre, Meta Ads and Google Ads as connected.',
+    },
+    caption: {
+      pt: 'Conexões: cada fonte da loja entra por um conector próprio, com o mesmo fluxo de autorização para todos. Ilustração com dados de exemplo.',
+      en: 'Connections: each store source comes in through its own connector, with the same authorisation flow for all of them. Illustration with sample data.',
+    },
+  },
+  guaratibaCondo: {
+    lg: guaratibaCondoLg,
+    sm: guaratibaCondoSm,
+    width: 1600,
+    height: 862,
+    alt: {
+      pt: 'Página de um condomínio com abas de compra e aluguel e três cards de casas à venda, cada um com foto, localização, quartos, área e preço.',
+      en: 'Gated-community page with buy and rent tabs and three house listings, each with photo, location, bedrooms, area and price.',
+    },
+    caption: {
+      pt: 'Página de condomínio: os imóveis entram sozinhos quando o cadastro casa com o condomínio ou o bairro, com contagem separada para venda e aluguel.',
+      en: 'Gated-community page: listings appear automatically when their record matches the community or neighbourhood, with separate counts for sale and rent.',
+    },
+  },
+  techzafeApps: {
+    lg: techzafeAppsLg,
+    sm: techzafeAppsSm,
+    width: 1600,
+    height: 703,
+    alt: {
+      pt: 'Seção de apps para Shopify do site da Techzafe, com o card do app Techzafe Frete.',
+      en: 'Shopify apps section of the Techzafe website, with the Techzafe Frete app card.',
+    },
+    caption: {
+      pt: 'O primeiro app da linha, Techzafe Frete: calculadora de frete na página do produto a partir do CEP do cliente.',
+      en: 'The first app in the line, Techzafe Frete: a shipping calculator on the product page based on the customer’s postcode.',
+    },
+  },
+};
+
 export const projects = [
   {
     slug: 'benchcommerce',
@@ -28,6 +98,8 @@ export const projects = [
       status: { pt: 'Pré-lançamento, lista de espera', en: 'Pre-launch, waitlist' },
     },
     link: { href: 'https://benchcommerce.com.br', label: 'benchcommerce.com.br' },
+    cover: 'overview',
+    images: { overview: figures.benchOverview, connections: figures.benchConnections },
     flow: [
       { layer: { pt: 'Fontes', en: 'Sources' }, label: { pt: 'Loja, ERP, Meta e Google Ads', en: 'Store, ERP, Meta & Google Ads' } },
       { layer: { pt: 'Ingestão', en: 'Ingestion' }, label: { pt: 'Conectores + fila de sincronização', en: 'Connectors + sync queue' } },
@@ -61,6 +133,7 @@ export const projects = [
       },
       {
         title: { pt: 'Decisões e trade-offs', en: 'Decisions and trade-offs' },
+        figure: 'connections',
         bullets: [
           {
             pt: 'Framework de conectores próprio em vez de um agregador pago: as plataformas brasileiras (Bling, Nuvemshop, Tray) não têm suporte de terceiros. Três padrões de autenticação — OAuth, domínio + OAuth e credenciais manuais — cobrem todos os conectores com um único formulário adaptável.',
@@ -229,6 +302,8 @@ export const projects = [
       status: { pt: 'No ar', en: 'Live' },
     },
     link: { href: 'https://imoveisguaratiba.com.br', label: 'imoveisguaratiba.com.br' },
+    cover: 'condo',
+    images: { condo: figures.guaratibaCondo },
     flow: [
       { layer: { pt: 'Painel', en: 'Panel' }, label: { pt: 'Admin com login (JWT)', en: 'Admin with login (JWT)' } },
       { layer: 'API', label: 'Express + TypeScript' },
@@ -311,6 +386,7 @@ export const projects = [
       status: { pt: 'No ar', en: 'Live' },
     },
     link: { href: 'https://techzafe.com', label: 'techzafe.com' },
+    images: { apps: figures.techzafeApps },
     flow: [
       { layer: { pt: 'Loja', en: 'Store' }, label: { pt: 'Admin e vitrine Shopify', en: 'Shopify admin & storefront' } },
       { layer: 'App', label: { pt: 'Um app público por funcionalidade', en: 'One public app per feature' } },
@@ -330,6 +406,7 @@ export const projects = [
       },
       {
         title: { pt: 'Abordagem', en: 'Approach' },
+        figure: 'apps',
         flow: true,
         paragraphs: [
           {

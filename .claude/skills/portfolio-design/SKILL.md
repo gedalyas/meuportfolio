@@ -35,5 +35,5 @@ Site editorial, calmo e orientado a dados de um desenvolvedor pleno migrando par
 - **Só números reais**, sempre com período e fonte no bloco "Limitações e fontes". Dado sintético é dito como sintético.
 - **Sempre bilíngue.** Todo texto visível é `{ pt, en }` (conteúdo em `src/content/`, interface em `src/i18n/ui.js`). Nunca tradução automática.
 - **Sem IA no site.** O chat foi removido de propósito; não proponha de novo sem pedido.
-- **Uma foto só**, na seção Sobre. Projetos não usam screenshot na home; no estudo de caso, no máximo uma imagem.
+- **Uma foto pessoal só**, na seção Sobre. A home não tem screenshots. No estudo de caso, **até duas imagens**, sempre com legenda dizendo o que provam (`CaseFigure`). Prints vêm do site público ou do site de marketing do produto; sem telefone, nome de pessoa ou marca do cliente visível — recorte. Ilustração/dado de exemplo é dito na legenda.
 - Textos marcados `TODO(conteúdo)` são rascunhos aguardando confirmação do Davi: não os apresente como fato confirmado.

@@ -15,6 +15,7 @@ Todos em `src/components/`, cada um com seu `.module.css`. Recebem texto **já t
 | `ContactBlock` | linhas rótulo/valor: e-mail com "Copiar", links externos com ↗ | links externos com `target="_blank"` + texto oculto "(abre em nova aba)" |
 | `FlowDiagram` | etapas da arquitetura num bloco recessed; horizontal ≥ 768px, vertical abaixo | 3–6 etapas; `layer` curto em CAPS + `label` |
 | `charts/FunnelBars` | barras horizontais de composição com número principal | azul = intenção/sinal, cinza = ruído; hover/foco troca o número principal (sem tooltip); legenda com totais |
+| `CaseFigure` | print de produto em moldura recessed + legenda; abre a versão grande em nova aba | legenda obrigatória dizendo o que a imagem prova; `priority` só na capa; no tema escuro o brilho cai 10% |
 | `Icons` | ícones de traço 1.5px (sol, lua, setas, chevron, copiar, check) | sempre `aria-hidden`; o botão dá o nome |
 
 ## Padrões de CSS reutilizáveis (`src/styles/base.css`)
