@@ -1,0 +1,17 @@
+.heading {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+}
+
+.intro {
+  margin-top: 0.75rem;
+  max-width: 38rem;
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+}

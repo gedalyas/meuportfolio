@@ -1,22 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-
-    <!-- Ícones -->
-    <link rel="icon" href="/favicon-circle.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="192x192" href="/fotoperfil-circle-192.png">
-    <link rel="apple-touch-icon" href="/fotoperfil-circle-180.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0ea5e9">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu portfolio</title>
+    <title>Davi Almeida · Engenharia de software e dados</title>
+    <meta
+      name="description"
+      content="Davi Almeida, desenvolvedor de software com foco em dados. Estudos de caso de sistemas em produção: SaaS de dados para e-commerce, atendimento com IA, plataformas sob medida."
+    />
+    <meta name="author" content="Davi Almeida" />
 
-    <!-- Fontes e libs -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Davi Almeida · Engenharia de software e dados" />
+    <meta
+      property="og:description"
+      content="Desenvolvedor de software com foco em dados. Estudos de caso de sistemas em produção."
+    />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#232222" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)" />
+
+    <!-- Aplica tema e idioma salvos antes da primeira pintura (evita o flash). -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        var lang = null;
+        try {
+          theme = localStorage.getItem('theme');
+          lang = localStorage.getItem('lang');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        if (lang !== 'pt' && lang !== 'en') {
+          lang = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
+        }
+        root.setAttribute('data-theme', theme);
+        root.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,8 @@
+{
+  "name": "Davi Almeida",
+  "short_name": "Davi Almeida",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "theme_color": "#232222",
+  "background_color": "#232222",
+  "display": "browser"
+}
