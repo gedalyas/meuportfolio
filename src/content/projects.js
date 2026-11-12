@@ -68,20 +68,20 @@ export const projects = [
     year: '2026',
     title: 'CRM da Arko',
     tagline: {
-      pt: 'O CRM que construo e lidero numa consultoria financeira para médicos. Mais de mil clientes, cerca de 60 pessoas usando ao mesmo tempo e 1.700 demandas por mês.',
-      en: 'The CRM I build and lead at a financial consultancy for physicians. Over a thousand clients, about 60 people using it at once and 1,700 requests a month.',
+      pt: 'O CRM pelo qual sou responsável numa consultoria financeira para médicos. Mais de mil clientes, cerca de 60 pessoas usando ao mesmo tempo e 1.700 demandas por mês.',
+      en: 'The CRM I’m responsible for at a financial consultancy for physicians. Over a thousand clients, about 60 people using it at once and 1,700 requests a month.',
     },
     meta: 'TypeScript · integrações · dados 24/7',
     summary: {
-      pt: 'A Arko é uma consultoria financeira para médicos. Eu construo e lidero o CRM que a operação usa o dia todo para cuidar das carteiras de clientes, das demandas, das reuniões e dos indicadores de relacionamento. Ele recebe dados de várias integrações, 24 horas por dia. Também trabalho na plataforma externa, que é a que o cliente usa.',
-      en: 'Arko is a financial consultancy for physicians. I build and lead the CRM the operations team uses all day to manage client portfolios, requests, meetings and relationship metrics. It takes in data from several integrations, around the clock. I also work on the external platform, the one clients use.',
+      pt: 'A Arko é uma consultoria financeira para médicos. Sou o responsável pelo CRM que a operação usa o dia todo para cuidar das carteiras de clientes, das demandas, das reuniões e dos indicadores de relacionamento. Ele recebe dados de várias integrações, 24 horas por dia. Também trabalho na plataforma externa, que é a que o cliente usa.',
+      en: 'Arko is a financial consultancy for physicians. I’m responsible for the CRM the operations team uses all day to manage client portfolios, requests, meetings and relationship metrics. It takes in data from several integrations, around the clock. I also work on the external platform, the one clients use.',
     },
     stake: {
       pt: 'Sessenta pessoas e mais de mil clientes dependem de cada demanda chegar na pessoa certa e no prazo. Quando uma demanda se perde entre agenda, conversa e planilha, quem sente é o cliente, numa relação que deveria durar anos.',
       en: 'Sixty people and over a thousand clients depend on every request reaching the right person on time. When a request gets lost between calendars, chats and spreadsheets, the client feels it, in a relationship meant to last for years.',
     },
     facts: {
-      role: { pt: 'Construo e lidero o CRM', en: 'I build and lead the CRM' },
+      role: { pt: 'Responsável pelo CRM', en: 'Responsible for the CRM' },
       period: { pt: 'Desde 2026', en: 'Since 2026' },
       stack: { pt: 'TypeScript nos dois sistemas', en: 'TypeScript in both systems' },
       status: { pt: 'Em produção', en: 'In production' },
@@ -162,8 +162,8 @@ export const projects = [
             en: 'The CRM holds each client’s record, each consultant’s portfolio, requests and meetings. Integrations bring in what happens outside it, such as calendar and video calls, messaging groups, recorded meetings and billing, and turn those events into tasks for the right person.',
           },
           {
-            pt: 'Eu lidero a evolução do sistema. Isso inclui arquitetura, modelo de dados, integrações e decidir com a operação o que entra primeiro.',
-            en: 'I lead how the system evolves. That covers architecture, the data model, integrations and deciding with the operations team what comes first.',
+            pt: 'Sou responsável pela evolução do sistema. Isso inclui arquitetura, modelo de dados, integrações e decidir com a operação o que entra primeiro.',
+            en: 'I’m responsible for how the system evolves. That covers architecture, the data model, integrations and deciding with the operations team what comes first.',
           },
         ],
       },

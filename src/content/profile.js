@@ -7,8 +7,8 @@ export const profile = {
   eyebrow: { pt: 'Engenharia de software · Dados', en: 'Software engineering · Data' },
   location: { pt: 'Belo Horizonte, MG, Brasil', en: 'Belo Horizonte, Brazil' },
   lead: {
-    pt: 'Sou desenvolvedor de software na Arko Consultoria, onde construo e lidero o CRM usado pela empresa inteira, com mais de mil clientes e cerca de 60 pessoas na operação. Antes de escrever código, eu desenho como o trabalho acontece e combino qual resultado o sistema precisa entregar. É esse jeito de trabalhar que estou levando para a ciência de dados.',
-    en: 'I’m a software developer at Arko Consultoria, where I build and lead the CRM the whole company runs on, with over a thousand clients and about 60 people in operations. Before writing code, I map how the work actually happens and agree on the result the system has to deliver. That’s the way of working I’m now taking into data science.',
+    pt: 'Sou desenvolvedor de software na Arko Consultoria, onde sou o responsável pelo CRM usado pela empresa inteira, com mais de mil clientes e cerca de 60 pessoas na operação. Antes de escrever código, eu desenho como o trabalho acontece e combino qual resultado o sistema precisa entregar. É esse jeito de trabalhar que estou levando para a ciência de dados.',
+    en: 'I’m a software developer at Arko Consultoria, where I’m responsible for the CRM the whole company runs on, with over a thousand clients and about 60 people in operations. Before writing code, I map how the work actually happens and agree on the result the system has to deliver. That’s the way of working I’m now taking into data science.',
   },
 };
 
@@ -18,7 +18,7 @@ export const facts = [
   {
     label: { pt: 'Clientes', en: 'Clients' },
     value: { pt: '1.000+', en: '1,000+' },
-    caption: { pt: 'com dados tratados 24/7 no CRM que lidero', en: 'with data processed 24/7 in the CRM I lead' },
+    caption: { pt: 'com dados tratados 24/7 no CRM sob minha responsabilidade', en: 'with data processed 24/7 in the CRM I’m responsible for' },
   },
   {
     label: { pt: 'Uso simultâneo', en: 'Concurrent users' },
